@@ -108,8 +108,6 @@ export default function Footer() {
         {/* Copyright row */}
         <div className="mt-12 flex flex-col items-center gap-2 border-t border-ink/10 pt-6 text-center text-xs text-ink/60 sm:flex-row sm:justify-center sm:gap-3">
           <span>Copyright © 2026 RKM Foundation | All Rights Reserved</span>
-          <span className="hidden sm:inline">|</span>
-          <span>EN | <span lang="hi">हिंदी</span> <span className="ml-1 rounded-full bg-copper/15 px-1.5 py-0.5 text-[9px] font-bold uppercase text-copper-dark">soon</span></span>
         </div>
       </div>
       <BackToTop />

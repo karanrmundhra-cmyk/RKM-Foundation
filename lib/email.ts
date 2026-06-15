@@ -67,6 +67,7 @@ const ACK_COPY: Record<string, string> = {
   partner: "We've received your partnership enquiry. We review these within 5–7 working days and will be in touch.",
   "fundraiser-create": "We've received your fundraiser request. We'll set up your page and send your unique link within 1–2 business days.",
   careers: "Thank you for your interest in working with us. We'll keep your details on file and reach out when a suitable role opens.",
+  volunteer: "Thank you for offering your time to help animals in need. We've received your details and our team will reach out with ways you can get involved.",
 };
 
 /** Acknowledgement to the person who submitted a form. */

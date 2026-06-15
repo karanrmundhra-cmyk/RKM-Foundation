@@ -74,9 +74,9 @@ export function HeroMotion() {
         ref={imgRef}
         src="/images/site/dog.jpg"
         alt="A rescued dog cared for by RKM Foundation"
-        className="hero-zoom absolute inset-0 h-full w-full object-cover opacity-60 will-change-transform"
+        className="hero-zoom absolute inset-0 h-full w-full object-cover opacity-80 will-change-transform"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/5" />
 
       {/* Edge-pinned metadata labels — editorial corner micro-type */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-28 hidden justify-between px-8 lg:flex">

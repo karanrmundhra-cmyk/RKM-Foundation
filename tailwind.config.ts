@@ -5,9 +5,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0b0b0b",
-        snow: "#FAFAFA",
-        copper: { DEFAULT: "#c58a4a", dark: "#93502b", light: "#e0b685" },
+        ink: "#111111",
+        snow: "#F5F5F5",
+        mist: "#F5F5F5",
+        copper: { DEFAULT: "#B89245", dark: "#8F6A2A", light: "#E6D2A0" },
       },
       fontFamily: { sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"] },
       maxWidth: { content: "72rem" },

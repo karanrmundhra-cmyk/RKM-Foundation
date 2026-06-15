@@ -33,6 +33,7 @@ export function GiftSection() {
             <Link href="/donate-now#donation" className="link-secondary mt-6 inline-block">
               Give any amount you choose →
             </Link>
+            <p className="mt-4 text-xs uppercase tracking-[0.14em] text-ink/45">256-bit secure · Razorpay · instant 80G receipt</p>
           </Reveal>
         </div>
 

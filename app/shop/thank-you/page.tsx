@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Thank You — Order Confirmed" };
+export const metadata: Metadata = { title: "Thank You — Order Confirmed", robots: { index: false, follow: false } };
 
 export default function ShopThankYou() {
   return (
@@ -12,12 +12,12 @@ export default function ShopThankYou() {
         </div>
         <h1 className="display-2 mt-6 text-balance">Thank you — your order has been confirmed.</h1>
         <p className="mt-5 leading-relaxed text-ink/70">
-          A confirmation email with your order details and tax invoice has been sent to your email
-          address. If you don&apos;t see it, please check your spam folder or contact us.
+          Our team will be in touch by email to confirm your order details and share your tax
+          invoice. If you have any questions in the meantime, please contact us.
         </p>
         <p className="mt-4 leading-relaxed text-ink/70">
-          Your order will be processed and dispatched within 1–3 working days. You will receive an
-          update once your order has been shipped.
+          Your order will be processed and dispatched within 1–3 working days, and we&apos;ll let
+          you know once it has shipped.
         </p>
         <div className="mt-8">
           <Link href="/" className="btn-dark">Return to Home</Link>

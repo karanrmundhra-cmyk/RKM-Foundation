@@ -14,7 +14,13 @@ export default function Header() {
   const drawerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const reduce = useReducedMotion();
-  const onDark = pathname === "/" && !scrolled; // dark hero surface
+  const onDark = (pathname === "/" || pathname === "/hi") && !scrolled; // dark hero surface
+  const isHi = pathname.startsWith("/hi");
+  // Pages that have a Hindi (/hi/...) version. Extend as more pages are translated.
+  const HI_PAGES = new Set(["/", "/about", "/csr", "/contact", "/donate-now", "/careers", "/other-ways-to-give", "/partner-with-us", "/fundraiser", "/fundraiser/create", "/faqs", "/media", "/blog", "/blog/the-dog-who-started-it-all"]);
+  const basePath = isHi ? pathname.replace(/^\/hi/, "") || "/" : pathname;
+  const enHref = basePath;
+  const hiHref = HI_PAGES.has(basePath) ? (basePath === "/" ? "/hi" : `/hi${basePath}`) : "/hi";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -68,6 +74,10 @@ export default function Header() {
             <span className="text-[15px] font-semibold tracking-tight sm:text-base">RKM Foundation</span>
           </Link>
           <nav className="flex items-center gap-2 sm:gap-5">
+            <div className={`hidden overflow-hidden rounded-full text-xs font-semibold ring-1 sm:inline-flex ${onDark ? "ring-white/30" : "ring-ink/15"}`} aria-label="Language">
+              <Link href={enHref} aria-label="English" className={`px-2.5 py-1.5 transition-colors ${!isHi ? "bg-copper-dark text-white" : tone}`}>EN</Link>
+              <Link href={hiHref} aria-label="हिंदी" className={`px-2.5 py-1.5 transition-colors ${isHi ? "bg-copper-dark text-white" : tone}`}>हिंदी</Link>
+            </div>
             <Link href="/about" className={`hidden text-sm font-medium transition-colors sm:block ${tone} ${onDark ? "hover:text-copper-light" : "hover:text-copper-dark"} ${pathname === "/about" ? "text-copper-dark underline decoration-copper decoration-2 underline-offset-8" : ""}`}>
               About
             </Link>
@@ -139,7 +149,6 @@ export default function Header() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/><path d="M8.5 9.5c.5 2.5 3 5 5.5 5.5l1.5-1.5 2 1c-.5 1.5-2 2-3.5 1.5-3-1-6-4-7-7C6.5 7.5 7 6 8.5 5.5l1 2-1 2Z" fill="currentColor" stroke="none"/></svg>
                   </a>
                 </div>
-                <span className="text-xs font-medium text-ink/60">EN | <span lang="hi">हिंदी</span> <span className="ml-1 rounded-full bg-copper/15 px-2 py-0.5 text-[10px] font-bold uppercase text-copper-dark">soon</span></span>
                 <div className="flex items-center gap-4">
                   <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="RKM Foundation Facebook" className="text-ink/70 hover:text-copper-dark">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M13.5 21v-7h2.6l.4-3h-3V9.1c0-.9.3-1.5 1.6-1.5H16.6V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V11H8v3h2.5v7h3Z"/></svg>

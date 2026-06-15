@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Order Could Not Be Completed" };
+export const metadata: Metadata = { title: "Order Could Not Be Completed", robots: { index: false, follow: false } };
 
 export default function ShopOrderFailed() {
   return (

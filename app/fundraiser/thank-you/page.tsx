@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Thank You — Fundraiser Donation" };
+export const metadata: Metadata = { title: "Thank You — Fundraiser Donation", robots: { index: false, follow: false } };
 
 export default function FundraiserThankYou() {
   return (
@@ -12,8 +12,8 @@ export default function FundraiserThankYou() {
         </div>
         <h1 className="display-2 mt-6 text-balance">Thank you — your donation was successful.</h1>
         <p className="mt-5 leading-relaxed text-ink/70">
-          A confirmation email and receipt have been sent to your email address. If you don&apos;t
-          see it, please check your spam folder or contact us.
+          Your contribution has been received with gratitude. If your gift was made through our
+          donation page, your 80G receipt will arrive by email shortly. Any questions? Just contact us.
         </p>
         <p className="mt-4 leading-relaxed text-ink/70">
           Your donation will support rescued animals at RKM Foundation&apos;s shelter — and we&apos;ll

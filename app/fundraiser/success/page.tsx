@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Fundraiser Goal Reached" };
+export const metadata: Metadata = { title: "Fundraiser Goal Reached", robots: { index: false, follow: false } };
 
 export default function FundraiserSuccess() {
   return (
