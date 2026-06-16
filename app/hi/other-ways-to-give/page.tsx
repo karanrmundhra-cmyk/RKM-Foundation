@@ -91,8 +91,8 @@ export default function OtherWaysHiPage() {
             <h2 className="display-2 mx-auto max-w-[20ch] text-balance">जो आपके पास है वही दें। यही काफ़ी है।</h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">समय, सामग्री, कौशल, या आपकी आवाज़ — यहाँ हर तरह के मददगार के लिए जगह है।</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/donate-now#donation" className="btn-copper">अभी दान करें</Link>
-              <Link href="/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">फंडरेज़र शुरू करें</Link>
+              <Link href="/hi/donate-now#donation" className="btn-copper">अभी दान करें</Link>
+              <Link href="/hi/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">फंडरेज़र शुरू करें</Link>
             </div>
           </Reveal>
         </div>

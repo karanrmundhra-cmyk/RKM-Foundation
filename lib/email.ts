@@ -117,11 +117,12 @@ export async function sendFormEmail(formType: string, data: Record<string, strin
 
   const rows = Object.entries(data)
     .filter(([k]) => k !== "formType")
-    .map(([k, v]) => `<tr><td style="padding:6px 12px;font-weight:600;text-transform:capitalize">${k.replace(/_/g, " ")}</td><td style="padding:6px 12px">${String(v)}</td></tr>`)
+    .map(([k, v]) => `<tr><td style="padding:6px 12px;font-weight:600;text-transform:capitalize">${esc(k.replace(/_/g, " "))}</td><td style="padding:6px 12px">${esc(String(v))}</td></tr>`)
     .join("");
 
   if (!key) {
-    console.log(`[forms] (email not configured) ${label}:`, JSON.stringify(data));
+    // Privacy: do not log donor/enquirer PII (name/email/phone/message) in plaintext.
+    console.log(`[forms] (email not configured) ${label} — ${Object.keys(data).length} fields`);
     return { ok: true, skipped: true };
   }
   const { Resend } = await import("resend");

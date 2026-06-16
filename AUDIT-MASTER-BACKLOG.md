@@ -15,7 +15,7 @@
 | Low | 10 |
 | **Total** | **38** |
 
-> **Meta-issue (BLOCKER, now confirmed live):** The local working copy **is behind deployed production**. Live validation proved it: production serves a localized **Hindi** `<title>` on `/hi`, and `/hi/legal/website-disclaimer-cookie-policy`, `/hi/legal/80g-tax-disclaimer`, `/hi/legal/terms-and-conditions`, `/hi/shop` all return **HTTP 200** — pages the local route inventory lacked. **Production is ahead of this repo.** Decide the source of truth (pull production state into the repo) **before** any implementation, or fixes will regress live work. This single root cause invalidates several code-only findings (see Audit F).
+> **Meta-issue — RESOLVED (reconciled).** The apparent "production ahead of repo" was **OneDrive sync lag**, not a real split. Git confirms local `HEAD` = `origin/main` = **live Vercel production deployment**, all on commit **`632def9`** (see PRODUCTION-VS-REPO-DIFF-REPORT.md). No divergence remains; the reconciled HEAD is the source of truth. **New operational constraints for implementation:** (1) `main` **auto-deploys to production** on push — work must stay on a branch with preview-only deploys, merged only on approval; (2) an **active dev session is concurrently committing** to this repo — coordinate before editing shared files.
 
 ---
 

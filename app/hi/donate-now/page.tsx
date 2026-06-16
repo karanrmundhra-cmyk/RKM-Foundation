@@ -42,7 +42,7 @@ export default function DonateHiPage() {
 
             <p className="mt-6 text-sm text-ink/60">
               कोई और तरीका पसंद है?{" "}
-              <Link href="/other-ways-to-give" className="link-secondary">समय, सामग्री या कौशल दें →</Link>
+              <Link href="/hi/other-ways-to-give" className="link-secondary">समय, सामग्री या कौशल दें →</Link>
             </p>
           </Reveal>
 

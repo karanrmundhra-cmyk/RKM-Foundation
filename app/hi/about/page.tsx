@@ -102,7 +102,7 @@ export default function AboutHiPage() {
               </p>
             </div>
             <div className="mt-8">
-              <Link href="/blog/the-dog-who-started-it-all" className="btn-light">टोबलर की कहानी पढ़ें</Link>
+              <Link href="/hi/blog/the-dog-who-started-it-all" className="btn-light">टोबलर की कहानी पढ़ें</Link>
             </div>
           </Reveal>
         </div>

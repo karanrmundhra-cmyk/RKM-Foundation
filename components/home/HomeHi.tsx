@@ -55,8 +55,8 @@ export function HomeHi() {
             हर दिन हम भारत की सड़कों पर रहने वाले जानवरों को बचाते, खिलाते, उनका इलाज करते और उन्हें आश्रय देते हैं — और हम आपको दिखाएँगे कि आपकी दयालुता ने किसकी ज़िंदगी बदली।
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/donate-now#donation" className="btn-copper">अभी दान करें</Link>
-            <Link href="/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/20">फंडरेज़र शुरू करें</Link>
+            <Link href="/hi/donate-now#donation" className="btn-copper">अभी दान करें</Link>
+            <Link href="/hi/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/20">फंडरेज़र शुरू करें</Link>
           </div>
           <p className="mt-7 text-xs uppercase tracking-[0.18em] text-white/55">12A · 80G · CSR — दान कर-कटौती के योग्य हैं</p>
         </div>
@@ -108,7 +108,7 @@ export function HomeHi() {
               &ldquo;ये जानवर उनके अपने भी नहीं थे। लोग बस किसी घायल को यूँ ही छोड़कर नहीं जा पाते थे। हमने सोचा, कम से कम हम वह हिस्सा तो संभाल ही सकते हैं जो वे नहीं कर पाते।&rdquo;
             </blockquote>
             <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/45">— मुंधड़ा परिवार</p>
-            <Link href="/blog/the-dog-who-started-it-all" className="link-secondary mt-7 inline-block text-sm">टोबलर की पूरी कहानी पढ़ें →</Link>
+            <Link href="/hi/blog/the-dog-who-started-it-all" className="link-secondary mt-7 inline-block text-sm">टोबलर की पूरी कहानी पढ़ें →</Link>
           </Reveal>
         </div>
       </section>
@@ -168,12 +168,12 @@ export function HomeHi() {
                 <div className={`grid grid-cols-1 items-center gap-x-8 gap-y-4 border-t border-ink/12 py-9 sm:grid-cols-[auto_1fr_auto] ${i === GIFTS.length - 1 ? "border-b" : ""}`}>
                   <div className="display-3 text-copper-dark sm:min-w-[5ch]">{g.value}</div>
                   <p className="text-base leading-relaxed text-ink/70">{g.desc}</p>
-                  <Link href="/donate-now#donation" className="btn-dark whitespace-nowrap">{g.cta}</Link>
+                  <Link href="/hi/donate-now#donation" className="btn-dark whitespace-nowrap">{g.cta}</Link>
                 </div>
               </Reveal>
             ))}
           </div>
-          <Link href="/donate-now#donation" className="link-secondary mt-6 inline-block">अपनी पसंद की कोई भी राशि दें →</Link>
+          <Link href="/hi/donate-now#donation" className="link-secondary mt-6 inline-block">अपनी पसंद की कोई भी राशि दें →</Link>
           <p className="mt-4 text-xs uppercase tracking-[0.14em] text-ink/45">256-बिट सुरक्षित · Razorpay · तुरंत 80G रसीद</p>
         </div>
       </section>
@@ -185,9 +185,9 @@ export function HomeHi() {
             <h2 className="display-2 mx-auto max-w-[22ch] text-balance">कहीं न कहीं, कोई जानवर इंतज़ार कर रहा है।</h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">वह आपका नाम नहीं जानता। उसे बस किसी के साथ खड़े होने की ज़रूरत है। आज, वह आप हो सकते हैं।</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/donate-now#donation" className="btn-copper">अभी दान करें</Link>
-              <Link href="/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">फंडरेज़र शुरू करें</Link>
-              <Link href="/other-ways-to-give" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">स्वयंसेवक बनें</Link>
+              <Link href="/hi/donate-now#donation" className="btn-copper">अभी दान करें</Link>
+              <Link href="/hi/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">फंडरेज़र शुरू करें</Link>
+              <Link href="/hi/other-ways-to-give" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">स्वयंसेवक बनें</Link>
             </div>
           </Reveal>
         </div>
