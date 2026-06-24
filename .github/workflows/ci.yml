@@ -41,6 +41,33 @@ jobs:
           # paths when these are absent (verified in lib/db.ts, lib/razorpay.ts).
           NEXT_TELEMETRY_DISABLED: "1"
 
+  e2e:
+    name: Donation E2E (Playwright)
+    runs-on: ubuntu-latest
+    needs: build-and-check
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright (Chromium)
+        run: npx playwright install --with-deps chromium
+      # Build-failing critical-path gate (§12). Playwright's webServer builds +
+      # starts the prod server; Razorpay + /api/donate are mocked in-test.
+      - name: Run donation E2E
+        run: npm run test:e2e
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
   lighthouse:
     runs-on: ubuntu-latest
     needs: build-and-check
