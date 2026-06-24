@@ -70,20 +70,24 @@ export function HeroMotion() {
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[96svh] items-end overflow-hidden bg-ink text-white">
+      {/* LCP image: prioritised fetch. Kept as a plain <img> (not next/image)
+          because GSAP animates this exact element via imgRef + the hero-zoom CSS. */}
       <img
         ref={imgRef}
         src="/images/site/dog.jpg"
         alt="A rescued dog cared for by RKM Foundation"
-        className="hero-zoom absolute inset-0 h-full w-full object-cover opacity-80 will-change-transform"
+        fetchPriority="high"
+        decoding="async"
+        className="hero-zoom absolute inset-0 h-full w-full object-cover opacity-[0.85] will-change-transform"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/5" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-ink/0" />
 
       {/* Edge-pinned metadata labels — editorial corner micro-type */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-28 hidden justify-between px-8 lg:flex">
-        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/55">Registered Charitable Trust</span>
-        <span className="text-right text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/55">Est. 2014 · Thane, India</span>
+        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/40">Registered Charitable Trust</span>
+        <span className="text-right text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/40">Est. 2014 · Thane, India</span>
       </div>
-      <div ref={contentRef} className="container-c relative pb-24 pt-40 will-change-transform sm:pb-28">
+      <div ref={contentRef} className="container-c relative pb-28 pt-40 will-change-transform sm:pb-32">
         {/* Hero content renders statically (always visible) — the only motion here is
             the subtle GSAP image parallax. A guaranteed-visible headline matters more
             than an entrance animation. */}
