@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { track, EV } from "@/lib/analytics";
 
 const AMOUNTS = [
   { v: 2500, label: "₹2,500", ctx: "Feeds a rescued animal for 2 weeks", ctxHi: "एक बचाए गए जानवर को 2 हफ़्ते खिलाता है" },
@@ -14,17 +15,26 @@ export default function DonateWidget() {
   const router = useRouter();
   const params = useSearchParams();
   const hi = usePathname().startsWith("/hi");
-  const [freq, setFreq] = useState<"one-time" | "monthly">(params.get("monthly") ? "monthly" : "one-time");
+  // Recurring-first (§8): default to monthly. A ?onetime deep-link can still
+  // start on one-time; the thank-you upsell deep-links with ?monthly=1.
+  const [freq, setFreq] = useState<"one-time" | "monthly">(params.get("onetime") ? "one-time" : "monthly");
   const [amount, setAmount] = useState<number>(5000);
   const [custom, setCustom] = useState("");
+  const [coverFees, setCoverFees] = useState(false);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [demo, setDemo] = useState(false);
 
   const effective = custom ? Number(custom) : amount;
+  // Optional fee-cover (§8): donor can absorb the ~2% gateway fee so 100% of the
+  // intended gift reaches the animals. Capped to whole rupees.
+  const amountToCharge = coverFees ? Math.round(effective * 1.02) : effective;
   const customInvalid = custom !== "" && Number(custom) < 1000;
   const okPath = hi ? "/hi/thank-you" : "/thank-you";
   const failPath = hi ? "/hi/donation-failed" : "/donation-failed";
+
+  // Funnel: donation widget viewed (§12 event map). Consent-gated in lib/analytics.
+  useEffect(() => { track(EV.donateView); }, []);
 
   async function donate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,11 +42,12 @@ export default function DonateWidget() {
     if (!effective || effective < 1000) { setMsg(hi ? "न्यूनतम दान ₹1,000 है।" : "Minimum donation is ₹1,000."); return; }
     const form = Object.fromEntries(new FormData(e.currentTarget).entries()) as Record<string, string>;
     setBusy(true);
+    track(EV.detailsStarted, { amount: amountToCharge, frequency: freq, coverFees });
     try {
       const r = await fetch("/api/donate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: effective, frequency: freq, name: form.name, email: form.email }),
+        body: JSON.stringify({ amount: amountToCharge, frequency: freq, name: form.name, email: form.email }),
       });
       const d = await r.json();
       if (d.error) { setMsg(d.error); setBusy(false); return; }
@@ -67,12 +78,14 @@ export default function DonateWidget() {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(resp),
             }).then((x) => x.json());
+            track(v.verified ? EV.paymentSuccess : EV.paymentFailed, { amount: amountToCharge, frequency: freq });
             router.push(v.verified ? okPath : failPath);
-          } catch { router.push(failPath); }
+          } catch { track(EV.paymentFailed, { reason: "verify_error" }); router.push(failPath); }
         },
         modal: { ondismiss: () => setBusy(false) },
       });
-      rzp.on("payment.failed", () => router.push(failPath));
+      rzp.on("payment.failed", () => { track(EV.paymentFailed, { reason: "razorpay" }); router.push(failPath); });
+      track(EV.razorpayLaunched, { amount: amountToCharge, frequency: freq });
       rzp.open();
     } catch {
       setMsg(hi ? "भुगतान शुरू नहीं हो सका। कृपया फिर से प्रयास करें।" : "Could not initiate payment. Please try again.");
@@ -105,7 +118,7 @@ export default function DonateWidget() {
     <form onSubmit={donate} className="card p-6 sm:p-8" style={hi ? { fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' } : undefined}>
       <div className="grid grid-cols-2 gap-2 rounded-full bg-snow p-1.5 ring-1 ring-ink/10" role="radiogroup" aria-label={hi ? "दान आवृत्ति" : "Donation frequency"}>
         {(["one-time", "monthly"] as const).map((f) => (
-          <button key={f} type="button" onClick={() => setFreq(f)} role="radio" aria-checked={freq === f}
+          <button key={f} type="button" onClick={() => { setFreq(f); track(EV.frequencySelected, { frequency: f }); }} role="radio" aria-checked={freq === f}
             className={`rounded-full py-2.5 text-sm font-semibold transition-colors ${freq === f ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}>
             {f === "one-time" ? (hi ? "एक बार" : "One-Time") : (hi ? "मासिक" : "Monthly")}
           </button>
@@ -117,7 +130,7 @@ export default function DonateWidget() {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {AMOUNTS.map((a) => (
-          <button type="button" key={a.v} onClick={() => { setAmount(a.v); setCustom(""); }}
+          <button type="button" key={a.v} onClick={() => { setAmount(a.v); setCustom(""); track(EV.amountSelected, { value: a.v, type: "preset" }); }}
             aria-pressed={!custom && amount === a.v}
             className={`relative rounded-2xl border p-4 text-left transition-all ${!custom && amount === a.v ? "border-copper bg-copper/10 ring-1 ring-copper" : "border-ink/15 hover:border-copper/60"}`}>
             {a.popular && <span className="absolute -top-2.5 right-3 rounded-full bg-copper-dark px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{hi ? "सबसे ज़्यादा चुना गया" : "Most Chosen"}</span>}
@@ -137,7 +150,14 @@ export default function DonateWidget() {
         </p>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+      <label className="mt-4 flex items-start gap-2.5 text-xs text-ink/70">
+        <input type="checkbox" checked={coverFees} onChange={(e) => setCoverFees(e.target.checked)} className="mt-0.5 accent-copper-dark" />
+        <span>{hi
+          ? "मैं ~2% लेन-देन शुल्क वहन करता/करती हूँ ताकि मेरा पूरा दान जानवरों तक पहुँचे।"
+          : "I'll cover the ~2% transaction fee so my entire gift reaches the animals."}</span>
+      </label>
+
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <div><label className="label-c" htmlFor="d-name">{hi ? "पूरा नाम" : "Full Name"} <span className="text-copper-dark">*</span></label>
           <input id="d-name" name="name" required autoComplete="name" className="input-c" placeholder={hi ? "आपका पूरा नाम" : "Your full name"} /></div>
         <div><label className="label-c" htmlFor="d-email">{hi ? "ईमेल" : "Email"} <span className="text-copper-dark">*</span></label>
@@ -162,8 +182,8 @@ export default function DonateWidget() {
         {busy
           ? (hi ? "सुरक्षित भुगतान खुल रहा है…" : "Opening secure payment…")
           : hi
-            ? `${effective >= 1000 ? `₹${effective.toLocaleString("en-IN")}` : ""} दान करें${freq === "monthly" ? " / माह" : ""}`
-            : `Donate ${effective >= 1000 ? `₹${effective.toLocaleString("en-IN")}` : "Now"}${freq === "monthly" ? " / month" : ""}`}
+            ? `${effective >= 1000 ? `₹${amountToCharge.toLocaleString("en-IN")}` : ""} दान करें${freq === "monthly" ? " / माह" : ""}`
+            : `Donate ${effective >= 1000 ? `₹${amountToCharge.toLocaleString("en-IN")}` : "Now"}${freq === "monthly" ? " / month" : ""}`}
       </button>
       {msg && <p className="mt-3 text-center text-sm text-red-600" aria-live="polite">{msg}</p>}
 

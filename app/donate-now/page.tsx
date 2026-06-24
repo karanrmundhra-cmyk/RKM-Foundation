@@ -5,10 +5,13 @@ import DonateWidget from "@/components/DonateWidget";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
+import { TESTIMONIALS } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Donate",
   description: "Your generosity helps turn care into meaningful action for rescued animals. 80G tax benefits, instant receipts, full transparency.",
+  openGraph: { title: "Donate to RKM Foundation", description: "Your gift feeds, heals, and shelters rescued animals across India. 80G tax benefits, instant receipts, full transparency.", type: "website" },
+  alternates: { canonical: "/donate-now", languages: { en: "/donate-now", hi: "/hi/donate-now", "x-default": "/donate-now" } },
 };
 
 const GIFTS = [
@@ -43,6 +46,26 @@ export default function DonatePage() {
                 </div>
               ))}
             </dl>
+
+            {/* Emotion before the ask + peer proof at the decision point (§8/§9).
+                Uses the real Tobler origin story + a real monthly donor's words. */}
+            <div className="mt-10 rounded-2xl bg-white p-6 ring-1 ring-ink/10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-dark">Why this matters</p>
+              <p className="mt-3 leading-relaxed text-ink/75">
+                RKM Foundation began with one dog — Tobler — and the strangers we kept meeting at the
+                vet, carrying in animals that weren&apos;t theirs because they couldn&apos;t walk past them.
+                Your gift is how that care keeps going.
+              </p>
+              <Link href="/blog/the-dog-who-started-it-all" className="link-secondary mt-3 inline-block text-sm">
+                Read Tobler&apos;s story →
+              </Link>
+              <figure className="mt-6 border-t border-ink/10 pt-5">
+                <blockquote className="text-sm leading-relaxed text-ink/80">&ldquo;{TESTIMONIALS[0].quote}&rdquo;</blockquote>
+                <figcaption className="mt-2 text-xs font-semibold text-ink/60">
+                  {TESTIMONIALS[0].name} · {TESTIMONIALS[0].place} · {TESTIMONIALS[0].context}
+                </figcaption>
+              </figure>
+            </div>
 
             <p className="mt-6 text-sm text-ink/60">
               Prefer another way?{" "}
