@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
+// Self-hosted fonts (SOP-12 / RKMF-021) — no Google Fonts CDN, no donor IP
+// leaked to Google (DPDP §13), and render-blocking removed. @fontsource ships
+// per-subset files with unicode-range, so the Devanagari woff2 is fetched only
+// on pages that render Devanagari glyphs. Family names stay "Inter" /
+// "Noto Sans Devanagari" so existing CSS + inline styles keep working.
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/noto-sans-devanagari/400.css";
+import "@fontsource/noto-sans-devanagari/500.css";
+import "@fontsource/noto-sans-devanagari/600.css";
+import "@fontsource/noto-sans-devanagari/700.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
@@ -25,10 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        {/* Fonts are self-hosted via @fontsource (see imports above) — no Google Fonts CDN. */}
         <link rel="icon" href="/logo-128.png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org", "@type": ["NGO", "Organization"], name: "RKM Foundation",

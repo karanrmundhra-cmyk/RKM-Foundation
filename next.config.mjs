@@ -16,8 +16,9 @@ const csp = [
   // plausible.io = cookieless analytics provider (SOP-02). If you self-host or
   // proxy Plausible, replace https://plausible.io here and in NEXT_PUBLIC_PLAUSIBLE_SRC.
   "script-src 'self' 'unsafe-inline' https://checkout.razorpay.com https://*.razorpay.com https://plausible.io",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' https://fonts.gstatic.com",
+  // Fonts self-hosted via @fontsource (SOP-12) — Google Fonts domains removed.
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
   "img-src 'self' data: blob: https:",
   "connect-src 'self' https://*.razorpay.com https://*.supabase.co https://lumberjack.razorpay.com https://plausible.io",
   "frame-src 'self' https://*.razorpay.com https://api.razorpay.com",
