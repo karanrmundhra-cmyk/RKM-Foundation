@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Reveal from "@/components/Reveal";
 import Accordion from "@/components/Accordion";
 import { FAQS_GENERAL, FAQS_FUNDRAISER, FAQS_SHOP, SITE } from "@/lib/content";
@@ -6,6 +7,7 @@ import { FAQS_GENERAL, FAQS_FUNDRAISER, FAQS_SHOP, SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "FAQs",
   description: "Frequently asked questions about RKM Foundation — donations, tax benefits, fundraisers, and Shop for a Cause.",
+  alternates: { canonical: "/faqs", languages: { en: "/faqs", hi: "/hi/faqs", "x-default": "/faqs" } },
 };
 
 const SECTIONS = [
@@ -15,8 +17,10 @@ const SECTIONS = [
 ];
 
 export default function FAQsPage() {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <>
+      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [...FAQS_GENERAL, ...FAQS_FUNDRAISER, ...FAQS_SHOP].map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">
           <Reveal className="max-w-4xl">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 import CTABanner from "@/components/CTABanner";
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
   title: "The Dog Who Started It All",
   description:
     "A pug named Tobler showed us what unconditional love truly means. That love eventually inspired the creation of RKM Foundation.",
+  openGraph: { title: "The Dog Who Started It All", description: "A pug named Tobler showed us what unconditional love truly means — the story behind RKM Foundation.", type: "article" },
+  alternates: { canonical: "/blog/the-dog-who-started-it-all", languages: { en: "/blog/the-dog-who-started-it-all", hi: "/hi/blog/the-dog-who-started-it-all", "x-default": "/blog/the-dog-who-started-it-all" } },
 };
 
 function H2({ children }: { children: React.ReactNode }) {
@@ -18,8 +21,10 @@ function P({ children }: { children: React.ReactNode }) {
 }
 
 export default function FounderStoryPage() {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <article>
+      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: "The Dog Who Started It All", description: "A pug named Tobler showed us what unconditional love truly means. That love eventually inspired the creation of RKM Foundation.", image: "https://rkmfoundation.com/og.png", author: { "@type": "Organization", name: "RKM Foundation" }, publisher: { "@type": "Organization", name: "RKM Foundation", logo: { "@type": "ImageObject", url: "https://rkmfoundation.com/logo-512.png" } }, mainEntityOfPage: "https://rkmfoundation.com/blog/the-dog-who-started-it-all" }) }} />
       {/* Title */}
       <section className="bg-snow pb-14 pt-36 sm:pt-44">
         <div className="container-c max-w-3xl">

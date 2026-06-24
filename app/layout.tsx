@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 // Self-hosted fonts (SOP-12 / RKMF-021) — no Google Fonts CDN, no donor IP
 // leaked to Google (DPDP §13), and render-blocking removed. @fontsource ships
@@ -35,12 +36,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <html lang="en">
       <head>
         {/* Fonts are self-hosted via @fontsource (see imports above) — no Google Fonts CDN. */}
         <link rel="icon" href="/logo-128.png" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org", "@type": ["NGO", "Organization"], name: "RKM Foundation",
           url: "https://rkmfoundation.com", logo: "https://rkmfoundation.com/logo-512.png",
           email: "info@rkm.support", telephone: "+91-99207-80005",
