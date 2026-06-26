@@ -82,17 +82,17 @@ export default function ShopPage() {
               your space with warmth and calm. Handcrafted using 100% natural soy wax and a clean
               cotton wick, the candle burns slowly and evenly for over 50 hours.
             </p>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink/55">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink/65">
               Small-batch production keeps quality high while directing more funds toward animal care.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {BADGES.map((b) => (
-                <span key={b} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-copper-dark">{b}</span>
+                <span key={b} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-[#795719]">{b}</span>
               ))}
             </div>
             <div className="mt-8 flex items-baseline gap-3">
               <span className="display-3 text-[2rem]">₹1,999</span>
-              <span className="text-sm text-ink/55">Inclusive of shipping &amp; taxes</span>
+              <span className="text-sm text-ink/65">Inclusive of shipping &amp; taxes</span>
             </div>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a href="#footer-email" className="btn-copper">Launching Soon — Notify Me</a>
@@ -102,7 +102,7 @@ export default function ShopPage() {
               Online checkout opens soon. Want one earlier?{" "}
               <a href="https://wa.me/919920780005" target="_blank" rel="noopener noreferrer" className="link-secondary">WhatsApp us</a>.
             </p>
-            <p className="mt-3 text-xs text-ink/55">Ships across India (5–7 days) · Secure prepaid checkout</p>
+            <p className="mt-3 text-xs text-ink/65">Ships across India (5–7 days) · Secure prepaid checkout</p>
           </Reveal>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function ShopPage() {
       {/* Tax fine print */}
       <section className="bg-snow py-14">
         <div className="container-c max-w-2xl text-center">
-          <p className="text-sm leading-relaxed text-ink/55">
+          <p className="text-sm leading-relaxed text-ink/65">
             <strong className="text-ink/75">Note on tax benefits:</strong> Shop purchases support the
             work of RKM Foundation but are treated as product purchases and do not qualify for 80G tax
             benefits.

@@ -37,7 +37,7 @@ export default function ContactHiPage() {
             <dl className="mt-8 border-t border-ink/12">
               {rows.map((row) => (
                 <div key={row.label} className="grid grid-cols-3 gap-4 border-b border-ink/12 py-5">
-                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/45">{row.label}</dt>
+                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/65">{row.label}</dt>
                   <dd className="col-span-2 text-ink/80">
                     {row.href ? (
                       <a href={row.href} {...(row.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="leading-relaxed hover:text-copper-dark">{row.value}</a>

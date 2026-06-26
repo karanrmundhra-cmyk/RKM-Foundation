@@ -1,5 +1,20 @@
 # RKM Foundation — Master Audit Backlog
 
+## Implementation status (as of 2026-06-16)
+| Metric | Count |
+|---|---|
+| Total Issues Identified | 35 |
+| Total Issues Fixed (code-complete) | 11 (23 file changes) |
+| Total Issues Verified (typecheck + review) | 11 |
+| Total Issues Pending (production-verify after deploy) | 11 |
+| Total Issues Deferred | 4 |
+| Total Issues Blocked (need approval / manual) | 11 |
+
+➡ **Full per-change evidence (before/after code, risk, verification, rollback) is in [`IMPLEMENTATION-EVIDENCE-PACK.md`](./IMPLEMENTATION-EVIDENCE-PACK.md).** Items are marked Complete only after evidence is recorded there.
+
+---
+
+
 **Site:** rkmfoundation.com (Next.js 14 App Router, Vercel) · **Date:** 2026-06-16
 **Scope:** 62 pages (EN + Hindi), 13 API routes, Razorpay donations, admin/PII area.
 **Method:** Static source audit (ripgrep/Read across full repo) + rendered-HTML inspection + targeted live fetches, by 5 parallel specialist passes (Security, SEO, Accessibility/UX, Performance/Code, Content/Conversion/QA). Every finding cites file:line or asset evidence. **No padding — verified findings only.**

@@ -22,7 +22,7 @@ export function WhatWeDo() {
       <div className="container-c">
         <Reveal>
           <p className="eyebrow-index">What We Do</p>
-          <h2 className="display-2 mt-5 max-w-[16ch] text-balance">Four ways we show up for animals.</h2>
+          <h2 className="display-2 mt-5 xl:whitespace-nowrap">Four ways we show up for animals.</h2>
         </Reveal>
 
         <div className="mt-10 sm:mt-14">
@@ -31,21 +31,21 @@ export function WhatWeDo() {
             return (
               <div
                 key={r.word}
-                className={`grid items-center gap-y-8 gap-x-10 border-t border-ink/10 py-12 sm:py-16 lg:grid-cols-12 ${i === ROWS.length - 1 ? "border-b" : ""}`}
+                className={`grid items-center gap-y-8 gap-x-14 border-t border-ink/[0.07] py-16 sm:py-24 ${imageLeft ? "lg:grid-cols-[13fr_11fr]" : "lg:grid-cols-[11fr_13fr]"} ${i === ROWS.length - 1 ? "border-b" : ""}`}
               >
                 {/* Image */}
                 <Reveal
                   delay={80}
-                  className={`lg:col-span-6 ${imageLeft ? "lg:order-1" : "lg:order-2"}`}
+                  className={imageLeft ? "lg:order-1" : "lg:order-2"}
                 >
                   <EditorialFigure src={r.src} alt={r.alt} ratio="aspect-[16/10]" parallax speed={0.07} ghost={`0${i + 1}`} />
                 </Reveal>
 
                 {/* Text */}
-                <Reveal className={`lg:col-span-6 ${imageLeft ? "lg:order-2 lg:pl-6" : "lg:order-1 lg:pr-6"}`}>
+                <Reveal className={imageLeft ? "lg:order-2 lg:pl-6" : "lg:order-1 lg:pr-6"}>
                   <div className="flex items-baseline gap-4">
                     <span className="text-sm font-semibold tabular-nums text-copper-dark">0{i + 1}</span>
-                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/45">{r.label}</span>
+                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/65">{r.label}</span>
                   </div>
                   <h3 className="editorial-word mt-3 text-ink">{r.word}</h3>
                   <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/65">{r.desc}</p>

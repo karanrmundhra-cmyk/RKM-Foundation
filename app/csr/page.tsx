@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "CSR Partnerships",
   description:
     "Partner with RKM Foundation — a CSR-1 registered implementation partner (80G | 12A) delivering audit-ready animal-welfare programmes you can visit and verify.",
+  alternates: { canonical: "/csr", languages: { en: "/csr", hi: "/hi/csr", "x-default": "/csr" } },
 };
 
 const WHY = [
@@ -119,7 +120,7 @@ export default function CSRPage() {
             </p>
           </Reveal>
           <Reveal className="mt-6">
-            <p className="max-w-3xl text-xs leading-relaxed text-ink/45">
+            <p className="max-w-3xl text-xs leading-relaxed text-ink/65">
               Pillar mappings indicate the Schedule VII category each programme is designed around.
               CSR-eligible activities are undertaken in India in accordance with the Companies (CSR Policy)
               Rules, 2014; the final clause classification is confirmed with your team during programme design.
@@ -149,9 +150,9 @@ export default function CSRPage() {
           <Reveal delay={120}>
             <p className="eyebrow-index">Timeline &amp; Deliverables</p>
             <h2 className="display-2 mt-5 text-balance">Paperwork your finance team will thank you for.</h2>
-            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/55">Typical project planning timeline</p>
+            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/65">Typical project planning timeline</p>
             <p className="display-2 mt-2 text-copper-dark">2–6 weeks</p>
-            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/55">Deliverables may include</p>
+            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/65">Deliverables may include</p>
             <ul className="mt-3 border-t border-ink/12">
               {DELIVERABLES.map((d) => (
                 <li key={d} className="flex items-center gap-3 border-b border-ink/12 py-3.5 text-ink/70">
@@ -177,7 +178,7 @@ export default function CSRPage() {
             {DOWNLOADS.map((d, i) => (
               <Reveal key={d.file} delay={i * 70}>
                 <a href={`/downloads/${d.file}`} className="group grid items-center gap-x-8 gap-y-2 border-b border-ink/12 py-7 transition-colors hover:text-copper-dark lg:grid-cols-12">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark/80 lg:col-span-1">{d.kind}</span>
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark lg:col-span-1">{d.kind}</span>
                   <h3 className="display-3 text-[1.4rem] lg:col-span-4">{d.title}</h3>
                   <p className="leading-relaxed text-ink/65 lg:col-span-6">{d.desc}</p>
                   <span className="text-sm font-semibold lg:col-span-1 lg:text-right">Download →</span>

@@ -42,7 +42,7 @@ export default function BlogHiPage() {
             </Reveal>
           </Link>
           <Reveal className="mt-16 border-t border-ink/10 pt-8">
-            <p className="text-sm text-ink/55">मैदान से और कहानियाँ जल्द ही आ रही हैं।</p>
+            <p className="text-sm text-ink/65">मैदान से और कहानियाँ जल्द ही आ रही हैं।</p>
           </Reveal>
         </div>
       </section>

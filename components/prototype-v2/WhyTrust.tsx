@@ -21,14 +21,14 @@ const CERTS = [
 
 export function WhyTrust() {
   return (
-    <section className="bg-snow section-y">
+    <section className="bg-snow section-y-lg">
       <div className="container-c">
         <Reveal>
           <p className="eyebrow-index">Why Trust RKM Foundation</p>
           <h2 className="display-2 mt-5 max-w-[18ch] text-balance">Give with confidence. See the change you create.</h2>
         </Reveal>
 
-        <div className="mt-16 grid gap-x-16 gap-y-12 sm:grid-cols-2">
+        <div className="mt-20 grid gap-x-16 gap-y-14 sm:grid-cols-2">
           {TRUST.map((t, i) => (
             <Reveal key={t.title} delay={i * 70}>
               <div className="flex gap-5">
@@ -43,12 +43,12 @@ export function WhyTrust() {
         </div>
 
         {/* Registered & Transparent band */}
-        <Reveal className="mt-20 border-t border-ink/10 pt-14">
+        <Reveal className="mt-24 border-t border-ink/[0.07] pt-16">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <p className="eyebrow-index">Registered &amp; Transparent</p>
               <h3 className="display-3 mt-4">Every rupee is accounted for.</h3>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/55">
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/65">
                 Reg. E-30560 — every certificate is downloadable.
               </p>
             </div>
@@ -60,10 +60,10 @@ export function WhyTrust() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${c.label} — download certificate PDF`}
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink/75 ring-1 ring-ink/10 transition-colors hover:text-copper-dark hover:ring-copper/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink/75 ring-1 ring-ink/10 transition hover:-translate-y-0.5 hover:text-copper-dark hover:ring-copper/50 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
                 >
                   {c.label}
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden className="transition-transform group-hover:translate-y-0.5 motion-reduce:transform-none"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </a>
               ))}
             </div>

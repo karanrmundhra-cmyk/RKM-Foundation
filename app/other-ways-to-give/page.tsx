@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Other Ways to Give",
   description:
     "Volunteer, donate materials, share your skills, or amplify the cause — support RKM Foundation in the way that feels right to you.",
+  alternates: { canonical: "/other-ways-to-give", languages: { en: "/other-ways-to-give", hi: "/hi/other-ways-to-give", "x-default": "/other-ways-to-give" } },
 };
 
 const HELPERS = [

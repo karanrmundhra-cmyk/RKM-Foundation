@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Subscription Confirmed",
   description: "Welcome to the RKM Foundation community.",
+  robots: { index: false, follow: false },
 };
 
 export default function NewsletterConfirmedPage() {

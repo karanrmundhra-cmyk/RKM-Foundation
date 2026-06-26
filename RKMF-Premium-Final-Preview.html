@@ -64,6 +64,8 @@ nav.solid{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bot
 .wcard .t small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#ecd9a8}
 .wcard .t h3{color:#fff;font-size:22px;margin-top:3px}
 @media(max-width:900px){.wwd{grid-template-columns:repeat(2,1fr)}}
+.oneline{white-space:nowrap}
+@media(max-width:760px){.oneline{white-space:normal}}
 
 /* MEET THE ANIMALS */
 .arow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
@@ -87,12 +89,18 @@ nav.solid{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bot
 @media(max-width:860px){.spot{grid-template-columns:1fr}.spot .txt{padding:26px}}
 
 /* BEFORE/AFTER */
-.slider{position:relative;aspect-ratio:16/9;max-width:980px;margin:42px auto 0;overflow:hidden;border-radius:18px;border:1px solid var(--line);user-select:none;cursor:ew-resize}
-.slider img{position:absolute;inset:0;pointer-events:none}.slider .af{clip-path:inset(0 0 0 50%)}
+.slider{position:relative;aspect-ratio:16/9;max-width:980px;margin:42px auto 0;overflow:hidden;border-radius:18px;border:1px solid var(--line);user-select:none;cursor:ew-resize;touch-action:none}
+.slider:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.slider img{position:absolute;inset:0;pointer-events:none}
+.slider .af{clip-path:inset(0 0 0 50%);transition:clip-path .22s cubic-bezier(.22,1,.36,1)}
+.slider.dragging .af{transition:none}
 .slider .lb{position:absolute;top:15px;z-index:4;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--black);padding:6px 12px;border-radius:100px}
 .slider .lb.l{left:15px}.slider .lb.r{right:15px;background:var(--dgold);color:#fff}
-.hd{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5}
-.hd::after{content:"⟺";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--dgold);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.hd{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5;transition:left .22s cubic-bezier(.22,1,.36,1)}
+.slider.dragging .hd{transition:none}
+.hd::after{content:"⟺";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--dgold);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .2s ease,box-shadow .2s ease}
+.slider:hover .hd::after{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 10px 28px rgba(0,0,0,.36)}
+.slider:focus-visible .hd::after,.slider.dragging .hd::after{transform:translate(-50%,-50%) scale(1.12);box-shadow:0 12px 30px rgba(0,0,0,.4)}
 
 /* JOURNEY timeline */
 .jrow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
@@ -220,12 +228,12 @@ footer .reg{margin-top:30px;border-top:1px solid #2a2a2a;padding-top:18px;font-s
 
 <!-- WHAT WE DO (existing) -->
 <section class="sec"><div class="wrap">
-  <div class="reveal" style="max-width:640px"><span class="eyebrow">What We Do</span><h2 class="d2" style="margin-top:14px">Four ways we show up for animals.</h2></div>
+  <div class="reveal" style="max-width:none"><span class="eyebrow">What We Do</span><h2 class="d2 oneline" style="margin-top:14px">Four ways we show up for animals.</h2></div>
   <div class="wwd">
     <div class="wcard reveal"><img src="https://rkmfoundation.com/images/site/street.jpg" alt=""><div class="t"><small>On the street</small><h3>Rescue</h3></div></div>
     <div class="wcard reveal"><img src="https://rkmfoundation.com/images/site/feed.jpg" alt=""><div class="t"><small>Every single day</small><h3>Feed</h3></div></div>
-    <div class="wcard reveal"><img src="https://rkmfoundation.com/images/site/heal.jpg" alt=""><div class="t"><small>With trusted vets</small><h3>Heal</h3></div></div>
-    <div class="wcard reveal"><img src="https://rkmfoundation.com/images/site/rest.jpg" alt=""><div class="t"><small>A place to rest</small><h3>Shelter</h3></div></div>
+    <div class="wcard reveal"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" alt="A golden retriever holding a flower"><div class="t"><small>With trusted vets</small><h3>Heal</h3></div></div>
+    <div class="wcard reveal"><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=80" alt="A rescued ginger cat resting"><div class="t"><small>A place to rest</small><h3>Shelter</h3></div></div>
   </div>
 </div></section>
 
@@ -251,7 +259,7 @@ footer .reg{margin-top:30px;border-top:1px solid #2a2a2a;padding-top:18px;font-s
 <!-- BEFORE / AFTER (new) -->
 <section class="sec grey"><div class="wrap">
   <div class="reveal" style="max-width:620px"><span class="eyebrow">The transformation</span><h2 class="d2" style="margin-top:14px">Drag to see what your kindness does.</h2></div>
-  <div class="slider" id="slider"><img class="bf" src="https://rkmfoundation.com/images/site/heal.jpg" alt=""><img class="af" id="afimg" src="https://rkmfoundation.com/images/site/rest.jpg" alt=""><div class="lb l">When we found him</div><div class="lb r">Six weeks later</div><div class="hd" id="hd"></div></div>
+  <div class="slider" id="slider" role="slider" tabindex="0" aria-label="Before and after rescue comparison: drag or use arrow keys to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><img class="bf" src="https://rkmfoundation.com/images/site/heal.jpg" alt=""><img class="af" id="afimg" src="https://rkmfoundation.com/images/site/rest.jpg" alt=""><div class="lb l">When we found him</div><div class="lb r">Six weeks later</div><div class="hd" id="hd"></div></div>
 </div></section>
 
 <!-- RESCUE JOURNEY (new) -->
@@ -395,7 +403,7 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.cnum').forEach(cu);cio.unobserve(e.target);}}),{threshold:.4});
 document.querySelectorAll('.crow').forEach(r=>cio.observe(r));
 function cu(el){const to=+el.dataset.to,d=1600;let s;function f(t){s=s||t;const p=Math.min((t-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*to).toLocaleString('en-IN')+(p>=1&&to>100?'+':'');if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
-(function(){const s=document.getElementById('slider'),h=document.getElementById('hd'),a=document.getElementById('afimg');let d=false;function set(x){const r=s.getBoundingClientRect();let p=Math.max(.04,Math.min(.96,(x-r.left)/r.width));a.style.clipPath=`inset(0 0 0 ${p*100}%)`;h.style.left=p*100+'%';}s.addEventListener('mousedown',e=>{d=true;set(e.clientX);});addEventListener('mousemove',e=>d&&set(e.clientX));addEventListener('mouseup',()=>d=false);s.addEventListener('touchstart',e=>set(e.touches[0].clientX),{passive:true});s.addEventListener('touchmove',e=>set(e.touches[0].clientX),{passive:true});})();
+(function(){const s=document.getElementById('slider'),h=document.getElementById('hd'),a=document.getElementById('afimg');let p=50;function apply(){a.style.clipPath=`inset(0 0 0 ${p}%)`;h.style.left=p+'%';s.setAttribute('aria-valuenow',Math.round(p));}function fromX(x){const r=s.getBoundingClientRect();p=Math.max(2,Math.min(98,((x-r.left)/r.width)*100));apply();}s.addEventListener('pointerdown',e=>{s.setPointerCapture(e.pointerId);s.classList.add('dragging');fromX(e.clientX);});s.addEventListener('pointermove',e=>{if(s.hasPointerCapture(e.pointerId))fromX(e.clientX);});s.addEventListener('pointerup',()=>s.classList.remove('dragging'));s.addEventListener('pointercancel',()=>s.classList.remove('dragging'));s.addEventListener('keydown',e=>{const k=e.key,step=(k==='PageUp'||k==='PageDown')?10:4;if(k==='ArrowLeft'||k==='ArrowDown'||k==='PageDown'){p=Math.max(2,p-step);}else if(k==='ArrowRight'||k==='ArrowUp'||k==='PageUp'){p=Math.min(98,p+step);}else if(k==='Home'){p=2;}else if(k==='End'){p=98;}else{return;}e.preventDefault();apply();});apply();})();
 </script>
 </body>
 </html>

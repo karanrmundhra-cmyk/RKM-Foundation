@@ -59,7 +59,7 @@ export default function FAQsPage() {
               <a href={`mailto:${SITE.email}`} className="btn-dark">Email {SITE.email}</a>
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-light">WhatsApp Us</a>
             </div>
-            <p className="mt-5 text-sm text-ink/55">{SITE.hours}</p>
+            <p className="mt-5 text-sm text-ink/65">{SITE.hours}</p>
           </Reveal>
         </div>
       </section>

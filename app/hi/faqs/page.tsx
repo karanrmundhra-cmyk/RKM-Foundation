@@ -84,7 +84,7 @@ export default function FAQsHiPage() {
               <a href={`mailto:${SITE.email}`} className="btn-dark">{SITE.email} पर ईमेल करें</a>
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-light">व्हाट्सऐप करें</a>
             </div>
-            <p className="mt-5 text-sm text-ink/55">सोमवार से शुक्रवार | सुबह 10:00 – शाम 6:00</p>
+            <p className="mt-5 text-sm text-ink/65">सोमवार से शुक्रवार | सुबह 10:00 – शाम 6:00</p>
           </Reveal>
         </div>
       </section>

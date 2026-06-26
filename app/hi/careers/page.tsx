@@ -25,7 +25,7 @@ export default function CareersHiPage() {
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
               सुबह की जल्दी, मिट्टी से सने जूते, कभी-कभी टूटा हुआ दिल — और एक डरे हुए जानवर को दोबारा भरोसा करते देखने की शांत खुशी। अगर यही आपका काम है, तो हम आपसे ज़रूर सुनना चाहेंगे।
             </p>
-            <p className="mt-5 max-w-2xl text-sm text-ink/55">
+            <p className="mt-5 max-w-2xl text-sm text-ink/65">
               अभी कोई खुली भर्ती नहीं है — अपना विवरण साझा करें और सही भूमिका मिलने पर हम संपर्क करेंगे।
             </p>
           </Reveal>

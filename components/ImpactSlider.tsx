@@ -34,11 +34,11 @@ export default function ImpactSlider() {
 
   return (
     <div className="mt-8 rounded-[1.25rem] bg-snow p-6 ring-1 ring-ink/[0.08] sm:p-7">
-      <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-copper-dark/80">Drag to see your impact</p>
+      <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-copper-dark">Drag to see your impact</p>
 
       <div className="mt-3 flex items-baseline gap-3">
         <span className="display-2 text-[2.5rem] leading-none text-copper-dark sm:text-[3rem]">₹{formatted}</span>
-        {amount >= MAX && <span className="text-xs font-medium text-ink/45">+</span>}
+        {amount >= MAX && <span className="text-xs font-medium text-ink/65">+</span>}
       </div>
 
       <p aria-live="polite" className="mt-3 min-h-[3rem] max-w-md text-base leading-relaxed text-ink/70">
@@ -57,7 +57,7 @@ export default function ImpactSlider() {
         className="impact-range mt-5 w-full"
         style={{ ["--pct" as string]: `${pct}%` }}
       />
-      <div className="mt-1.5 flex justify-between text-[0.7rem] font-medium text-ink/40">
+      <div className="mt-1.5 flex justify-between text-[0.7rem] font-medium text-ink/65">
         <span>₹{MIN.toLocaleString("en-IN")}</span>
         <span>₹{MAX.toLocaleString("en-IN")}+</span>
       </div>

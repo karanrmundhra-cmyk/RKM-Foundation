@@ -8,6 +8,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 export const metadata: Metadata = {
   title: "About",
   description: "RKM Foundation is an animal-welfare charitable trust in India. A family that started helping animals at home, and kept going.",
+  alternates: { canonical: "/about", languages: { en: "/about", hi: "/hi/about", "x-default": "/about" } },
 };
 
 const ROLES = [
@@ -135,7 +136,7 @@ export default function AboutPage() {
                   <div className="text-sm font-semibold tabular-nums text-copper-dark lg:col-span-1">0{i + 1}</div>
                   <div className="lg:col-span-4">
                     <h3 className="display-3 text-[1.4rem]">{r.title}</h3>
-                    <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark/80">{r.virtues}</p>
+                    <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark">{r.virtues}</p>
                   </div>
                   <p className="leading-relaxed text-ink/65 lg:col-span-5">{r.desc}</p>
                   <div className="lg:col-span-2 lg:text-right">
@@ -156,7 +157,7 @@ export default function AboutPage() {
             <h2 className="display-2 mt-5 text-center text-balance">A community that cares</h2>
           </Reveal>
           <Reveal>
-            <p className="mx-auto mt-4 max-w-xl text-center text-ink/55">Tap any profile to read their full story and expertise.</p>
+            <p className="mx-auto mt-4 max-w-xl text-center text-ink/65">Tap any profile to read their full story and expertise.</p>
             <TeamProfiles />
           </Reveal>
         </div>

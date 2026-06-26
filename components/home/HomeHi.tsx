@@ -81,7 +81,7 @@ export function HomeHi() {
                   <Reveal className={`lg:col-span-6 ${imageLeft ? "lg:order-2 lg:pl-6" : "lg:order-1 lg:pr-6"}`}>
                     <div className="flex items-baseline gap-4">
                       <span className="text-sm font-semibold tabular-nums text-copper-dark">{r.n}</span>
-                      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/45">{r.label}</span>
+                      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/65">{r.label}</span>
                     </div>
                     <h3 className="editorial-word mt-3 text-ink">{r.word}</h3>
                     <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/65">{r.desc}</p>
@@ -108,7 +108,7 @@ export function HomeHi() {
             <blockquote className="mt-8 max-w-lg text-2xl font-medium leading-snug tracking-tight text-ink/90 sm:text-3xl">
               &ldquo;ये जानवर उनके अपने भी नहीं थे। लोग बस किसी घायल को यूँ ही छोड़कर नहीं जा पाते थे। हमने सोचा, कम से कम हम वह हिस्सा तो संभाल ही सकते हैं जो वे नहीं कर पाते।&rdquo;
             </blockquote>
-            <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/45">— मुंधड़ा परिवार</p>
+            <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/65">— मुंधड़ा परिवार</p>
             <Link href="/hi/blog/the-dog-who-started-it-all" className="link-secondary mt-7 inline-block text-sm">टोबलर की पूरी कहानी पढ़ें →</Link>
           </Reveal>
         </div>
@@ -139,7 +139,7 @@ export function HomeHi() {
               <div>
                 <p className="eyebrow-index">पंजीकृत और पारदर्शी</p>
                 <h3 className="display-3 mt-4">हर रुपये का हिसाब है।</h3>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/55">पंजीकरण E-30560 — हर प्रमाणपत्र डाउनलोड किया जा सकता है।</p>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/65">पंजीकरण E-30560 — हर प्रमाणपत्र डाउनलोड किया जा सकता है।</p>
               </div>
               <div className="flex flex-wrap items-center gap-2.5 lg:justify-end">
                 {CERTS.map((c) => (
@@ -175,7 +175,7 @@ export function HomeHi() {
             ))}
           </div>
           <Link href="/hi/donate-now#donation" className="link-secondary mt-6 inline-block">अपनी पसंद की कोई भी राशि दें →</Link>
-          <p className="mt-4 text-xs uppercase tracking-[0.14em] text-ink/45">256-बिट सुरक्षित · Razorpay · तुरंत 80G रसीद</p>
+          <p className="mt-4 text-xs uppercase tracking-[0.14em] text-ink/65">256-बिट सुरक्षित · Razorpay · तुरंत 80G रसीद</p>
         </div>
       </section>
 

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Legal & Governance",
   description:
     "RKM Foundation's legal status, governance structure, and the policies that guide how the Foundation operates and manages charitable resources.",
+  alternates: { canonical: "/legal", languages: { en: "/legal", hi: "/hi/legal", "x-default": "/legal" } },
 };
 
 const POLICIES = [

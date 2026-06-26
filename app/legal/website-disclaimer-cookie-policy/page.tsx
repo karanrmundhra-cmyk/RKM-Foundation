@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Website Disclaimer & Cookie Policy",
   description: "General disclaimers for the RKM Foundation website and how we use cookies and tracking technologies.",
+  alternates: { canonical: "/legal/website-disclaimer-cookie-policy", languages: { en: "/legal/website-disclaimer-cookie-policy", hi: "/hi/legal/website-disclaimer-cookie-policy", "x-default": "/legal/website-disclaimer-cookie-policy" } },
 };
 
 export default function WebsiteDisclaimerCookiePolicyPage() {

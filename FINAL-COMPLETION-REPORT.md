@@ -4,8 +4,8 @@
 **Prepared:** 16 June 2026
 **Production:** https://rkmfoundation.com
 **Repository:** github.com/karanrmundhra-cmyk/RKMF (branch `main`)
-**Latest verified deploy:** commit `632def9` (READY on Vercel, aliased to rkmfoundation.com)
-**One pending push:** navigation-link fix commit (see §3) — built and type-checked locally, awaiting `git push`.
+**Latest verified deploy:** commit `941032f` (READY on Vercel, aliased to rkmfoundation.com)
+**Status: ✅ COMPLETE** — all work pushed, deployed, and production-verified (see §14 Project Closure).
 
 ---
 
@@ -60,9 +60,9 @@ Type-checking (`tsc --noEmit`) passes cleanly, and every production build since 
 - Added Noto Sans Devanagari typography to Hindi containers; added `lang="hi"`.
 - Updated `app/sitemap.ts` and `Header` `HI_PAGES` toggle map with all new routes.
 
-**Navigation-link fix (pending final push):**
+**Navigation-link fix (deployed — commit `941032f`):**
 
-- Fixed all internal links on Hindi pages that pointed to English routes — `HomeHi`, `/hi/donate-now`, `/hi/other-ways-to-give`, `/hi/about` — so the Hindi journey stays within `/hi`. The Hindi logo now also returns to `/hi`. A full grep audit confirms **zero** remaining English internal links on Hindi pages (excluding the intentional "English prevails" legal links).
+- Fixed all internal links on Hindi pages that pointed to English routes — `HomeHi`, `/hi/donate-now`, `/hi/other-ways-to-give`, `/hi/about` — so the Hindi journey stays within `/hi`. The Hindi logo now also returns to `/hi`. A full grep audit confirms **zero** remaining English internal links on Hindi pages (excluding the intentional "English prevails" legal links). Production-verified after deploy (see §14).
 
 **Earlier audit fixes:** HSTS header added, admin disclosure cleaned up, admin rate limiting added, Razorpay live-key configuration reconciled, email fixes, Schedule VII corrections.
 
@@ -206,6 +206,31 @@ These are reasoned assessments based on the work performed and verified, not ext
 
 ---
 
-## Closing Note
+## 14. Project Closure
 
-The project is functionally complete and deployed. The recommended next action is **not** further auditing but: (1) push the pending navigation-link fix, (2) commission a professional review of the Hindi legal pages, and (3) optionally run a measured Lighthouse/axe pass. Everything else is polish.
+**Final deploy:** commit `941032f` — "Hindi: fix internal nav links to stay within /hi" — built **READY** on Vercel and live on rkmfoundation.com.
+
+**Production verification (post-deploy):**
+
+- `/hi` — re-fetched live: hero, all three donation amount cards, Tobler-story link, and bottom CTA all resolve to `/hi/...`; logo returns to `/hi`. ✅
+- `/hi/other-ways-to-give` — re-fetched live: both CTAs resolve to `/hi/donate-now` and `/hi/fundraiser`. ✅
+- `/hi/donate-now` — confirmed clean on this commit via zero-leak grep audit + earlier live verification. ✅
+- `/hi/about` — confirmed clean on this commit via zero-leak grep audit + earlier live verification. ✅
+
+**Final issue count:**
+
+- Issues found (full project): **14**
+- Issues fixed & deployed: **14**
+- Open defects remaining: **0**
+- Intentionally out of scope (not defects): admin pages, prototype pages, hreflang tags, professional legal translation
+
+**Remaining risks (carried forward as recommendations, non-blocking):**
+
+1. Hindi legal pages are machine-translated — commission a professional/legal review (English-prevails clause mitigates).
+2. Lighthouse/axe scores are reasoned, not freshly measured.
+3. No hreflang pairing between EN/HI versions.
+4. ~25 audit/preview artifacts committed to repo root (cosmetic).
+
+**Final Scorecard:** Security 92 · Performance 88 · SEO 93 · Accessibility 90 · UX 91 · Technical Quality 93 (reasoned assessments, not externally measured benchmarks).
+
+**Status: ✅ PROJECT COMPLETE.** No open defects. No further work required to ship. Remaining items are recommendations, not blockers.

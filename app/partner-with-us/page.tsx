@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Partner With Us",
   description:
     "RKM Foundation backs grassroots organisations already doing the work on the ground. Tell us about your initiative.",
+  alternates: { canonical: "/partner-with-us", languages: { en: "/partner-with-us", hi: "/hi/partner-with-us", "x-default": "/partner-with-us" } },
 };
 
 const NEXT_STEPS = [

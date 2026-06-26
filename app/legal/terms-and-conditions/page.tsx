@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "The terms that apply when you use the RKM Foundation website, donate, fundraise, volunteer, or shop.",
+  alternates: { canonical: "/legal/terms-and-conditions", languages: { en: "/legal/terms-and-conditions", hi: "/hi/legal/terms-and-conditions", "x-default": "/legal/terms-and-conditions" } },
 };
 
 export default function TermsAndConditionsPage() {

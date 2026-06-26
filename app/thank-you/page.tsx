@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ComplianceForm from "@/components/ComplianceForm";
 
-export const metadata: Metadata = { title: "Thank You" };
+export const metadata: Metadata = { title: "Thank You", robots: { index: false, follow: false } };
 
 export default function ThankYou() {
   return (

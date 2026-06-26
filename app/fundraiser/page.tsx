@@ -7,6 +7,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata: Metadata = {
   title: "Fundraiser",
   description: "Turn your birthday, anniversary, or fitness challenge into food, treatment, and shelter for rescued animals.",
+  alternates: { canonical: "/fundraiser", languages: { en: "/fundraiser", hi: "/hi/fundraiser", "x-default": "/fundraiser" } },
 };
 
 const STEPS = [

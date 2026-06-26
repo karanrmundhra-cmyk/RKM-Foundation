@@ -43,7 +43,7 @@ export default function BlogPage() {
             </Reveal>
           </Link>
           <Reveal className="mt-16 border-t border-ink/10 pt-8">
-            <p className="text-sm text-ink/55">More stories from the field are on their way.</p>
+            <p className="text-sm text-ink/65">More stories from the field are on their way.</p>
           </Reveal>
         </div>
       </section>

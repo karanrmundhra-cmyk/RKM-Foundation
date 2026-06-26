@@ -32,10 +32,10 @@ export default function CsrAccordion() {
               <span className="flex-1">
                 <span className="display-3 block text-[1.25rem] leading-tight sm:text-[1.55rem]">{p.name}</span>
                 {!isOpen && p.copy && (
-                  <span className="mt-1 hidden text-sm text-ink/55 sm:block">{p.copy}</span>
+                  <span className="mt-1 hidden text-sm text-ink/65 sm:block">{p.copy}</span>
                 )}
               </span>
-              <span className="hidden text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ink/40 sm:block">{p.schedule}</span>
+              <span className="hidden text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ink/65 sm:block">{p.schedule}</span>
               <PlusMinus open={isOpen} />
             </button>
 
@@ -57,22 +57,22 @@ export default function CsrAccordion() {
                     />
                   </div>
                   <div className="lg:order-1">
-                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-copper-dark/80 sm:hidden">{p.schedule}</p>
+                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-copper-dark sm:hidden">{p.schedule}</p>
                     {p.copy && <p className="mt-1 text-lg font-medium leading-snug text-ink sm:mt-0">{p.copy}</p>}
                     <p className="mt-4 leading-relaxed text-ink/70">{p.desc}</p>
                     {p.impact && p.impact.length > 0 && (
                       <div className="mt-6">
-                        <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Impact areas</p>
+                        <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink/65">Impact areas</p>
                         <ul className="mt-2 flex flex-wrap gap-2">
                           {p.impact.map((x) => (
-                            <li key={x} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-copper-dark">{x}</li>
+                            <li key={x} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-[#795719]">{x}</li>
                           ))}
                         </ul>
                       </div>
                     )}
                     {p.note && (
-                      <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/45">
-                        <span className="font-semibold text-ink/55">Why this clause: </span>{p.note}
+                      <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/65">
+                        <span className="font-semibold text-ink/65">Why this clause: </span>{p.note}
                       </p>
                     )}
                   </div>

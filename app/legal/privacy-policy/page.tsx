@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How RKM Foundation collects, uses, stores, and safeguards your personal information.",
+  alternates: { canonical: "/legal/privacy-policy", languages: { en: "/legal/privacy-policy", hi: "/hi/legal/privacy-policy", "x-default": "/legal/privacy-policy" } },
 };
 
 export default function PrivacyPolicyPage() {

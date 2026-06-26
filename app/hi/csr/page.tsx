@@ -117,7 +117,7 @@ export default function CSRHiPage() {
             ))}
           </div>
           <Reveal className="mt-6">
-            <p className="max-w-3xl text-xs leading-relaxed text-ink/45">
+            <p className="max-w-3xl text-xs leading-relaxed text-ink/65">
               स्तंभ-मानचित्रण यह दर्शाते हैं कि प्रत्येक कार्यक्रम किस Schedule VII श्रेणी के इर्द-गिर्द डिज़ाइन किया गया है। CSR-योग्य गतिविधियाँ कंपनी (CSR नीति) नियम, 2014 के अनुसार भारत में की जाती हैं; अंतिम खंड वर्गीकरण आपकी टीम के साथ कार्यक्रम डिज़ाइन के दौरान पुष्ट किया जाता है।
             </p>
           </Reveal>
@@ -144,9 +144,9 @@ export default function CSRHiPage() {
           <Reveal delay={120}>
             <p className="eyebrow-index">समयरेखा और परिणाम</p>
             <h2 className="display-2 mt-5 text-balance">ऐसे दस्तावेज़ जिनके लिए आपकी वित्त टीम आपको धन्यवाद देगी।</h2>
-            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/55">सामान्य परियोजना योजना समयरेखा</p>
+            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/65">सामान्य परियोजना योजना समयरेखा</p>
             <p className="display-2 mt-2 text-copper-dark">2–6 सप्ताह</p>
-            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/55">परिणामों में शामिल हो सकते हैं</p>
+            <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-ink/65">परिणामों में शामिल हो सकते हैं</p>
             <ul className="mt-3 border-t border-ink/12">
               {DELIVERABLES.map((d) => (
                 <li key={d} className="flex items-center gap-3 border-b border-ink/12 py-3.5 text-ink/70">
@@ -169,7 +169,7 @@ export default function CSRHiPage() {
             {DOWNLOADS.map((d, i) => (
               <Reveal key={d.file} delay={i * 70}>
                 <a href={`/downloads/${d.file}`} className="group grid items-center gap-x-8 gap-y-2 border-b border-ink/12 py-7 transition-colors hover:text-copper-dark lg:grid-cols-12">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark/80 lg:col-span-1">{d.kind}</span>
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark lg:col-span-1">{d.kind}</span>
                   <h3 className="display-3 text-[1.4rem] lg:col-span-4">{d.title}</h3>
                   <p className="leading-relaxed text-ink/65 lg:col-span-6">{d.desc}</p>
                   <span className="text-sm font-semibold lg:col-span-1 lg:text-right">डाउनलोड →</span>

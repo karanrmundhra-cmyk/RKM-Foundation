@@ -61,7 +61,7 @@ export default function EditorialFigure({
     <figure className={className}>
       {parallax ? <Parallax speed={speed}>{inner}</Parallax> : inner}
       {caption && (
-        <figcaption className="mt-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink/45">{caption}</figcaption>
+        <figcaption className="mt-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink/65">{caption}</figcaption>
       )}
     </figure>
   );

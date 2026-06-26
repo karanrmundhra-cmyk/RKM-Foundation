@@ -35,7 +35,7 @@ export default function ScrollFadeWords({
     const N = spans.length;
     let raf = 0;
     let running = true;
-    const MIN = 0.22; // dimmest — still readable
+    const MIN = 0.62; // dimmest — kept ≥ WCAG AA contrast (ink at .62 opacity passes 4.5:1)
 
     const update = () => {
       raf = 0;

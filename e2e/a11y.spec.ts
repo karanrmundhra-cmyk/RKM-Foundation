@@ -37,17 +37,9 @@ for (const path of PAGES) {
 
     const seriousOrCritical = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
 
-    // color-contrast is tracked as a separate design-palette review item (the
-    // editorial faint-label aesthetic vs. WCAG AA) — surfaced but non-blocking.
-    // Everything else serious/critical is a build-failing structural gate.
-    const contrast = seriousOrCritical.filter((v) => v.id === "color-contrast");
-    if (contrast.length) {
-      const nodes = contrast.reduce((n, v) => n + v.nodes.length, 0);
-      // eslint-disable-next-line no-console
-      console.log(`[a11y] ${path}: ${nodes} color-contrast node(s) flagged for design review (non-blocking).`);
-    }
-
-    const blocking = seriousOrCritical.filter((v) => v.id !== "color-contrast");
+    // WCAG 2.2 AA gate — ALL serious/critical violations, including color-contrast
+    // (now resolved across the site), are build-failing to prevent regressions.
+    const blocking = seriousOrCritical;
     const summary = blocking.map((v) => ({
       id: v.id,
       impact: v.impact,

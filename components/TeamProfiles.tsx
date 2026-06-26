@@ -56,11 +56,11 @@ function ProfileCard({ m, open, onToggle, expertiseLabel }: { m: Member; open: b
         )}
         <span className="min-w-0 flex-1">
           <span className="block font-semibold leading-tight text-ink">{m.name}</span>
-          <span className="mt-0.5 block text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-copper-dark/80">
+          <span className="mt-0.5 block text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-copper-dark">
             {m.role}
           </span>
           {m.summary && (
-            <span className={`mt-1 block text-sm text-ink/55 ${open ? "" : "truncate"}`}>{m.summary}</span>
+            <span className={`mt-1 block text-sm text-ink/65 ${open ? "" : "truncate"}`}>{m.summary}</span>
           )}
         </span>
         <Chevron open={open} />
@@ -77,10 +77,10 @@ function ProfileCard({ m, open, onToggle, expertiseLabel }: { m: Member; open: b
             {m.bio && <p className="text-[0.94rem] leading-relaxed text-ink/70">{m.bio}</p>}
             {m.expertise && m.expertise.length > 0 && (
               <div className="mt-4">
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink/45">{expertiseLabel}</p>
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink/65">{expertiseLabel}</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {m.expertise.map((e) => (
-                    <span key={e} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-copper-dark">
+                    <span key={e} className="rounded-full bg-copper/10 px-3 py-1 text-xs font-medium text-[#795719]">
                       {e}
                     </span>
                   ))}

@@ -38,7 +38,7 @@ function StoryText() {
         &ldquo;These weren&apos;t even their animals. People just couldn&apos;t walk past one that
         was hurt. We figured the least we could do was help with the part they couldn&apos;t.&rdquo;
       </blockquote>
-      <p data-story="attr" className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/45">— The Mundhra family</p>
+      <p data-story="attr" className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/65">— The Mundhra family</p>
       <Link data-story="attr" href="/blog/the-dog-who-started-it-all" className="link-secondary mt-7 inline-block text-sm">Read Tobler&apos;s full story →</Link>
     </>
   );
@@ -47,12 +47,12 @@ function StoryText() {
 /** Static editorial layout — asymmetric, oversized pull-quote, parallax image. */
 function StaticStory() {
   return (
-    <section className="section-y">
-      <div className="container-c grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="order-2 lg:order-1 lg:col-span-5">
+    <section className="section-y-lg">
+      <div className="container-c grid items-center gap-12 lg:grid-cols-[9fr_11fr] lg:gap-20">
+        <Reveal className="order-2 lg:order-1">
           <EditorialFigure src={IMAGES[0].src} alt={IMAGES[0].alt} ratio="aspect-[4/5]" parallax speed={0.06} caption="The animals we care for" />
         </Reveal>
-        <Reveal delay={100} className="order-1 lg:order-2 lg:col-span-7 lg:pl-4">
+        <Reveal delay={100} className="order-1 lg:order-2 lg:pl-4">
           <StoryText />
         </Reveal>
       </div>

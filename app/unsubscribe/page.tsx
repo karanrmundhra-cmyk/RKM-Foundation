@@ -5,6 +5,7 @@ import FormShell from "@/components/FormShell";
 export const metadata: Metadata = {
   title: "Unsubscribe",
   description: "Unsubscribe from RKM Foundation email updates.",
+  robots: { index: false, follow: false },
 };
 
 export default function UnsubscribePage() {

@@ -62,8 +62,8 @@ export default function MediaHiPage() {
                     <Image src={t.img} alt={`${t.name} का चित्र`} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
                     <div>
                       <div className="font-semibold">{t.name}</div>
-                      <div className="text-sm text-ink/55">{t.place}</div>
-                      <div className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-copper-dark/80">{t.context}</div>
+                      <div className="text-sm text-ink/65">{t.place}</div>
+                      <div className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-copper-dark">{t.context}</div>
                     </div>
                   </figcaption>
                 </figure>

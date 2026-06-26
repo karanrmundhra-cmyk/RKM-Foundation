@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Donation Refund & Cancellation Policy",
   description: "How refunds and cancellations are handled for donations made through the RKM Foundation website.",
+  alternates: { canonical: "/legal/donation-refund-policy", languages: { en: "/legal/donation-refund-policy", hi: "/hi/legal/donation-refund-policy", "x-default": "/legal/donation-refund-policy" } },
 };
 
 export default function DonationRefundPolicyPage() {

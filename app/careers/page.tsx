@@ -5,6 +5,7 @@ import FormShell from "@/components/FormShell";
 export const metadata: Metadata = {
   title: "Careers",
   description: "Want to work in animal rescue? Share your details and we'll reach out when the right role opens at RKM Foundation.",
+  alternates: { canonical: "/careers", languages: { en: "/careers", hi: "/hi/careers", "x-default": "/careers" } },
 };
 
 const REALITIES = [
@@ -25,7 +26,7 @@ export default function CareersPage() {
               Early mornings, muddy boots, the occasional heartbreak — and the quiet joy of watching
               a frightened animal trust again. If that&rsquo;s your kind of work, we&rsquo;d love to hear from you.
             </p>
-            <p className="mt-5 max-w-2xl text-sm text-ink/55">
+            <p className="mt-5 max-w-2xl text-sm text-ink/65">
               No open listings right now — share your details and we&rsquo;ll reach out when a role fits.
             </p>
           </Reveal>

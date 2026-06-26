@@ -6,6 +6,7 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with RKM Foundation — by phone, WhatsApp, email, or a quick message.",
+  alternates: { canonical: "/contact", languages: { en: "/contact", hi: "/hi/contact", "x-default": "/contact" } },
 };
 
 export default function ContactPage() {
@@ -37,7 +38,7 @@ export default function ContactPage() {
                 { label: "Address", value: SITE.address, href: SITE.maps, external: true },
               ].map((row) => (
                 <div key={row.label} className="grid grid-cols-3 gap-4 border-b border-ink/12 py-5">
-                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/45">{row.label}</dt>
+                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/65">{row.label}</dt>
                   <dd className="col-span-2 text-ink/80">
                     {row.href ? (
                       <a href={row.href} {...(row.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="leading-relaxed hover:text-copper-dark">

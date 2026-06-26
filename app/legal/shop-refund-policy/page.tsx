@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Shop Refund & Cancellation Policy",
   description: "Orders, cancellations, returns, and replacements for purchases made through Shop for a Cause on the RKM Foundation website.",
+  alternates: { canonical: "/legal/shop-refund-policy", languages: { en: "/legal/shop-refund-policy", hi: "/hi/legal/shop-refund-policy", "x-default": "/legal/shop-refund-policy" } },
 };
 
 export default function ShopRefundPolicyPage() {

@@ -15,7 +15,11 @@ async function rest(path: string, init: RequestInit & { headers?: Record<string,
       ...init.headers,
     },
   });
-  if (!r.ok) throw new Error(`db ${path} ${r.status}: ${await r.text()}`);
+  if (!r.ok) {
+    // Log the verbose PostgREST body server-side only; never surface it in the thrown message.
+    console.error(`[db] ${path} ${r.status}: ${await r.text()}`);
+    throw new Error(`db-error ${r.status}`);
+  }
   const t = await r.text();
   return t ? JSON.parse(t) : null;
 }

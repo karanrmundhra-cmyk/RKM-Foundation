@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "80G / Tax Benefit Disclaimer",
   description: "General terms applicable to contributions made through the Donate section of the RKM Foundation website, including 80G tax treatment.",
+  alternates: { canonical: "/legal/80g-tax-disclaimer", languages: { en: "/legal/80g-tax-disclaimer", hi: "/hi/legal/80g-tax-disclaimer", "x-default": "/legal/80g-tax-disclaimer" } },
 };
 
 export default function TaxDisclaimerPage() {

@@ -146,7 +146,7 @@ export default function AboutHiPage() {
                   <div className="text-sm font-semibold tabular-nums text-copper-dark lg:col-span-1">0{i + 1}</div>
                   <div className="lg:col-span-4">
                     <h3 className="display-3 text-[1.4rem]">{r.title}</h3>
-                    <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark/80">{r.virtues}</p>
+                    <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-copper-dark">{r.virtues}</p>
                   </div>
                   <p className="leading-relaxed text-ink/65 lg:col-span-5">{r.desc}</p>
                   <div className="lg:col-span-2 lg:text-right">
@@ -166,7 +166,7 @@ export default function AboutHiPage() {
             <h2 className="display-2 mt-5 text-center text-balance">एक समुदाय जो परवाह करता है</h2>
           </Reveal>
           <Reveal>
-            <p className="mx-auto mt-4 max-w-xl text-center text-ink/55">पूरी कहानी और विशेषज्ञता पढ़ने के लिए किसी भी प्रोफ़ाइल पर टैप करें।</p>
+            <p className="mx-auto mt-4 max-w-xl text-center text-ink/65">पूरी कहानी और विशेषज्ञता पढ़ने के लिए किसी भी प्रोफ़ाइल पर टैप करें।</p>
             <TeamProfiles groups={HI_TEAM} expertiseLabel="विशेषज्ञता" />
           </Reveal>
         </div>
