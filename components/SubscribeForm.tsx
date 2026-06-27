@@ -24,13 +24,8 @@ export default function SubscribeForm() {
   return (
     <div>
       <h3 className="text-lg font-semibold">
-        {hi ? "देखिए इस महीने आपने किसकी मदद की।" : "See who you helped this month."}
+        {hi ? "आशा से जुड़ें।" : "Subscribe to hope."}
       </h3>
-      <p className="mt-1 text-sm text-ink/60">
-        {hi
-          ? "मैदान से असली तस्वीरें और छोटी कहानियाँ — बचाव, स्वस्थ होना, और घर वापसी। कभी कोई स्पैम नहीं।"
-          : "Real photos and short stories from the field — the rescues, the recoveries, the homecomings. No spam, ever."}
-      </p>
       <form onSubmit={submit} className="mt-4 flex max-w-md gap-2">
         <label className="sr-only" htmlFor="footer-email">{hi ? "ईमेल पता" : "Email Address"}</label>
         <input id="footer-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)}

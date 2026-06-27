@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-ink/10 bg-snow" style={hi ? { fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' } : undefined}>
-      <div className="container-c py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-[84rem] px-5 sm:px-8 lg:px-12 py-16 sm:py-20">
         {/* Editorial closing masthead — a confident statement + the two actions */}
         <div className="grid gap-10 border-b border-ink/10 pb-14 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-7">
@@ -31,7 +31,6 @@ export default function Footer() {
             <p className="display-2 mt-5 max-w-[15ch] text-balance">
               {hi ? "वह बनें जो साथ खड़ा होता है।" : "Be the someone who shows up."}
             </p>
-            <a href={`${donate}#donation`} className="btn-copper mt-8">{hi ? "अभी दान करें" : "Donate Now"}</a>
           </div>
           <div className="lg:col-span-5">
             <SubscribeForm />
@@ -40,7 +39,7 @@ export default function Footer() {
 
         {/* Footer columns — single row on desktop:
             Identity | Contact | Quick Links | Downloads | Scan to Give */}
-        <div className="mt-14 grid gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-[1.5fr_1.1fr_0.9fr_1.2fr_auto]">
+        <div className="mt-14 grid gap-y-12 gap-x-10 lg:gap-x-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_1.1fr_0.9fr_1.2fr_auto]">
           {/* 1 — Organisation identity & social */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5">
@@ -74,7 +73,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider">{hi ? "संपर्क करें" : "Contact Us"}</h4>
             <ul className="mt-4 space-y-3 text-sm text-ink/70">
-              <li>{hi ? "सोमवार से शुक्रवार | सुबह 10:00 – शाम 6:00" : SITE.hours}</li>
+              <li className="whitespace-nowrap">{hi ? "सोम–शुक्र · सुबह 10 – शाम 6" : "Mon–Fri · 10 AM – 6 PM"}</li>
               <li>
                 <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-copper-dark">
                   <svg className="shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/></svg>
