@@ -2,11 +2,10 @@ import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 
 /**
- * Section 3 — WHAT WE DO. V3 editorial rebuild.
- * From a 4-card grid → numbered editorial rows ("01 — RESCUE"): an oversized
- * word, a short statement, and a parallax image, alternating sides for rhythm.
- * Content always renders visible (Reveal is enhancement only). Photography is
- * provisional — clearly-labelled placeholders until real field photos exist.
+ * Section 3 — WHAT WE DO.
+ * Four ways we show up — Rescue · Feed · Heal · Shelter — in a single row
+ * (4-column grid on desktop; 2 columns on tablet; stacked on mobile).
+ * Content always renders visible (Reveal is enhancement only).
  */
 
 const ROWS = [
@@ -25,34 +24,18 @@ export function WhatWeDo() {
           <h2 className="display-2 mt-5 xl:whitespace-nowrap">Four ways we show up for animals.</h2>
         </Reveal>
 
-        <div className="mt-10 sm:mt-14">
-          {ROWS.map((r, i) => {
-            const imageLeft = i % 2 === 1;
-            return (
-              <div
-                key={r.word}
-                className={`grid items-center gap-y-8 gap-x-14 border-t border-ink/[0.07] py-16 sm:py-24 ${imageLeft ? "lg:grid-cols-[13fr_11fr]" : "lg:grid-cols-[11fr_13fr]"} ${i === ROWS.length - 1 ? "border-b" : ""}`}
-              >
-                {/* Image */}
-                <Reveal
-                  delay={80}
-                  className={imageLeft ? "lg:order-1" : "lg:order-2"}
-                >
-                  <EditorialFigure src={r.src} alt={r.alt} ratio="aspect-[16/10]" parallax speed={0.07} ghost={`0${i + 1}`} />
-                </Reveal>
-
-                {/* Text */}
-                <Reveal className={imageLeft ? "lg:order-2 lg:pl-6" : "lg:order-1 lg:pr-6"}>
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-sm font-semibold tabular-nums text-copper-dark">0{i + 1}</span>
-                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/65">{r.label}</span>
-                  </div>
-                  <h3 className="editorial-word mt-3 text-ink">{r.word}</h3>
-                  <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/65">{r.desc}</p>
-                </Reveal>
+        <div className="mt-10 grid grid-cols-1 gap-x-7 gap-y-12 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
+          {ROWS.map((r, i) => (
+            <Reveal key={r.word} delay={i * 80} className="flex flex-col">
+              <EditorialFigure src={r.src} alt={r.alt} ratio="aspect-[4/5]" parallax speed={0.05} ghost={`0${i + 1}`} />
+              <div className="mt-5 flex items-baseline gap-3">
+                <span className="text-sm font-semibold tabular-nums text-copper-dark">0{i + 1}</span>
+                <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-ink/65">{r.label}</span>
               </div>
-            );
-          })}
+              <h3 className="mt-2 font-semibold leading-[0.95] tracking-[-0.02em] text-ink" style={{ fontSize: "clamp(1.85rem, 1.1rem + 1.6vw, 2.6rem)" }}>{r.word}</h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/65">{r.desc}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
