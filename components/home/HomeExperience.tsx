@@ -49,7 +49,7 @@ export function HomeExperience() {
 
       {/* 6. DONATE CTA */}
       <Reveal>
-        <CTABanner title="Be the reason one of them makes it." />
+        <CTABanner />
       </Reveal>
     </>
   );
