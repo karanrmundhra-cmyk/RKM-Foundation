@@ -23,10 +23,7 @@ export default function SubscribeForm() {
 
   return (
     <div>
-      <h3 className="text-lg font-semibold">
-        {hi ? "आशा से जुड़ें।" : "Subscribe to hope."}
-      </h3>
-      <form onSubmit={submit} className="mt-4 flex max-w-md gap-2">
+      <form onSubmit={submit} className="flex max-w-md gap-2">
         <label className="sr-only" htmlFor="footer-email">{hi ? "ईमेल पता" : "Email Address"}</label>
         <input id="footer-email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
           placeholder={hi ? "अपना ईमेल पता लिखें" : "Enter your email address"} className="input-c" />

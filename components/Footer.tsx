@@ -26,6 +26,12 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[84rem] px-5 sm:px-8 lg:px-12 py-16 sm:py-20">
         {/* Editorial closing masthead — a confident statement + the two actions */}
         <div className="grid gap-10 border-b border-ink/10 pb-14 lg:grid-cols-12 lg:items-end lg:gap-16">
+          <div className="lg:col-span-7">
+            <p className="eyebrow-index">RKM Foundation</p>
+            <p className="display-2 mt-5 max-w-[15ch] text-balance">
+              {hi ? "आशा से जुड़ें।" : "Subscribe to hope."}
+            </p>
+          </div>
           <div className="lg:col-span-5">
             <SubscribeForm />
           </div>
