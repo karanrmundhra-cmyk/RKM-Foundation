@@ -204,7 +204,7 @@ export default function DonateWidget() {
       {msg && <p className="mt-3 text-center text-sm text-red-600" aria-live="polite">{msg}</p>}
 
       <p className="mt-4 text-center text-[11px] font-medium tracking-wide text-ink/60">
-        {hi ? "UPI · GPay · PhonePe · कार्ड · नेटबैंकिंग — Razorpay द्वारा सुरक्षित" : "UPI · GPay · PhonePe · Cards · NetBanking — secured by Razorpay"}
+        {hi ? "कार्ड · नेटबैंकिंग — Razorpay द्वारा सुरक्षित" : "Cards · NetBanking — secured by Razorpay"}
       </p>
       <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5 text-[11px] text-ink/60 sm:grid-cols-4">
         <div className="flex items-center gap-1.5"><Check /> {hi ? "80G कर लाभ" : "80G tax benefits"}</div>
