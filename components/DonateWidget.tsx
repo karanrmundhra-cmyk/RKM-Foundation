@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { track, EV } from "@/lib/analytics";
+import { AllocationStrip } from "@/components/AllocationStrip";
 
 const AMOUNTS = [
   { v: 2500, label: "₹2,500", ctx: "Feeds a rescued animal for 2 weeks", ctxHi: "एक बचाए गए जानवर को 2 हफ़्ते खिलाता है" },
@@ -212,6 +213,7 @@ export default function DonateWidget() {
         <div className="flex items-center gap-1.5"><Check /> {hi ? "तुरंत रसीद" : "Instant receipt"}</div>
         <div className="flex items-center gap-1.5"><Check /> {hi ? "कभी भी रद्द करें" : "Cancel anytime"}</div>
       </div>
+      <AllocationStrip hi={hi} />
     </form>
   );
 }
