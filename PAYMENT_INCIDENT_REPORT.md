@@ -199,3 +199,42 @@ The current Chrome session is authenticated to **RKM Industries** (`karanrmundhr
 Switch the Chrome session to the **R.K.M. Foundation** Razorpay account (`info@rkm.support` / MID `EeNU1Q0XTW5U07`). Once active, the following will be re-run on the correct account: Payment Pages inventory + line-item config, and the full webhook list.
 
 **No production changes were made. Verification is paused pending the correct-account session.**
+
+
+---
+
+# PHASE 1 — DISCREPANCY INVESTIGATION (evidence from the currently logged-in account)
+
+Per instruction, the "wrong account" hypothesis was discarded and Phase 1 was restarted on the **currently logged-in account**, investigating the empty-list-vs-live-pages discrepancy with evidence rather than assumption.
+
+## C-7. Identity of the current account — VERIFIED (Account & Settings)
+- Business: **RKM Industries** · Merchant ID **`OVHHxmCeRSVYiQ`** · login **`karanrmundhra@gmail.com`** · razorpay.me/@rkmindustries.
+
+## C-8. The discrepancy is NOT a filter/archive/UI bug — VERIFIED from Razorpay's own Transactions
+On this account, Razorpay's dashboard shows:
+- **Overview → Collected Amount: ₹0.00 from 0 captured payments** (range 25 Jun – 2 Jul 2026).
+- **Transactions → Payments: "Showing 1-0 Items"** (zero payments), Refunds ₹0, Disputes ₹0, Failed 0.
+- **Search for `pay_T8YKpHW7AuTSVj`** (the ₹2,000 charge from the receipt) → **"The id provided does not exist."**
+- **Payment Pages: empty** on the All / Active / Inactive tabs (Status: All).
+
+Interpretation: this account genuinely has **no payment activity and no payment pages**. The empty list matches reality for this account; it is not hidden data.
+
+## C-9. Where the donation flow actually lives — VERIFIED by cross-account evidence
+The ₹2,000 charge, the receipt ("R.K.M. Foundation", PAN **AACTR4271L**), and the two Payment Pages belong to a **different** Razorpay merchant account:
+- **R.K.M. Foundation** · Merchant ID **`EeNU1Q0XTW5U07`** — observed earlier this session with **~₹4.55K weekly earnings**, the **two Payment Pages** (animal-welfare, RKM-Foundation), UPI "Rejected", login **`info@rkm.support`**.
+
+This is **evidence-based, not assumed**: two distinct Merchant IDs read from Razorpay's own Account & Settings — one (`OVHHxmCeRSVYiQ`) with zero activity, one (`EeNU1Q0XTW5U07`) with all the donation activity and the pages. The `pay_T8YKpHW7AuTSVj` "does not exist" result on the current account is direct proof the transaction was processed elsewhere.
+
+## C-10. Consequence for the report
+- Any conclusion that assumed the current account owns the donation flow is **not supported** — this account has no donations.
+- The **webhook** and **Payment Pages** verification for the donation flow must be performed on **`EeNU1Q0XTW5U07`** to be valid. Current status on that account: **CANNOT VERIFY** from this session (it is not the logged-in account and I do not log in).
+
+## C-11. Account-independent facts that REMAIN VERIFIED
+- Footer QR (`public/images/site/qr.png`) → decodes to `https://pages.razorpay.com/RKM-Foundation` (two decoders).
+- ₹2,000 double-charge receipt (`pay_T8YKpHW7AuTSVj`, two ₹1,000 line items) + Axis Bank ₹2,000 debit + Razorpay "Payment successful" ₹2000 email.
+- Code refs: `components/Footer.tsx:124` (QR image), `components/DonateWidget.tsx:137` (animal-welfare button).
+
+## C-12. To complete Phase 1 (needs your input, no assumption)
+Confirm how to reach the account that owns the donations (`EeNU1Q0XTW5U07`): either switch to it (if `karanrmundhra@gmail.com` has access to it), or log the browser into `info@rkm.support`. If you believe the flow *should* be on `OVHHxmCeRSVYiQ`, that is contradicted by Razorpay's own data above (₹0, 0 payments, id-not-found) — please advise and I will re-verify against whatever you point me to.
+
+**No production changes were made during this investigation.**
