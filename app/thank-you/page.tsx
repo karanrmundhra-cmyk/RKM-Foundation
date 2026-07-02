@@ -39,7 +39,7 @@ export default function ThankYou() {
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://wa.me/?text=RKM%20Foundation%20rescues%2C%20feeds%2C%20heals%20and%20shelters%20animals%20in%20need%20across%20India.%20Join%20the%20mission%3A%20https%3A%2F%2Frkm.support"
+              href="https://wa.me/?text=RKM%20Foundation%20rescues%2C%20feeds%2C%20heals%20and%20shelters%20animals%20in%20need%20across%20India.%20Join%20the%20mission%3A%20https%3A%2F%2Frkmfoundation.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Share the RKM Foundation mission on WhatsApp"
@@ -49,7 +49,7 @@ export default function ThankYou() {
               Share on WhatsApp
             </a>
             <a
-              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frkm.support"
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frkmfoundation.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Share the RKM Foundation mission on Facebook"
