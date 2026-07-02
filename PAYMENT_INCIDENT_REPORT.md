@@ -166,3 +166,36 @@ Supabase state signal (Gmail, 24 Jun 2026, `ant.wilson@supabase.com`): "Your Sup
 
 - Read-only inspection only: repo/code reads, QR decode, PDF text extraction, Gmail read, Razorpay dashboard views, live-page views.
 - **No** production changes: no page deactivated, no webhook added/edited, no env var changed, no code deployed for this report, no refund/transfer initiated.
+
+
+---
+
+# PHASE 1 VERIFICATION LOG — CRITICAL CORRECTION (2 July 2026, continued)
+
+## C-1. The dashboard was on the WRONG Razorpay account during recent checks — VERIFIED
+Re-verification revealed (via the account switcher and Account & Settings) that the active dashboard account is:
+- **"RKM INDUSTRIES" — Merchant ID `OVHHxmCeRSVYiQ` — login `karanrmundhra@gmail.com` — razorpay.me/@rkmindustries.**
+
+This is a **different account** from the one that owns the donation flow:
+- **"R.K.M. Foundation" — Merchant ID `EeNU1Q0XTW5U07` — login `info@rkm.support`** (observed earlier this session; owns the Payment Pages, PAN AACTR4271L, where UPI was "Rejected").
+
+## C-2. Findings now INVALIDATED (they were read on RKM Industries, not the Foundation)
+- ~~"Only one webhook registered — Zoho Invoice; website `/api/razorpay-webhook` not registered."~~ The Zoho webhook (`invoice.zoho.in/…`, Enabled) belongs to **RKM Industries**. The **Foundation's** webhook configuration is **UNVERIFIED on the correct account** in this round.
+- ~~"There are no payment pages."~~ That empty list is **RKM Industries** (which legitimately has none). The **Foundation's** pages exist (seen earlier this session; both page URLs also serve a live form when opened directly).
+
+## C-3. Corrected picture of the Foundation webhook (from earlier evidence)
+A webhook screenshot shared earlier in this engagement (Foundation account) showed the website webhook **`https://rkmfoundation.com/api/razorpay-webhook`** as **registered but DISABLED** (22 events, updated 23 Jun 2026). So the accurate statement is **"registered-but-disabled (as of 23 Jun); current status unconfirmed on the correct account,"** NOT "not registered." The Zoho webhook is unrelated to the Foundation's donation flow and must be removed from the Foundation analysis.
+
+## C-4. Findings that REMAIN VALID (account-independent)
+- Footer QR image (`public/images/site/qr.png`) decodes to `https://pages.razorpay.com/RKM-Foundation` — two independent decoders. **VERIFIED.**
+- The ₹2,000 double-charge receipt (`pay_T8YKpHW7AuTSVj`, two ₹1,000 line items) + Axis Bank ₹2,000 debit. **VERIFIED.**
+- Production code references: `components/Footer.tsx:124` (QR image) and `components/DonateWidget.tsx:137` (animal-welfare button). **VERIFIED.**
+These do not depend on which dashboard account was viewed.
+
+## C-5. CANNOT VERIFY in the current environment
+The current Chrome session is authenticated to **RKM Industries** (`karanrmundhra@gmail.com`), which shows no access to the Foundation account. I cannot log in (prohibited). Therefore I **cannot verify the Foundation account's Payment Pages configuration or webhook status** until the Chrome session is on the **R.K.M. Foundation** account (`info@rkm.support` / MID `EeNU1Q0XTW5U07`).
+
+## C-6. Action required before Phase 1 can complete
+Switch the Chrome session to the **R.K.M. Foundation** Razorpay account (`info@rkm.support` / MID `EeNU1Q0XTW5U07`). Once active, the following will be re-run on the correct account: Payment Pages inventory + line-item config, and the full webhook list.
+
+**No production changes were made. Verification is paused pending the correct-account session.**
