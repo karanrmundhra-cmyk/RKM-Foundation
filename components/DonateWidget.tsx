@@ -133,6 +133,16 @@ export default function DonateWidget() {
 
   return (
     <form onSubmit={donate} className="card p-6 sm:p-8" style={hi ? { fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' } : undefined}>
+      {/* UPI works on our Razorpay-hosted page (account UPI is enabled there, not on the custom checkout). */}
+      <a href="https://pages.razorpay.com/animal-welfare" target="_blank" rel="noopener noreferrer"
+        className="mb-5 flex items-center justify-between gap-3 rounded-2xl bg-copper px-5 py-4 text-white transition hover:bg-copper-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-2">
+        <span className="text-sm font-semibold leading-snug">
+          {hi ? "UPI · Google Pay · PhonePe से दान करें" : "Pay by UPI, Google Pay or PhonePe"}
+          <span className="mt-0.5 block text-[11px] font-normal text-white/85">{hi ? "हमारे सुरक्षित Razorpay पेज पर खुलता है" : "Opens our secure Razorpay page"}</span>
+        </span>
+        <span aria-hidden className="shrink-0 text-xl">&rarr;</span>
+      </a>
+      <p className="mb-4 text-center text-[11px] text-ink/50">{hi ? "या नीचे कार्ड से दें" : "Or pay by card below"}</p>
       <div className="grid grid-cols-2 gap-2 rounded-full bg-snow p-1.5 ring-1 ring-ink/10" role="radiogroup" aria-label={hi ? "दान आवृत्ति" : "Donation frequency"}>
         {(["one-time", "monthly"] as const).map((f) => (
           <button key={f} type="button" onClick={() => { setFreq(f); track(EV.frequencySelected, { frequency: f }); }} role="radio" aria-checked={freq === f}
