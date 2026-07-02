@@ -238,3 +238,34 @@ This is **evidence-based, not assumed**: two distinct Merchant IDs read from Raz
 Confirm how to reach the account that owns the donations (`EeNU1Q0XTW5U07`): either switch to it (if `karanrmundhra@gmail.com` has access to it), or log the browser into `info@rkm.support`. If you believe the flow *should* be on `OVHHxmCeRSVYiQ`, that is contradicted by Razorpay's own data above (₹0, 0 payments, id-not-found) — please advise and I will re-verify against whatever you point me to.
 
 **No production changes were made during this investigation.**
+
+
+---
+
+# WHICH RAZORPAY ACCOUNT IS THE LIVE PRODUCTION WEBSITE CONNECTED TO? (Key-ID evidence)
+
+Objective: answer this one question using verifiable evidence only (the live Key ID), not email addresses or business names.
+
+## P-1. Live production Razorpay Key ID — VERIFIED
+Captured from the **live site** (`rkmfoundation.com/donate-now`) by starting a one-time donation (a Razorpay **order** was created for evidence; **no charge**, no config change) and reading Razorpay Checkout's own network telemetry:
+- `https://lumberjack.razorpay.com/v1/track?key_id=rzp_live_T1Ut1RkbTpASjF` (POST, 200) — twice. Checkout.js reports the `key_id` it was initialized with.
+- Per the code, the site's **card checkout and subscriptions** initialize `new Razorpay({ key: d.keyId })`, where `keyId` is returned by `/api/donate` (server value `NEXT_PUBLIC_RAZORPAY_KEY_ID`). **UPI** is handled by the hosted Payment Pages, which belong to whichever account owns this key.
+- **Production live Key ID = `rzp_live_T1Ut1RkbTpASjF`.** [VERIFIED]
+
+## P-2. The currently logged-in account has NO live API keys — VERIFIED (dashboard)
+Current account: **RKM Industries, MID `OVHHxmCeRSVYiQ`** → Account & Settings → **Websites & API keys**:
+- "API keys & integration — … You will be able to generate API keys once your website is approved."
+- The **"Generate Key" button is disabled**; **no live Key ID is present** on the page.
+- "When can I generate API keys? … after your website is approved."
+→ This account has generated **no live API keys**. Therefore `rzp_live_T1Ut1RkbTpASjF` **cannot** have been issued by it.
+
+## P-3. Conclusion — VERIFIED by Key-ID mismatch
+**The live production website is NOT connected to the currently logged-in account (`OVHHxmCeRSVYiQ` / RKM Industries).** Its live key `rzp_live_T1Ut1RkbTpASjF` was issued by a **different** Razorpay account. (This is based on the Key ID, not on names/emails.)
+
+## P-4. Which account owns `rzp_live_T1Ut1RkbTpASjF` — CANNOT VERIFY from this session
+Conclusively identifying the owning account requires logging into that account's dashboard and confirming its live Key ID equals `rzp_live_T1Ut1RkbTpASjF`. That account is not the one currently signed in, and I do not log in. Prior independent evidence (payments, the two Payment Pages, the receipt) all sits on **MID `EeNU1Q0XTW5U07` ("R.K.M. Foundation")**, which makes it the strong candidate — but this is **not yet confirmed by a Key-ID match**, so it remains a candidate, not a verified fact.
+
+## P-5. Additional access required for a conclusive answer
+Log the browser into the Razorpay account that generated `rzp_live_T1Ut1RkbTpASjF` (candidate: MID `EeNU1Q0XTW5U07`) → Account & Settings → Websites & API keys → confirm the displayed live Key ID is `rzp_live_T1Ut1RkbTpASjF`. That single comparison conclusively identifies the production account.
+
+**No production changes were made. A Razorpay order was created during Key-ID capture (no money moved); it will expire unpaid.**
