@@ -122,7 +122,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider">{hi ? "स्कैन करके दें" : "Scan to Give"}</h4>
             <Link href={donate} className="mt-4 block w-fit">
-              <Image src="/images/site/qr.png" alt="QR code to donate to RKM Foundation" width={140} height={140} className="h-36 w-36 rounded-xl ring-1 ring-ink/10" />
+              <Image src="/images/site/qr-donate.png" alt="QR code to donate to RKM Foundation" width={140} height={140} className="h-36 w-36 rounded-xl ring-1 ring-ink/10" />
             </Link>
             <Link href={donate} className="link-secondary mt-3 inline-block text-sm">{hi ? "अभी दान करें" : "Donate Now"}</Link>
           </div>
