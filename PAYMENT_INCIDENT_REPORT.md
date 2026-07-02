@@ -269,3 +269,31 @@ Conclusively identifying the owning account requires logging into that account's
 Log the browser into the Razorpay account that generated `rzp_live_T1Ut1RkbTpASjF` (candidate: MID `EeNU1Q0XTW5U07`) → Account & Settings → Websites & API keys → confirm the displayed live Key ID is `rzp_live_T1Ut1RkbTpASjF`. That single comparison conclusively identifies the production account.
 
 **No production changes were made. A Razorpay order was created during Key-ID capture (no money moved); it will expire unpaid.**
+
+
+---
+
+# RULE-OUT: is the missing production key a mode / permission / profile / approval issue? (evidence)
+
+Before recommending any login switch, the alternative explanations were checked on the current account (**RKM Industries**, MID `OVHHxmCeRSVYiQ`, login `karanrmundhra@gmail.com`, role **Owner**):
+
+| Possibility | Evidence observed | Verdict |
+|---|---|---|
+| **Test vs Live mode** | Dashboard is in **LIVE** mode (Test Mode toggle OFF; profile menu offers "Enable Test Mode"). The **live** API-keys page shows no key. | Not the cause |
+| **Team-member permissions** | Profile menu shows this login as **Owner** of the account. Owners have full visibility. | Not the cause |
+| **Business profile / multiple businesses under one login** | Profile menu lists exactly **one** business (RKM Industries, `OVHHxmCeRSVYiQ`). **No account switcher, no second business.** | Not the cause |
+| **Account approval state** | Dashboard shows **"Complete your KYC to complete re-submission"** (progress step **1 of 3** — not yet Under Review / Completed) → account **not activated**. Websites & API keys: *"generate API keys once your website is approved"*, **Generate disabled**. Settlements: none; balance ₹0. | This is **why** there is no live key here — an unactivated account cannot hold a live key. Confirms this account is **not** the production account. |
+| **Product-specific access** | Owner of an unactivated account with ₹0 balance, 0 settlements, 0 payments, 0 pages, 0 API keys. No hidden data behind a product gate. | Not the cause |
+
+## Conclusion — VERIFIED (alternatives ruled out)
+- `rzp_live_T1Ut1RkbTpASjF` is a **live** key, which requires a **fully-activated** merchant account.
+- The currently logged-in account is a **single, owner-level, live-mode, KYC-incomplete (unactivated)** account with **zero activity and no live keys** — it **cannot** own that key.
+- Therefore `rzp_live_T1Ut1RkbTpASjF` belongs to a **different Razorpay merchant account, under a different login** (no switcher exists from this login to reach it).
+
+## Which account you need to open
+Log into the account whose **Account & Settings → Websites & API keys** displays **`rzp_live_T1Ut1RkbTpASjF`**. Strongest candidate from prior independent evidence (payments totalling ~₹4.55K, the two Payment Pages, the ₹2,000 receipt) — **to be confirmed by the key match**:
+- Login: **`info@rkm.support`** · MID: **`EeNU1Q0XTW5U07`** ("R.K.M. Foundation").
+
+Confirmation test: on that account, the live Key ID should read `rzp_live_T1Ut1RkbTpASjF`. If it matches → that is the production account, conclusively. If it does not → keep the key as the anchor and check the next account.
+
+**No production changes made.**
