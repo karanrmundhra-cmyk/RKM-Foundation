@@ -6,7 +6,7 @@ import EditorialFigure from "@/components/EditorialFigure";
 export const metadata: Metadata = {
   title: "वह कुत्ता जिससे सब शुरू हुआ",
   description: "टोबलर नाम के एक पग ने हमें दिखाया कि बिना शर्त प्यार का असली मतलब क्या है। उसी प्यार ने आख़िरकार RKM फाउंडेशन की रचना को प्रेरित किया।",
-  alternates: { canonical: "/hi/blog/the-dog-who-started-it-all" },
+  alternates: { canonical: "/hi/blog/the-dog-who-started-it-all", languages: { en: "/blog/the-dog-who-started-it-all", hi: "/hi/blog/the-dog-who-started-it-all", "x-default": "/blog/the-dog-who-started-it-all" } },
 };
 
 function H2({ children }: { children: React.ReactNode }) {

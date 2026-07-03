@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "वेबसाइट अस्वीकरण एवं कुकी नीति",
   description: "RKM फाउंडेशन वेबसाइट के लिए सामान्य अस्वीकरण और हम कुकीज़ व ट्रैकिंग तकनीकों का उपयोग कैसे करते हैं।",
-  alternates: { canonical: "/hi/legal/website-disclaimer-cookie-policy" },
+  alternates: { canonical: "/hi/legal/website-disclaimer-cookie-policy", languages: { en: "/legal/website-disclaimer-cookie-policy", hi: "/hi/legal/website-disclaimer-cookie-policy", "x-default": "/legal/website-disclaimer-cookie-policy" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

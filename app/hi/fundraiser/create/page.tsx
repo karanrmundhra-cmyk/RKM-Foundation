@@ -5,7 +5,7 @@ import FormShell from "@/components/FormShell";
 export const metadata: Metadata = {
   title: "अपना फंडरेज़र बनाएँ",
   description: "बचाए गए जानवरों को भोजन, चिकित्सा देखभाल और सुरक्षित आश्रय दिलाने के लिए एक फंडरेज़र शुरू करें।",
-  alternates: { canonical: "/hi/fundraiser/create" },
+  alternates: { canonical: "/hi/fundraiser/create", languages: { en: "/fundraiser/create", hi: "/hi/fundraiser/create", "x-default": "/fundraiser/create" } },
 };
 
 const FIELDS = [

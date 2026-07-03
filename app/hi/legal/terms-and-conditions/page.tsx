@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "नियम एवं शर्तें",
   description: "वे शर्तें जो तब लागू होती हैं जब आप RKM फाउंडेशन वेबसाइट का उपयोग करते हैं, दान करते हैं, फंडरेज़ करते हैं, स्वयंसेवा करते हैं, या खरीदारी करते हैं।",
-  alternates: { canonical: "/hi/legal/terms-and-conditions" },
+  alternates: { canonical: "/hi/legal/terms-and-conditions", languages: { en: "/legal/terms-and-conditions", hi: "/hi/legal/terms-and-conditions", "x-default": "/legal/terms-and-conditions" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

@@ -8,7 +8,8 @@ export async function POST(req: NextRequest) {
   try {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "?";
     if (!throttle(`compliance:${ip}`, 6)) return NextResponse.json({ error: "Too many attempts." }, { status: 429 });
-    const b = await req.json();
+    let b: Record<string, unknown>;
+    try { b = await req.json(); } catch { return NextResponse.json({ error: "Invalid request body." }, { status: 400 }); }
     const v = validate(b, {
       email: { required: true, email: true }, pan: { required: true, max: 10 },
       name_as_per_pan: { required: true, max: 120 }, address_line: { max: 300 },

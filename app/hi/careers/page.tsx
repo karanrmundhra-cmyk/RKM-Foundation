@@ -5,7 +5,7 @@ import FormShell from "@/components/FormShell";
 export const metadata: Metadata = {
   title: "करियर",
   description: "पशु बचाव के काम में जुड़ना चाहते हैं? अपना विवरण साझा करें और सही भूमिका खुलने पर हम आपसे संपर्क करेंगे।",
-  alternates: { canonical: "/hi/careers" },
+  alternates: { canonical: "/hi/careers", languages: { en: "/careers", hi: "/hi/careers", "x-default": "/careers" } },
 };
 
 const REALITIES = [

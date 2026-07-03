@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "फंडरेज़र",
   description: "अपने जन्मदिन, सालगिरह या फिटनेस चुनौती को बचाए गए जानवरों के लिए भोजन, इलाज और आश्रय में बदलें।",
-  alternates: { canonical: "/hi/fundraiser" },
+  alternates: { canonical: "/hi/fundraiser", languages: { en: "/fundraiser", hi: "/hi/fundraiser", "x-default": "/fundraiser" } },
 };
 
 const STEPS = [

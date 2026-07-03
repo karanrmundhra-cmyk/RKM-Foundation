@@ -6,7 +6,7 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "संपर्क करें",
   description: "RKM फाउंडेशन से संपर्क करें — फ़ोन, व्हाट्सऐप, ईमेल, या एक छोटे संदेश के ज़रिए।",
-  alternates: { canonical: "/hi/contact" },
+  alternates: { canonical: "/hi/contact", languages: { en: "/contact", hi: "/hi/contact", "x-default": "/contact" } },
 };
 
 export default function ContactHiPage() {

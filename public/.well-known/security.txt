@@ -1,0 +1,4 @@
+Contact: mailto:info@rkm.support
+Expires: 2027-07-04T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://rkmfoundation.com/.well-known/security.txt

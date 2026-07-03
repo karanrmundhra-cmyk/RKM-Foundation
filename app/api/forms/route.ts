@@ -21,7 +21,8 @@ export async function POST(req: NextRequest) {
     if (!throttle(`forms:${ip}`, 8)) {
       return NextResponse.json({ error: "Too many submissions. Please wait a minute." }, { status: 429 });
     }
-    const body = await req.json();
+    let body: any;
+    try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid request body." }, { status: 400 }); }
     const { formType, _ts, website } = body ?? {};
     const schema = SCHEMAS[formType as string];
     if (!schema) return NextResponse.json({ error: "Invalid request" }, { status: 400 });

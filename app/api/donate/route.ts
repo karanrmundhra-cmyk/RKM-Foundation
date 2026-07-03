@@ -9,7 +9,9 @@ export async function POST(req: NextRequest) {
     if (!throttle(`donate:${ip}`, 10)) {
       return NextResponse.json({ error: "Too many attempts. Please wait a minute." }, { status: 429 });
     }
-    const { amount, frequency, name, email } = await req.json();
+    let parsed: unknown;
+    try { parsed = await req.json(); } catch { return NextResponse.json({ error: "Invalid request body." }, { status: 400 }); }
+    const { amount, frequency, name, email } = (parsed ?? {}) as Record<string, unknown>;
     const amt = Math.round(Number(amount));
     if (!amt || amt < 1000 || amt > 10000000) {
       return NextResponse.json({ error: "Donation must be between ₹1,000 and ₹1,00,00,000." }, { status: 400 });

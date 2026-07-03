@@ -8,7 +8,7 @@ import CountUp from "@/components/CountUp";
 export const metadata: Metadata = {
   title: "दान करें",
   description: "आपकी उदारता बचाए गए जानवरों के लिए देखभाल को सार्थक कार्य में बदलती है। 80G कर लाभ, तुरंत रसीद, पूरी पारदर्शिता।",
-  alternates: { canonical: "/hi/donate-now" },
+  alternates: { canonical: "/hi/donate-now", languages: { en: "/donate-now", hi: "/hi/donate-now", "x-default": "/donate-now" } },
 };
 
 const GIFTS = [
