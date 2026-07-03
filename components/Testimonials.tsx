@@ -14,7 +14,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <figure key={t.name} className="card w-[85%] max-w-sm shrink-0 snap-center p-6 sm:w-[45%] lg:w-[31%]">
               <svg width="26" height="26" viewBox="0 0 24 24" className="text-copper" fill="currentColor" aria-hidden><path d="M10 7H6a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-7Zm11 0h-4a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-7Z" opacity=".25"/><path d="M9 6H5.8A2.8 2.8 0 0 0 3 8.8v3.4A2.8 2.8 0 0 0 5.8 15H7v1.5A2.5 2.5 0 0 1 4.5 19H4v2h.5A4.5 4.5 0 0 0 9 16.5V6Zm11 0h-3.2A2.8 2.8 0 0 0 14 8.8v3.4a2.8 2.8 0 0 0 2.8 2.8H18v1.5a2.5 2.5 0 0 1-2.5 2.5H15v2h.5a4.5 4.5 0 0 0 4.5-4.5V6Z"/></svg>
-              <blockquote className="mt-4 text-sm leading-relaxed text-ink/80">"{t.quote}"</blockquote>
+              <blockquote className="mt-4 text-sm leading-relaxed text-ink/80">&quot;{t.quote}&quot;</blockquote>
               <figcaption className="mt-5 flex items-center gap-3">
                 <Image src={t.img} alt={t.name} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                 <div>

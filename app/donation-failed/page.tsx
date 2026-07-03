@@ -9,8 +9,8 @@ export default function DonationFailed() {
       <div className="container-c max-w-xl">
         <h1 className="display-2 text-balance">Your donation could not be completed.</h1>
         <p className="mt-5 leading-relaxed text-ink/70">
-          Don't worry — no amount has been deducted, or it will be automatically refunded by your
-          bank within a few business days. You can try again, or reach us and we'll help right away.
+          Don&apos;t worry — no amount has been deducted, or it will be automatically refunded by your
+          bank within a few business days. You can try again, or reach us and we&apos;ll help right away.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link href="/donate-now#donation" className="btn-copper">Try Again</Link>

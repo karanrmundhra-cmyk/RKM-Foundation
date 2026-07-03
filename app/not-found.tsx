@@ -7,7 +7,7 @@ export default function NotFound() {
         <p className="eyebrow">404</p>
         <h1 className="h-display mt-4 text-4xl sm:text-5xl lg:text-6xl">Page Not Found</h1>
         <p className="mt-5 text-ink/70">
-          The page you're looking for may have been moved, renamed, or no longer exists.
+          The page you&apos;re looking for may have been moved, renamed, or no longer exists.
           <br />
           <span className="font-medium text-ink">But the mission continues.</span>
         </p>
