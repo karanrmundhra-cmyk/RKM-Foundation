@@ -7,6 +7,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Stories of hope from RKM Foundation — rescues, recoveries, and the people who make them possible.",
+  alternates: { canonical: "/blog", languages: { en: "/blog", hi: "/hi/blog", "x-default": "/blog" } },
 };
 
 export default function BlogPage() {

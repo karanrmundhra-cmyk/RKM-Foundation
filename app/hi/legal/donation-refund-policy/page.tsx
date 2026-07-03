@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "दान रिफंड एवं रद्दीकरण नीति",
   description: "RKM फाउंडेशन वेबसाइट के माध्यम से किए गए दान के लिए रिफंड और रद्दीकरण कैसे संभाले जाते हैं।",
-  alternates: { canonical: "/hi/legal/donation-refund-policy" },
+  alternates: { canonical: "/hi/legal/donation-refund-policy", languages: { en: "/legal/donation-refund-policy", hi: "/hi/legal/donation-refund-policy", "x-default": "/legal/donation-refund-policy" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

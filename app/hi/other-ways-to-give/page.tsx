@@ -6,7 +6,7 @@ import FormShell from "@/components/FormShell";
 export const metadata: Metadata = {
   title: "देने के अन्य तरीके",
   description: "स्वयंसेवा करें, सामग्री दान करें, अपने कौशल साझा करें, या इस उद्देश्य को आगे बढ़ाएँ — जो तरीका आपको सही लगे, उससे RKM फाउंडेशन का साथ दें।",
-  alternates: { canonical: "/hi/other-ways-to-give" },
+  alternates: { canonical: "/hi/other-ways-to-give", languages: { en: "/other-ways-to-give", hi: "/hi/other-ways-to-give", "x-default": "/other-ways-to-give" } },
 };
 
 const HELPERS = [

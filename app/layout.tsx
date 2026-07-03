@@ -37,8 +37,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const nonce = headers().get("x-nonce") ?? undefined;
+  const pathname = headers().get("x-pathname") ?? "";
+  const lang = pathname === "/hi" || pathname.startsWith("/hi/") ? "hi" : "en";
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         {/* Fonts are self-hosted via @fontsource (see imports above) — no Google Fonts CDN. */}
         <link rel="icon" href="/logo-128.png" />

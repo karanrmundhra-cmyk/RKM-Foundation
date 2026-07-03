@@ -7,7 +7,7 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "मीडिया",
   description: "हर RKM फाउंडेशन बचाव के पीछे के दानदाता, स्वयंसेवक, पशु-चिकित्सक और पड़ोसी — उनके अपने शब्दों में।",
-  alternates: { canonical: "/hi/media" },
+  alternates: { canonical: "/hi/media", languages: { en: "/media", hi: "/hi/media", "x-default": "/media" } },
 };
 
 const TESTIMONIALS = [

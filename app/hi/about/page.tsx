@@ -7,7 +7,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 export const metadata: Metadata = {
   title: "हमारे बारे में",
   description: "RKM फाउंडेशन भारत में एक पशु-कल्याण धर्मार्थ ट्रस्ट है। एक परिवार जिसने घर पर जानवरों की मदद करनी शुरू की, और करता रहा।",
-  alternates: { canonical: "/hi/about" },
+  alternates: { canonical: "/hi/about", languages: { en: "/about", hi: "/hi/about", "x-default": "/about" } },
 };
 
 const VALUES = [

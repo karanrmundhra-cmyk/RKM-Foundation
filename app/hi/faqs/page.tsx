@@ -6,7 +6,7 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "अक्सर पूछे जाने वाले प्रश्न",
   description: "RKM फाउंडेशन के बारे में अक्सर पूछे जाने वाले प्रश्न — दान, कर लाभ, फंडरेज़र, और Shop for a Cause।",
-  alternates: { canonical: "/hi/faqs" },
+  alternates: { canonical: "/hi/faqs", languages: { en: "/faqs", hi: "/hi/faqs", "x-default": "/faqs" } },
 };
 
 const FAQS_GENERAL = [

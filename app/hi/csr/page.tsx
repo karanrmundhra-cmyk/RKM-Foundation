@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "CSR साझेदारी",
   description:
     "RKM फाउंडेशन के साथ साझेदारी करें — एक CSR-1 पंजीकृत कार्यान्वयन साझेदार (80G | 12A) जो ऐसे पशु-कल्याण कार्यक्रम चलाता है जिन्हें आप देख और सत्यापित कर सकते हैं।",
-  alternates: { canonical: "/hi/csr" },
+  alternates: { canonical: "/hi/csr", languages: { en: "/csr", hi: "/hi/csr", "x-default": "/csr" } },
 };
 
 const WHY = [
