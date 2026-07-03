@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "80G / कर लाभ अस्वीकरण",
   description: "RKM फाउंडेशन वेबसाइट के दान अनुभाग के माध्यम से किए गए योगदान पर लागू सामान्य शर्तें, जिनमें 80G कर उपचार शामिल है।",
-  alternates: { canonical: "/hi/legal/80g-tax-disclaimer" },
+  alternates: { canonical: "/hi/legal/80g-tax-disclaimer", languages: { en: "/legal/80g-tax-disclaimer", hi: "/hi/legal/80g-tax-disclaimer", "x-default": "/legal/80g-tax-disclaimer" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

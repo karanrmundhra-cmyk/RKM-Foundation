@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "कानूनी एवं अभिशासन",
   description:
     "RKM फाउंडेशन की कानूनी स्थिति, अभिशासन संरचना, और वे नीतियाँ जो यह मार्गदर्शन करती हैं कि फाउंडेशन कैसे संचालित होता है और चैरिटी संसाधनों का प्रबंधन करता है।",
-  alternates: { canonical: "/hi/legal" },
+  alternates: { canonical: "/hi/legal", languages: { en: "/legal", hi: "/hi/legal", "x-default": "/legal" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

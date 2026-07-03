@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "गोपनीयता नीति",
   description: "RKM फाउंडेशन आपकी व्यक्तिगत जानकारी कैसे एकत्र, उपयोग, संग्रहित और सुरक्षित रखता है।",
-  alternates: { canonical: "/hi/legal/privacy-policy" },
+  alternates: { canonical: "/hi/legal/privacy-policy", languages: { en: "/legal/privacy-policy", hi: "/hi/legal/privacy-policy", "x-default": "/legal/privacy-policy" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "शॉप रिफंड एवं रद्दीकरण नीति",
   description: "RKM फाउंडेशन वेबसाइट पर “एक उद्देश्य के लिए खरीदें” के माध्यम से की गई खरीद के लिए ऑर्डर, रद्दीकरण, वापसी और प्रतिस्थापन।",
-  alternates: { canonical: "/hi/legal/shop-refund-policy" },
+  alternates: { canonical: "/hi/legal/shop-refund-policy", languages: { en: "/legal/shop-refund-policy", hi: "/hi/legal/shop-refund-policy", "x-default": "/legal/shop-refund-policy" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

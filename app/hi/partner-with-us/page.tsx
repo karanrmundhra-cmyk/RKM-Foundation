@@ -7,7 +7,7 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   title: "हमारे साथ साझेदारी करें",
   description: "RKM फाउंडेशन उन ज़मीनी संगठनों का साथ देता है जो पहले से मैदान में काम कर रहे हैं। अपनी पहल के बारे में हमें बताएँ।",
-  alternates: { canonical: "/hi/partner-with-us" },
+  alternates: { canonical: "/hi/partner-with-us", languages: { en: "/partner-with-us", hi: "/hi/partner-with-us", "x-default": "/partner-with-us" } },
 };
 
 const NEXT_STEPS = [

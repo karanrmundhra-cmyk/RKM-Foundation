@@ -8,7 +8,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata: Metadata = {
   title: "एक उद्देश्य के लिए खरीदें",
   description: "“होप” कैंडल — आपकी हर खरीद ज़रूरतमंद बचाए गए जानवरों को खिलाने, इलाज और सुरक्षा में मदद करती है।",
-  alternates: { canonical: "/hi/shop" },
+  alternates: { canonical: "/hi/shop", languages: { en: "/shop", hi: "/hi/shop", "x-default": "/shop" } },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';

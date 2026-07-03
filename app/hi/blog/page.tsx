@@ -6,7 +6,7 @@ import EditorialFigure from "@/components/EditorialFigure";
 export const metadata: Metadata = {
   title: "ब्लॉग",
   description: "RKM फाउंडेशन से उम्मीद की कहानियाँ — बचाव, स्वस्थ होना, और उन्हें संभव बनाने वाले लोग।",
-  alternates: { canonical: "/hi/blog" },
+  alternates: { canonical: "/hi/blog", languages: { en: "/blog", hi: "/hi/blog", "x-default": "/blog" } },
 };
 
 export default function BlogHiPage() {
