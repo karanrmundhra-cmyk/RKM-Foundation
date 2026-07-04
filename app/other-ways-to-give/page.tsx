@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import FormShell from "@/components/FormShell";
+import Link from "next/link";
 import Accordion from "@/components/Accordion";
 import CTABanner from "@/components/CTABanner";
-import { FAQS_GENERAL } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Other Ways to Give",
@@ -18,6 +18,12 @@ const HELPERS = [
   { title: "The Provider", desc: "Donate materials — food, medicines, blankets, supplies. We arrange pickup." },
   { title: "The Mentor", desc: "Share professional skills — veterinary, legal, design, operations." },
   { title: "Voice of the Cause", desc: "Amplify the mission — share stories, start conversations, spread hope." },
+];
+
+const OW_FAQS = [
+  { q: "Can I visit the shelter or volunteer?", a: "Yes — we welcome volunteers and site visits can be arranged. Reach out via the Other Ways to Give page or write to info@rkm.support. We typically respond within 1–2 business days." },
+  { q: "Do you accept material donations?", a: "Yes — food, medicines, blankets, and supplies. We arrange pickup. Fill in the form above or write to info@rkm.support." },
+  { q: "How will I know how my contribution is used?", a: "Donors receive periodic photo and video updates from the field, so you can see the difference your support makes." },
 ];
 
 export default function OtherWaysToGivePage() {
@@ -100,7 +106,8 @@ export default function OtherWaysToGivePage() {
             <h2 className="display-2 mt-5 text-balance">Frequently asked questions.</h2>
           </Reveal>
           <Reveal delay={120} className="mt-10">
-            <Accordion items={FAQS_GENERAL} />
+            <Accordion items={OW_FAQS} />
+            <p className="mt-6 text-sm text-ink/60">Questions about donations, 80G, or fundraisers? <Link href="/faqs" className="link-secondary">See all FAQs →</Link></p>
           </Reveal>
         </div>
       </section>

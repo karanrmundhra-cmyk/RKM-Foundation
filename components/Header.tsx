@@ -14,7 +14,7 @@ const HI_DRAWER = [
   { n: "02", label: "हमारे बारे में", href: "/hi/about" },
   { n: "03", label: "दान करें", href: "/hi/donate-now" },
   { n: "04", label: "फंडरेज़र शुरू करें", href: "/hi/fundraiser" },
-  { n: "05", label: "एक उद्देश्य के लिए शॉप", href: "/shop" },
+  { n: "05", label: "एक उद्देश्य के लिए शॉप", href: "/hi/shop" },
   { n: "06", label: "CSR और कॉर्पोरेट साझेदारी", href: "/hi/csr" },
   { n: "07", label: "मीडिया", href: "/hi/media" },
 ];
