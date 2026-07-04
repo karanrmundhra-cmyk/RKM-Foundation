@@ -1,0 +1,11 @@
+# gitleaks config — extends the default ruleset with one deliberate allowlist.
+[extend]
+useDefault = true
+
+[allowlist]
+description = """The Supabase ANON key in lib/supabase-browser.ts is PUBLIC by
+design (role=anon JWT; ships in every client bundle). Security comes from RLS:
+the anon role has zero policies and authenticated users read only rows matching
+their verified email (see docs/adr/ADR-004). This allowlist is scoped to that
+single fingerprint — every other JWT/secret still fails the build."""
+regexes = ['''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJud2lmanJkaGRoZW1ybG1namlqIiwicm9sZSI6ImFub24i''']
