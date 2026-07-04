@@ -5,9 +5,9 @@ import { track, EV } from "@/lib/analytics";
 import { AllocationStrip } from "@/components/AllocationStrip";
 
 const AMOUNTS = [
-  { v: 2500, label: "₹2,500", ctx: "Feeds a rescued animal for 2 weeks", ctxHi: "एक बचाए गए जानवर को 2 हफ़्ते खिलाता है" },
-  { v: 5000, label: "₹5,000", ctx: "Food & daily care for 2–3 animals for a month", ctxHi: "2–3 जानवरों के लिए एक महीने का भोजन और देखभाल", popular: true },
-  { v: 10000, label: "₹10,000", ctx: "Emergency medical treatment or one kennel", ctxHi: "आपातकालीन चिकित्सा या एक केनेल" },
+  { v: 2500, label: "₹2,500", ctx: "Two weeks of warm meals for a rescued animal getting back on its feet.", ctxHi: "दो हफ़्ते का गर्म खाना — एक बचाए गए जानवर के लिए जो फिर से खड़ा हो रहा है।" },
+  { v: 5000, label: "₹5,000", ctx: "A full month of food and care for 2–3 animals in our shelter.", ctxHi: "हमारे आश्रय में 2–3 जानवरों के लिए पूरे एक महीने का खाना और देखभाल।", popular: true },
+  { v: 10000, label: "₹10,000", ctx: "Emergency medical treatment — the surgery or care that saves a life.", ctxHi: "आपातकालीन चिकित्सा — वह सर्जरी या देखभाल जो एक जान बचाती है।" },
 ];
 
 declare global { interface Window { Razorpay?: any } }

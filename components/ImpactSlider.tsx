@@ -21,7 +21,7 @@ const DEFAULT = 5000;
 
 function impactFor(amount: number): string {
   if (amount < 2500) return "Warm meals for a rescued animal this week.";
-  if (amount < 5000) return "Two weeks of meals for a rescued animal getting back on its feet.";
+  if (amount < 5000) return "Two weeks of warm meals for a rescued animal getting back on its feet.";
   if (amount < 10000) return "A full month of food and care for 2–3 animals in our shelter.";
   if (amount < 25000) return "Emergency medical treatment — the surgery or care that saves a life.";
   return "A month of food, care, and treatment for animals across the shelter.";
