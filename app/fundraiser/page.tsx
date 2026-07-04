@@ -17,7 +17,7 @@ const STEPS = [
 ];
 
 const TIERS = [
-  { amount: "₹5,000", desc: "Food and daily care for 2–3 rescued animals for one month" },
+  { amount: "₹5,000", desc: "A full month of food and care for 2–3 animals in our shelter." },
   { amount: "₹7,000", desc: "Neutering, medical treatment, and recovery care for one rescued animal" },
   { amount: "₹10,000", desc: "Building one kennel or supporting emergency medical treatment" },
 ];
