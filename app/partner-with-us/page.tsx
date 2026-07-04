@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import FormShell from "@/components/FormShell";
 import CTABanner from "@/components/CTABanner";
@@ -35,6 +36,7 @@ export default function PartnerWithUsPage() {
               We back grassroots organisations already in the field — raising awareness, rallying
               support, and connecting donors with credible work that&apos;s already changing things.
             </p>
+            <p className="mt-4 text-sm text-ink/60">A company exploring CSR partnership? <Link href="/csr" className="link-secondary">See CSR Partnerships →</Link></p>
           </Reveal>
         </div>
       </section>

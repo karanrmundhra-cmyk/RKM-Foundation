@@ -55,6 +55,7 @@ export default function CSRPage() {
             <div className="mt-8">
               <Link href="#consultation" className="btn-copper">Request Partnership Consultation</Link>
             </div>
+            <p className="mt-4 text-sm text-ink/60">An NGO doing good work on the ground? <Link href="/partner-with-us" className="link-secondary">See Partner With Us →</Link></p>
           </Reveal>
         </div>
       </section>

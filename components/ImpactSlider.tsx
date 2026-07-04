@@ -45,6 +45,19 @@ export default function ImpactSlider() {
         {impactFor(amount)}
       </p>
 
+      <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Quick amounts">
+        {[2500, 5000, 10000].map((v) => (
+          <button
+            key={v}
+            type="button"
+            onClick={() => setAmount(v)}
+            aria-pressed={amount === v}
+            className={`rounded-full px-4 py-1.5 text-xs font-semibold ring-1 transition-colors ${amount === v ? "bg-copper-dark text-white ring-copper-dark" : "bg-white text-ink/70 ring-ink/15 hover:ring-copper hover:text-copper-dark"}`}
+          >
+            ₹{v.toLocaleString("en-IN")}
+          </button>
+        ))}
+      </div>
       <input
         type="range"
         min={MIN}

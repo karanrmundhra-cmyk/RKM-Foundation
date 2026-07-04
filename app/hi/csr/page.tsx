@@ -55,6 +55,7 @@ export default function CSRHiPage() {
             <div className="mt-8">
               <Link href="#consultation" className="btn-copper">साझेदारी परामर्श का अनुरोध करें</Link>
             </div>
+            <p className="mt-4 text-sm text-ink/60">क्या आप ज़मीन पर अच्छा काम करने वाली संस्था हैं? <Link href="/hi/partner-with-us" className="link-secondary">हमारे साथ साझेदारी करें →</Link></p>
           </Reveal>
         </div>
       </section>

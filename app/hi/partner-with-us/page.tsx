@@ -32,6 +32,7 @@ export default function PartnerHiPage() {
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
               हम उन ज़मीनी संगठनों का साथ देते हैं जो पहले से मैदान में हैं — जागरूकता फैलाते, सहयोग जुटाते, और दानदाताओं को ऐसे भरोसेमंद काम से जोड़ते जो पहले से बदलाव ला रहा है।
             </p>
+            <p className="mt-4 text-sm text-ink/60">क्या आप एक कंपनी हैं और CSR साझेदारी देख रहे हैं? <Link href="/hi/csr" className="link-secondary">CSR साझेदारी देखें →</Link></p>
           </Reveal>
         </div>
       </section>
