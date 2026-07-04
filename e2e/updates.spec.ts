@@ -64,3 +64,12 @@ test.describe("Donor portal (4D)", () => {
     expect([401, 503]).toContain((await request.get("/api/account/receipt?receipt_id=nope", { headers: { Authorization: "Bearer fake" } })).status());
   });
 });
+
+test.describe("Knowledge Vault API (4E)", () => {
+  test("vault endpoints are dead without a token", async ({ request }) => {
+    expect((await request.get("/api/admin/vault")).status()).toBe(401);
+    expect((await request.post("/api/admin/vault?title=x&category=legal", { data: "x" })).status()).toBe(401);
+    expect((await request.get("/api/admin/vault/file?document_id=00000000-0000-0000-0000-000000000000")).status()).toBe(401);
+    expect((await request.post("/api/admin/vault/publish", { data: {} })).status()).toBe(401);
+  });
+});

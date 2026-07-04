@@ -1,6 +1,6 @@
 # BLOCKED — items waiting on the founder or external dependencies
 
-_Last updated: 5 July 2026. Everything below is OUTSIDE autonomous engineering — each needs a specific input from the founder or an external provider. The exact input to unblock is listed per item. This is the single canonical blocker list._
+_Last updated: 6 July 2026. Everything below is OUTSIDE autonomous engineering — each needs a specific input from the founder or an external provider. The exact input to unblock is listed per item. This is the single canonical blocker list._
 
 ## P0 — Prove the money chain (gates every ecosystem send)
 
@@ -19,6 +19,8 @@ _Last updated: 5 July 2026. Everything below is OUTSIDE autonomous engineering �
 8. **Analytics 28-day baseline (SOP-02)** — create a Plausible account; set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` / `NEXT_PUBLIC_PLAUSIBLE_SRC`; then 28 days of real-user data.
 9. **Email lifecycle — live sending** — skeleton on `rkmf/safe-infra` (`lib/email-lifecycle.ts`); needs (a) merge decision, (b) `[NEEDS DATA]` fills from the Content Pack, (c) scheduler.
 10. **Owner decisions pending:** merge `rkmf/safe-infra` → `main` (footer cleanup + email skeleton + quality pass) · Next 16 / TS 6 major upgrades (dependabot PRs #6–#9) · `/prototype` route removal · G-06 eyebrow contrast.
+
+10b. **Donor portal sign-in (Supabase Auth config)** — the portal at `/account` is live but donors can't receive magic links until, in the Supabase dashboard (project `rnwifjrdhdhemrlmgjij`): Auth → URL Configuration → Site URL `https://rkmfoundation.com` + add `https://rkmfoundation.com/account` to the redirect allowlist; Auth → SMTP → configure custom SMTP (Resend works) so link volume isn't rate-limited.
 
 ## P1 — Founder Content Pack (unblocks the proof layer + richer Ledger) — SOP-09
 

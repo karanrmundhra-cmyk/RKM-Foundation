@@ -153,6 +153,7 @@ export default function AdminPage() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link href="/admin/search" className="btn-dark">Donor search</Link>
             <Link href="/admin/updates" className="btn-copper">Monthly update composer</Link>
+            <Link href="/admin/vault" className="btn-light">Knowledge vault</Link>
             <button type="button" className="text-sm underline text-ink/60" onClick={() => { void loadStats(); void loadAttention(); }}>Refresh</button>
           </div>
 

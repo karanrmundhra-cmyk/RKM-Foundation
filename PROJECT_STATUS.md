@@ -1,6 +1,6 @@
 # PROJECT_STATUS — RKM Foundation
 
-_Last updated: 5 July 2026. Website: **FROZEN at `v1.1.0`**. Active stream: **Digital Ecosystem — Phase 4A (Foundation) complete**. `BLOCKED.md` is the single canonical blocker list; this file never duplicates it._
+_Last updated: 6 July 2026. Website: **FROZEN at `v1.1.0`**. Ecosystem: **BUILD COMPLETE (Phases 4A–4E live)** — operational gates in `BLOCKED.md`. `BLOCKED.md` is the single canonical blocker list; this file never duplicates it._
 
 ---
 
@@ -23,11 +23,11 @@ _Last updated: 5 July 2026. Website: **FROZEN at `v1.1.0`**. Active stream: **Di
 
 | Phase | Status |
 |---|---|
-| **4A Foundation** | ✅ **Complete (5 Jul 2026).** Architecture validated against the codebase; DB validated live (Supabase ACTIVE_HEALTHY; tables `fund/donor/donation/subscription/payment_event/receipt_sequence/receipt/foreign_flag/compliance_event/audit_trail`, all RLS-enabled; functions `allocate_receipt_no`, `indian_fy`, `donation_guard`, `forbid_mutation`, `write_audit`; migrations ×3; security advisors: 2 minor findings, logged). APIs validated (webhook signature + idempotency, admin constant-time auth + throttle, nonce CSP). Email pipeline validated (single Resend module, graceful no-key skip). Duplication scan clean. Canonical docs committed to `main`. |
-| **4B Mailer + Ledger** | 🔧 **Built (5 Jul)** — full pipeline + Ledger EN/HI + proof slot + crons + E2E, staged as a Preview Release (FINAL REVIEW MODE: one founder review before production). First live send gated on P0. ADRs 001–003 in `docs/adr/`. |
-| **4C Dashboard v2** | After 4B live. |
-| **4D Donor Portal** | After one month of 4B in real use. |
-| **4E Knowledge Vault** | When useful to owner. |
+| **4A Foundation** | ✅ Complete (5 Jul) — validation report; canonical docs on `main`. |
+| **4B Mailer + Ledger** | ✅ **LIVE (v1.2.0)** — compose → one-tap approve → batched resumable send → delivery tracking; `/updates` EN+HI; donate proof slot (invisible until first send); RFC 8058 one-click unsubscribe; crons. First donor send gated on P0. |
+| **4C Dashboard v2** | ✅ **LIVE (v1.3.0)** — needs-attention scans (receipt-gap/webhook/bounce/PAN), daily digest (no news = no email), Today panel, send analytics. |
+| **4D Donor Portal** | ✅ **LIVE (v1.4.0)** — magic-link `/account` (overview·receipts·details), RLS self-read policies, signed receipt downloads. **Owner action:** Supabase Auth Site URL + redirect allowlist + custom SMTP before donor use. |
+| **4E Knowledge Vault** | ✅ **LIVE (v1.5.0)** — versioned private documents, search, signed downloads, publish-to-website copy flow. |
 
 **Standing engineering rules (from the contract):** extend, never duplicate (specifically: extend `audit_trail`; no new audit table) · all DB changes additive · previews before any new user-facing screen · anti-fabrication (content only from founder uploads; numbers only from ledger + published equivalence table) · rollback plan per deployment · ADRs for significant decisions · every module reaches Website-v1.1.0 quality before "done".
 
@@ -44,5 +44,6 @@ Engineering, UX/content, and visual-design phases are complete and frozen. Any c
 
 ## Exact next actions
 
-1. **Owner (P0, ~1 hr):** see `BLOCKED.md` — test donation, `RESEND_API_KEY`, secret rotation, IM-01 template sign-off.
-2. **Engineering (4B):** screen previews for the Mailer admin/compose/preview-email and `/updates` Ledger pages (EN+HI) → owner approval → build on a feature branch → CI → staged.
+1. **Owner (P0):** `BLOCKED.md` items 1–4 — test donation, `RESEND_API_KEY`, IM-01 template confirmation (the preview email IS the template), secret rotation.
+2. **Owner (portal):** Supabase dashboard → Auth → set Site URL `https://rkmfoundation.com`, add `https://rkmfoundation.com/account` to redirect allowlist, configure custom SMTP (Resend) for magic links.
+3. **First real month:** drop photos at `/admin/updates` → tap Send in the preview email → verify the Ledger page + digest.
