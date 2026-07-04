@@ -152,7 +152,7 @@ export default function DonateWidget() {
             className={`relative rounded-2xl border p-4 text-left transition-all ${!custom && amount === a.v ? "border-copper bg-copper/10 ring-1 ring-copper" : "border-ink/15 hover:border-copper/60"}`}>
             {a.popular && <span className="absolute -top-2.5 right-3 rounded-full bg-copper-dark px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{hi ? "सबसे ज़्यादा चुना गया" : "Most Chosen"}</span>}
             <div className="text-lg font-bold">{a.label}</div>
-            <div className="mt-1 text-xs leading-snug text-ink/60">{hi ? a.ctxHi : a.ctx}</div>
+            <div className="mt-1 text-[13px] leading-snug text-ink/60">{hi ? a.ctxHi : a.ctx}</div>
           </button>
         ))}
       </div>
@@ -204,10 +204,10 @@ export default function DonateWidget() {
       </button>
       {msg && <p className="mt-3 text-center text-sm text-red-600" aria-live="polite">{msg}</p>}
 
-      <p className="mt-4 text-center text-[11px] font-medium tracking-wide text-ink/60">
+      <p className="mt-4 text-center text-[12px] font-medium tracking-wide text-ink/60">
         {hi ? "कार्ड · UPI · नेटबैंकिंग · वॉलेट — Razorpay द्वारा सुरक्षित" : "Cards · UPI · NetBanking · Wallets — Secured by Razorpay"}
       </p>
-      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5 text-[11px] text-ink/60 sm:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5 text-[12px] text-ink/60 sm:grid-cols-4">
         <div className="flex items-center gap-1.5"><Check /> {hi ? "80G कर लाभ" : "80G tax benefits"}</div>
         <div className="flex items-center gap-1.5"><Check /> {hi ? "सत्यापित भुगतान" : "Verified payments"}</div>
         <div className="flex items-center gap-1.5"><Check /> {hi ? "तुरंत रसीद" : "Instant receipt"}</div>
