@@ -54,7 +54,7 @@ _Phase lettering and order fixed 5 July 2026 by the Ecosystem Master Execution C
 | **4D** | **M3 Donor Portal** | 2–3 dev-days | One month of 4B in real use | A donor self-serves a receipt with zero founder involvement |
 | **4E** | **M5 Knowledge Vault** + OneDrive auto-pickup | 2 dev-days | When useful to owner | A certificate renewal published to the site with no developer involvement |
 
-_Status 5 July 2026 (FINAL REVIEW MODE): **4B is built end-to-end** — content-spine migration applied (additive), mailer pipeline (compose → owner preview → single-use approve/skip → batched resumable send → Resend delivery webhook), Tobler's Ledger EN+HI, donate-page proof slot, crons, E2E — staged as a Preview Release awaiting the single founder review. First live donor send additionally gated on P0. ADRs: `docs/adr/`._
+_Status 6 July 2026 — **ECOSYSTEM BUILD COMPLETE.** 4B Impact Mailer + Tobler's Ledger LIVE (v1.2.0) · 4C Operations Dashboard LIVE (v1.3.0) · 4D Donor Portal LIVE (v1.4.0) · 4E Knowledge Vault LIVE (v1.5.0). All DB changes additive and applied; ADRs 001–005 in `docs/adr/`. First live donor send remains gated on the owner P0 in `BLOCKED.md`; the Donor Portal additionally needs the Supabase Auth dashboard configuration (Site URL + SMTP) before donors can sign in._
 
 ## 6 · Estimated Effort
 
