@@ -13,7 +13,7 @@ export function TopBar() {
           <span className="text-sm font-semibold tracking-tight text-snow">
             RKM Foundation
           </span>
-          <span className="rounded-full bg-copper/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-copper-light ring-1 ring-copper/40">
+          <span className="rounded-full bg-copper/15 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-copper-light ring-1 ring-copper/40">
             Demo Prototype — not the live site
           </span>
         </div>

@@ -29,7 +29,7 @@ export function ChapterTrust() {
           {CREDENTIALS.map((c, i) => (
             <Reveal as="li" key={c.label} delay={i * 0.06}>
               <div className="rounded-xl bg-white/[0.04] px-5 py-4 ring-1 ring-white/10">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-copper-light">
+                <div className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copper-light">
                   {c.label}
                 </div>
                 <div className="mt-1 font-mono text-sm text-snow/90">

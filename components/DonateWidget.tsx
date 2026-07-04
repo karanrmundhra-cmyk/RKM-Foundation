@@ -150,9 +150,9 @@ export default function DonateWidget() {
           <button type="button" key={a.v} onClick={() => { setAmount(a.v); setCustom(""); track(EV.amountSelected, { value: a.v, type: "preset" }); }}
             aria-pressed={!custom && amount === a.v}
             className={`relative rounded-2xl border p-4 text-left transition-all ${!custom && amount === a.v ? "border-copper bg-copper/10 ring-1 ring-copper" : "border-ink/15 hover:border-copper/60"}`}>
-            {a.popular && <span className="absolute -top-2.5 right-3 rounded-full bg-copper-dark px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{hi ? "सबसे ज़्यादा चुना गया" : "Most Chosen"}</span>}
+            {a.popular && <span className="absolute -top-2.5 right-3 rounded-full bg-copper-dark px-2 py-0.5 text-[0.625rem] font-bold uppercase tracking-wide text-white">{hi ? "सबसे ज़्यादा चुना गया" : "Most Chosen"}</span>}
             <div className="text-lg font-bold">{a.label}</div>
-            <div className="mt-1 text-[13px] leading-snug text-ink/60">{hi ? a.ctxHi : a.ctx}</div>
+            <div className="mt-1 text-[0.8125rem] leading-snug text-ink/60">{hi ? a.ctxHi : a.ctx}</div>
           </button>
         ))}
       </div>
@@ -204,10 +204,10 @@ export default function DonateWidget() {
       </button>
       {msg && <p className="mt-3 text-center text-sm text-red-600" aria-live="polite">{msg}</p>}
 
-      <p className="mt-4 text-center text-[12px] font-medium tracking-wide text-ink/60">
+      <p className="mt-4 text-center text-[0.75rem] font-medium tracking-wide text-ink/60">
         {hi ? "कार्ड · UPI · नेटबैंकिंग · वॉलेट — Razorpay द्वारा सुरक्षित" : "Cards · UPI · NetBanking · Wallets — Secured by Razorpay"}
       </p>
-      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5 text-[12px] text-ink/60 sm:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5 text-[0.75rem] text-ink/60 sm:grid-cols-4">
         <div className="flex items-center gap-1.5"><Check /> {hi ? "80G कर लाभ" : "80G tax benefits"}</div>
         <div className="flex items-center gap-1.5"><Check /> {hi ? "सत्यापित भुगतान" : "Verified payments"}</div>
         <div className="flex items-center gap-1.5"><Check /> {hi ? "तुरंत रसीद" : "Instant receipt"}</div>
@@ -217,12 +217,12 @@ export default function DonateWidget() {
       {/* D-02 (approved 4 Jul): the two hesitation questions answered at the ask — copy from /faqs */}
       <div className="mt-5 border-t border-ink/10 pt-3">
         <details className="faq-disclosure py-1.5">
-          <summary className="cursor-pointer text-[13px] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या दान कर लाभ के योग्य हैं?' : 'When do I get my receipt & 80G certificate?'}</summary>
-          <p className="mt-2 text-[13px] leading-relaxed text-ink/60">{hi ? 'हाँ। RKM फाउंडेशन को दिए गए दान धारा 80G के तहत कर-कटौती के योग्य हैं। 80G प्रमाणपत्र पाने के लिए, कृपया दान के समय अपना PAN दें; अन्यथा एक सामान्य रसीद जारी की जाती है।' : 'Donations are eligible for tax deduction under Section 80G. To receive an 80G certificate, provide your PAN at the time of donation; otherwise a standard receipt is issued. We file Form 10BD annually and issue Form 10BE certificates after the close of the financial year.'}</p>
+          <summary className="cursor-pointer text-[0.8125rem] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या दान कर लाभ के योग्य हैं?' : 'When do I get my receipt & 80G certificate?'}</summary>
+          <p className="mt-2 text-[0.8125rem] leading-relaxed text-ink/60">{hi ? 'हाँ। RKM फाउंडेशन को दिए गए दान धारा 80G के तहत कर-कटौती के योग्य हैं। 80G प्रमाणपत्र पाने के लिए, कृपया दान के समय अपना PAN दें; अन्यथा एक सामान्य रसीद जारी की जाती है।' : 'Donations are eligible for tax deduction under Section 80G. To receive an 80G certificate, provide your PAN at the time of donation; otherwise a standard receipt is issued. We file Form 10BD annually and issue Form 10BE certificates after the close of the financial year.'}</p>
         </details>
         <details className="faq-disclosure py-1.5">
-          <summary className="cursor-pointer text-[13px] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या मैं अपना मासिक दान रद्द कर सकता/सकती हूँ?' : 'Can I cancel my monthly donation?'}</summary>
-          <p className="mt-2 text-[13px] leading-relaxed text-ink/60">{hi ? 'हाँ, कभी भी। अपने अगले बिलिंग चक्र से पहले हमें info@rkm.support पर ईमेल करें और हम इसे रद्द कर देंगे — बिना कोई सवाल किए।' : 'Yes, anytime. Email us at info@rkm.support before your next billing cycle and we will cancel it — no questions asked.'}</p>
+          <summary className="cursor-pointer text-[0.8125rem] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या मैं अपना मासिक दान रद्द कर सकता/सकती हूँ?' : 'Can I cancel my monthly donation?'}</summary>
+          <p className="mt-2 text-[0.8125rem] leading-relaxed text-ink/60">{hi ? 'हाँ, कभी भी। अपने अगले बिलिंग चक्र से पहले हमें info@rkm.support पर ईमेल करें और हम इसे रद्द कर देंगे — बिना कोई सवाल किए।' : 'Yes, anytime. Email us at info@rkm.support before your next billing cycle and we will cancel it — no questions asked.'}</p>
         </details>
       </div>
     </form>

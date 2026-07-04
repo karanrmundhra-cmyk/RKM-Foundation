@@ -30,7 +30,7 @@ export function ChapterCommunity() {
           {PLACEHOLDERS.map((text, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <figure className="flex h-full flex-col rounded-2xl bg-white/[0.04] p-7 ring-1 ring-white/10">
-                <span className="mb-4 w-fit rounded-full bg-copper/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-copper-light ring-1 ring-copper/30">
+                <span className="mb-4 w-fit rounded-full bg-copper/15 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-copper-light ring-1 ring-copper/30">
                   [DEMO] Placeholder supporter story
                 </span>
                 <blockquote className="flex-1 text-base leading-relaxed text-snow/80">
