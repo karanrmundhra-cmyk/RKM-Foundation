@@ -42,7 +42,7 @@ export default function ComplianceForm() {
       </div>
       <button disabled={state === "busy"} className="btn-copper mt-4 w-full">{state === "busy" ? (hi ? "सहेजा जा रहा है…" : "Saving…") : (hi ? "सहेजें और मेरा 80G प्रमाणपत्र पाएँ" : "Save & Get My 80G Certificate")}</button>
       {state === "err" && <p className="mt-2 text-sm text-red-600" aria-live="polite">{err}</p>}
-      <p className="mt-3 text-[11px] text-ink/60">{hi ? "केवल आपके कर दस्तावेज़ के लिए। एन्क्रिप्टेड और कभी साझा नहीं किया जाता।" : "Used only for your tax documentation. Encrypted and never shared."}</p>
+      <p className="mt-3 text-[12px] text-ink/60">{hi ? "केवल आपके कर दस्तावेज़ के लिए। एन्क्रिप्टेड और कभी साझा नहीं किया जाता।" : "Used only for your tax documentation. Encrypted and never shared."}</p>
     </form>
   );
 }

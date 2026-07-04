@@ -216,11 +216,11 @@ export default function DonateWidget() {
       <AllocationStrip hi={hi} />
       {/* D-02 (approved 4 Jul): the two hesitation questions answered at the ask — copy from /faqs */}
       <div className="mt-5 border-t border-ink/10 pt-3">
-        <details className="py-1.5">
+        <details className="faq-disclosure py-1.5">
           <summary className="cursor-pointer text-[13px] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या दान कर लाभ के योग्य हैं?' : 'When do I get my receipt & 80G certificate?'}</summary>
           <p className="mt-2 text-[13px] leading-relaxed text-ink/60">{hi ? 'हाँ। RKM फाउंडेशन को दिए गए दान धारा 80G के तहत कर-कटौती के योग्य हैं। 80G प्रमाणपत्र पाने के लिए, कृपया दान के समय अपना PAN दें; अन्यथा एक सामान्य रसीद जारी की जाती है।' : 'Donations are eligible for tax deduction under Section 80G. To receive an 80G certificate, provide your PAN at the time of donation; otherwise a standard receipt is issued. We file Form 10BD annually and issue Form 10BE certificates after the close of the financial year.'}</p>
         </details>
-        <details className="py-1.5">
+        <details className="faq-disclosure py-1.5">
           <summary className="cursor-pointer text-[13px] font-semibold text-ink/75 hover:text-ink">{hi ? 'क्या मैं अपना मासिक दान रद्द कर सकता/सकती हूँ?' : 'Can I cancel my monthly donation?'}</summary>
           <p className="mt-2 text-[13px] leading-relaxed text-ink/60">{hi ? 'हाँ, कभी भी। अपने अगले बिलिंग चक्र से पहले हमें info@rkm.support पर ईमेल करें और हम इसे रद्द कर देंगे — बिना कोई सवाल किए।' : 'Yes, anytime. Email us at info@rkm.support before your next billing cycle and we will cancel it — no questions asked.'}</p>
         </details>

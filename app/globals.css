@@ -69,6 +69,13 @@
     @apply absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 bg-copper transition-transform duration-300 ease-out motion-reduce:transition-none;
   }
   .menu-link:hover::after, .menu-link:focus-visible::after { @apply scale-x-100; }
+
+  /* Donate trust-FAQ disclosure — site marker language, not the browser default (P-01) */
+  .faq-disclosure summary { @apply flex cursor-pointer list-none items-center gap-2; }
+  .faq-disclosure summary::-webkit-details-marker { display: none; }
+  .faq-disclosure summary::before { content: "+"; @apply w-3.5 shrink-0 text-center text-sm font-bold leading-none text-copper-dark; }
+  .faq-disclosure[open] summary::before { content: "\2013"; }
+  .faq-disclosure > p { @apply pl-[1.375rem]; }
 }
 
 /* Impact slider (donation amount range input) — copper fill, accessible thumb */
