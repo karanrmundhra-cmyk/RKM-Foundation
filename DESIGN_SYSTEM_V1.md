@@ -22,7 +22,7 @@ Warm neutrals for image frames only: `#f1ede7`, `#f0ede8`, gradient `#f3efe9 →
 
 ## 2 · Typography
 
-One family: **Inter** (400/500/600/700, self-hosted via @fontsource). Devanagari: **Noto Sans Devanagari** (same weights), applied per-surface via inline `fontFamily` when `hi`. Root = browser 16px (never set `html{font-size}`).
+One family: **Inter** (400/500/600/700, self-hosted via @fontsource). Devanagari: **Noto Sans Devanagari** (same weights), applied per-surface via inline `fontFamily` when `hi`. Root = browser 16px; on screens ≥1920px the root is 17px (single media query in `globals.css` — DC-01-C Large Desktop Comfort). All utility sizes are authored in rem, so the whole system scales ~6% on large monitors only; px values in this spec are quoted at the 16px root.
 
 **Display scale (fluid, hierarchy by scale not weight):**
 
@@ -39,7 +39,7 @@ One family: **Inter** (400/500/600/700, self-hosted via @fontsource). Devanagari
 ## 3 · Spacing, breakpoints, grid
 
 - **Section rhythm:** `.section-y` = py-20/28/32 (sm/lg) · `.section-y-lg` = py-24/32/40. Never stack two full-bleed closing sections (the one-ending rule).
-- **Container:** `.container-c` = `max-w-content` (**72rem**) + px-5 / sm:px-8, centered. This width is deliberate on large monitors — do not widen.
+- **Container:** `.container-c` = `max-w-content` (**72rem**) + px-5 / sm:px-8, centered. At ≥1536px (2xl) it widens to **80rem** (DC-01-C). Below 1536px the 72rem width is deliberate — do not widen further.
 - **Breakpoints:** Tailwind defaults (sm 640 / md 768 / lg 1024 / xl 1280). Conventions: single column below `sm`; 2-col grids at `sm`; 12-col asymmetric layouts (`lg:grid-cols-12`, typically 5/7 or 6/6 splits) at `lg`; 3-up rows use `sm:grid-cols-2 lg:grid-cols-3`.
 - Grid gaps: content grids gap-x-12/16, gap-y-10/14; card grids gap-3/8.
 - Footer list rows: `space-y-3` (T-03).
@@ -50,8 +50,8 @@ Buttons/pills `rounded-full` · cards `rounded-2xl` · figure frames `rounded-[1
 
 ## 5 · Buttons & CTA hierarchy
 
-`.btn` base: inline-flex, rounded-full, **px-[30px] py-[15px] text-[15px] font-semibold**, transition 200ms ease-out, hover `scale-[1.02] -translate-y-px`, active `scale-[0.98]`, `motion-reduce:transform-none`, focus `focus-visible:ring-2 ring-copper`.
-Variants: `.btn-copper` (copper-dark → hover ink) = **primary**; `.btn-dark` (ink → hover copper-dark) = strong secondary on light; `.btn-light` (white + ring → hover copper ring/text) = secondary; on-dark ghost = `bg-white/10 ring-white/25 hover:bg-white/20`. Header Donate override: `!px-5 !py-2.5 !text-[15px]`.
+`.btn` base: inline-flex, rounded-full, **px-[1.875rem] py-[0.9375rem] text-[0.9375rem] font-semibold** (30/15/15px at 16px root), transition 200ms ease-out, hover `scale-[1.02] -translate-y-px`, active `scale-[0.98]`, `motion-reduce:transform-none`, focus `focus-visible:ring-2 ring-copper`.
+Variants: `.btn-copper` (copper-dark → hover ink) = **primary**; `.btn-dark` (ink → hover copper-dark) = strong secondary on light; `.btn-light` (white + ring → hover copper ring/text) = secondary; on-dark ghost = `bg-white/10 ring-white/25 hover:bg-white/20`. Header Donate override: `!px-5 !py-2.5 !text-[0.9375rem]`.
 **CTA hierarchy rules (frozen):** one `btn-copper` per view region; the alternative action is a **text link** — on light: `.link-secondary` (semibold, copper underline, offset-4); on dark: `text-sm font-semibold text-white/75 underline decoration-copper decoration-2 underline-offset-4 hover:text-white`. End-of-page banner = one contextual primary + one text alt (fundraiser pages → /fundraiser/create; CSR → #consultation; else Donate). Mobile sticky donate bar appears after 700px scroll, `sm:hidden`, suppressed on donate/thank-you/failed/legal routes.
 
 ## 6 · Forms
@@ -83,3 +83,5 @@ Specific, humble, concrete; emotion through facts. Sentence case headlines with 
 ## 11 · Change control
 
 Any visual/UX/content change: register entry → preview in `Review/preview-v2/` → owner approval by ID → implement approved IDs only → full CI (tsc, lint, E2E incl. axe WCAG 2.2 AA, Lighthouse) → deploy → live verification (measured, not asserted) → register updated. Small engineering fixes are exempt from preview but not from CI. Owner-rejected items (H-02 Tobler image, G-02 allocation copy, C-01 contact reorder, S-02, M-02 rename, A-01 About compression, G-03 nav) are archived — do not re-propose.
+
+**Amendment — DC-01-C Large Desktop Comfort (4 Jul 2026, owner-approved after live measurement):** container 80rem at 2xl; root font 17px at ≥1920px; all fixed utility sizes converted px→rem (identical rendering at the 16px root; ~6% larger on ≥1920px screens). Measured trigger: at 2560×1440 the 72rem container left 704px empty gutters per side (45% content share). The freeze otherwise stands.

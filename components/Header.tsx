@@ -83,20 +83,20 @@ export default function Header() {
         <div className="container-c flex h-16 items-center justify-between sm:h-[72px]">
           <Link href={isHi ? "/hi" : "/"} className={`flex items-center gap-2.5 ${tone}`} aria-label={isHi ? "RKM Foundation — होम" : "RKM Foundation — Home"}>
             <Image src="/logo-128.png" alt="" width={36} height={36} className={`h-9 w-9 ${onDark ? "rounded-full bg-white/90 p-0.5" : ""}`} />
-            <span className="text-[15px] font-semibold tracking-tight sm:text-base">RKM Foundation</span>
+            <span className="text-[0.9375rem] font-semibold tracking-tight sm:text-base">RKM Foundation</span>
           </Link>
           <nav className="flex items-center gap-2 sm:gap-5">
-            <div className={`hidden overflow-hidden rounded-full text-[13px] font-semibold ring-1 sm:inline-flex ${onDark ? "ring-white/30" : "ring-ink/15"}`} aria-label={isHi ? "भाषा" : "Language"}>
+            <div className={`hidden overflow-hidden rounded-full text-[0.8125rem] font-semibold ring-1 sm:inline-flex ${onDark ? "ring-white/30" : "ring-ink/15"}`} aria-label={isHi ? "भाषा" : "Language"}>
               <Link href={enHref} aria-label="English" className={`px-2.5 py-1.5 transition-colors ${!isHi ? "bg-copper-dark text-white" : tone}`}>EN</Link>
               <Link href={hiHref} aria-label="हिंदी" className={`px-2.5 py-1.5 transition-colors ${isHi ? "bg-copper-dark text-white" : tone}`}>हिंदी</Link>
             </div>
-            <Link href={isHi ? "/hi/about" : "/about"} className={`hidden text-[15px] font-medium transition-colors sm:block ${tone} ${onDark ? "hover:text-copper-light" : "hover:text-copper-dark"} ${basePath === "/about" ? "text-copper-dark underline decoration-copper decoration-2 underline-offset-8" : ""}`}>
+            <Link href={isHi ? "/hi/about" : "/about"} className={`hidden text-[0.9375rem] font-medium transition-colors sm:block ${tone} ${onDark ? "hover:text-copper-light" : "hover:text-copper-dark"} ${basePath === "/about" ? "text-copper-dark underline decoration-copper decoration-2 underline-offset-8" : ""}`}>
               {isHi ? "हमारे बारे में" : "About"}
             </Link>
-            <Link href={isHi ? "/hi/donate-now" : "/donate-now"} className="btn-copper !px-5 !py-2.5 !text-[15px]">{isHi ? "अभी दान करें" : "Donate Now"}</Link>
+            <Link href={isHi ? "/hi/donate-now" : "/donate-now"} className="btn-copper !px-5 !py-2.5 !text-[0.9375rem]">{isHi ? "अभी दान करें" : "Donate Now"}</Link>
             <button ref={triggerRef} onClick={() => setOpen(true)} aria-label={isHi ? "मेन्यू खोलें" : "Open menu"} aria-expanded={open} aria-controls="nav-drawer"
               className={`flex h-10 items-center gap-1.5 rounded-full px-3.5 ring-1 transition-colors ${tone} ${ring}`}>
-              <span className="hidden text-[13px] font-semibold uppercase tracking-wider sm:block">{isHi ? "मेन्यू" : "Menu"}</span>
+              <span className="hidden text-[0.8125rem] font-semibold uppercase tracking-wider sm:block">{isHi ? "मेन्यू" : "Menu"}</span>
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <path d="M8 1v14M1 8h14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               </svg>

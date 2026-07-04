@@ -57,27 +57,27 @@ export default function CookieBanner() {
       aria-label={t.label}
       style={hi ? { fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' } : undefined}
     >
-      <p className="text-[13px] leading-snug">{t.body}</p>
-      <p className="text-[11px] uppercase tracking-[0.12em] text-white/55">{t.detail}</p>
+      <p className="text-[0.8125rem] leading-snug">{t.body}</p>
+      <p className="text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t.detail}</p>
       <div className="flex flex-wrap items-center gap-2">
         {/* Reject and Accept carry equal visual weight (SOP-01 step 3). */}
         <button
           type="button"
           onClick={() => choose(false)}
-          className="rounded-full border border-white/35 px-4 py-1.5 text-[13px] font-semibold hover:bg-white/10"
+          className="rounded-full border border-white/35 px-4 py-1.5 text-[0.8125rem] font-semibold hover:bg-white/10"
         >
           {t.reject}
         </button>
         <button
           type="button"
           onClick={() => choose(true)}
-          className="rounded-full bg-copper px-4 py-1.5 text-[13px] font-semibold text-ink hover:bg-copper-light"
+          className="rounded-full bg-copper px-4 py-1.5 text-[0.8125rem] font-semibold text-ink hover:bg-copper-light"
         >
           {t.accept}
         </button>
         <Link
           href={hi ? "/hi/legal/website-disclaimer-cookie-policy" : "/legal/website-disclaimer-cookie-policy"}
-          className="ml-auto px-1 py-1.5 text-[12px] underline underline-offset-4 hover:text-copper-light"
+          className="ml-auto px-1 py-1.5 text-[0.75rem] underline underline-offset-4 hover:text-copper-light"
         >
           {t.learn}
         </Link>

@@ -46,7 +46,7 @@ export default function Footer() {
               <Image src="/logo-128.png" alt="" width={40} height={40} className="h-10 w-10" />
               <span className="font-semibold">RKM Foundation</span>
             </div>
-            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink/70">
+            <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-ink/70">
               {hi ? (
                 <>हम भारत में एक परिवार द्वारा संचालित धर्मार्थ ट्रस्ट हैं जो सड़कों पर रहने वाले जानवरों को बचाता, खिलाता, उनका इलाज करता और आश्रय देता है। हर दान <strong className="text-ink">CSR योगदान</strong> और <strong className="text-ink">धारा 80G</strong> के तहत कर-कटौती के योग्य है।</>
               ) : (
@@ -71,8 +71,8 @@ export default function Footer() {
 
           {/* 2 — Contact */}
           <div>
-            <h4 className="text-[15px] font-bold uppercase tracking-wider">{hi ? "संपर्क करें" : "Contact Us"}</h4>
-            <ul className="mt-4 space-y-3 text-[15px] text-ink/70">
+            <h4 className="text-[0.9375rem] font-bold uppercase tracking-wider">{hi ? "संपर्क करें" : "Contact Us"}</h4>
+            <ul className="mt-4 space-y-3 text-[0.9375rem] text-ink/70">
               <li className="whitespace-nowrap">{hi ? "सोम–शुक्र · सुबह 10 – शाम 6" : "Mon–Fri · 10 AM – 6 PM"}</li>
               <li>
                 <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-copper-dark">
@@ -97,8 +97,8 @@ export default function Footer() {
 
           {/* 3 — Quick Links */}
           <div>
-            <h4 className="text-[15px] font-bold uppercase tracking-wider">{hi ? "त्वरित लिंक" : "Quick Links"}</h4>
-            <ul className="mt-4 space-y-3 text-[15px] text-ink/70">
+            <h4 className="text-[0.9375rem] font-bold uppercase tracking-wider">{hi ? "त्वरित लिंक" : "Quick Links"}</h4>
+            <ul className="mt-4 space-y-3 text-[0.9375rem] text-ink/70">
               {quickLinks.map((l) => (
                 <li key={l.href}><Link href={l.href} className="hover:text-copper-dark">{l.label}</Link></li>
               ))}
@@ -107,8 +107,8 @@ export default function Footer() {
 
           {/* 4 — Downloads (between Quick Links and Scan to Give) */}
           <div>
-            <h4 className="text-[15px] font-bold uppercase tracking-wider">{hi ? "डाउनलोड" : "Downloads"}</h4>
-            <ul className="mt-4 space-y-3 text-[15px] text-ink/70">
+            <h4 className="text-[0.9375rem] font-bold uppercase tracking-wider">{hi ? "डाउनलोड" : "Downloads"}</h4>
+            <ul className="mt-4 space-y-3 text-[0.9375rem] text-ink/70">
               {DOWNLOADS.map((d) => (
                 <li key={d.file}>
                   <a href={d.file} target="_blank" rel="noopener noreferrer" className="hover:text-copper-dark">{d.label}</a>
@@ -119,11 +119,11 @@ export default function Footer() {
 
           {/* 5 — Scan to Give */}
           <div>
-            <h4 className="text-[15px] font-bold uppercase tracking-wider">{hi ? "स्कैन करके दें" : "Scan to Give"}</h4>
+            <h4 className="text-[0.9375rem] font-bold uppercase tracking-wider">{hi ? "स्कैन करके दें" : "Scan to Give"}</h4>
             <Link href={donate} className="mt-4 block w-fit">
               <Image src="/images/site/qr-donate.png" alt="QR code to donate to RKM Foundation" width={140} height={140} className="h-36 w-36 rounded-xl ring-1 ring-ink/10" />
             </Link>
-            <Link href={donate} className="link-secondary mt-3 inline-block text-[15px]">{hi ? "अभी दान करें" : "Donate Now"}</Link>
+            <Link href={donate} className="link-secondary mt-3 inline-block text-[0.9375rem]">{hi ? "अभी दान करें" : "Donate Now"}</Link>
           </div>
         </div>
 
