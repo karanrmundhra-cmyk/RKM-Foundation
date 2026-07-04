@@ -1,16 +1,17 @@
 # RKMF Product Roadmap V1 — The Digital Ecosystem
-_Created 4 July 2026, at the close of the Website project (tag `v1.0.0`). This is the **master reference** for the ecosystem build. Architecture detail lives in `Review/RKMF-ECOSYSTEM-ARCHITECTURE-V1.md`; wireframes in `Review/preview-v2/ecosystem.html`; this document governs sequence, gates, and completion._
+_Created 4 July 2026, at the close of the Website project (tag `v1.0.0`). Updated 5 July 2026 at Ecosystem Phase 4A (Foundation): phase lettering fixed to 4A–4E per the Ecosystem Master Execution Contract; architecture doc committed to the repo. This is the **master reference** for the ecosystem build. Architecture detail lives in `RKMF_ECOSYSTEM_ARCHITECTURE_V1.md` (repo root — canonical); wireframes in `Review/preview-v2/ecosystem.html` (OneDrive, not tracked); this document governs sequence, gates, and completion._
 
 ---
 
 ## 1 · Current State (the foundation everything builds on)
 
-- **Website V1.0 (frozen at `v1.0.0`):** production-grade, bilingual, CI-gated (typecheck, lint, donation E2E incl. WCAG 2.2 AA axe, Lighthouse, gitleaks, audit), design system frozen (`DESIGN_SYSTEM_V1.md`), Master Improvement Register governs any change.
-- **Money pipeline (built, partially unproven):** Razorpay order/subscription → signature-verified webhook → Supabase ledger (`donor/donation/payment_event`) → gapless 80G receipt (`allocate_receipt_no` + SHA-256). **Unproven link:** one real donation → webhook → numbered receipt email.
-- **Email:** Resend integration + transactional sends; lifecycle skeleton guarded by `[NEEDS DATA]`.
-- **Admin:** token-gated stats/donor/receipt/export modules.
+- **Website V1.1 (frozen at `v1.1.0`):** production-grade, bilingual, CI-gated (typecheck, lint, donation E2E incl. WCAG 2.2 AA axe, Lighthouse, gitleaks, audit), design system frozen (`DESIGN_SYSTEM_V1.md`), Master Improvement Register governs any change.
+- **Money pipeline (built, partially unproven):** Razorpay order/subscription → signature-verified webhook → Supabase ledger (`donor/donation/payment_event`) → gapless 80G receipt (`allocate_receipt_no` + SHA-256). **Unproven link:** one real donation → webhook → numbered receipt email. (Order creation verified working 4 July; capture chain still unproven.)
+- **Database:** Supabase project verified **ACTIVE_HEALTHY** (5 July 2026) with live rows; RLS enabled on all tables; audit trigger (`write_audit` → `audit_trail`) and mutation guards in place.
+- **Email:** Resend integration + transactional sends; lifecycle skeleton (on `rkmf/safe-infra`, merge pending) guarded by `[NEEDS DATA]`.
+- **Admin:** token-gated stats/donor/receipt/export modules (constant-time compare + throttle).
 - **Operations:** founder + OneDrive + email/WhatsApp; no team.
-- **Site changes after v1.0.0:** only for new content, changed business requirements, or analytics evidence — through the register.
+- **Site changes after v1.1.0:** only for new content, changed business requirements, or analytics evidence — through the register.
 
 ## 2 · Product Vision
 
@@ -30,11 +31,12 @@ One quiet system that lets a family-run foundation operate like an institution: 
 
 ```
 P0 (owner, ~1 hr)                     → everything
-  Supabase unpaused · RESEND_API_KEY · one real test donation
-  · mailer template sign-off
+  RESEND_API_KEY · one real test donation · mailer template sign-off
+  · secret rotation (RKMF-030)
+  (Supabase: verified ACTIVE_HEALTHY 5 Jul 2026 — no longer a blocker)
 Content spine (update/story tables)   → M1, M2, homepage proof slot, thank-you upgrade
 Resend webhooks                        → M4 send-analytics, M1 retry/bounce
-Supabase Auth + RLS                    → M3, M4 staff login
+Supabase Auth + RLS policies           → M3, M4 staff login
 Founder Content Pack                   → richer Ledger backfill, lifecycle emails,
                                          final equivalence numbers (not a blocker for M1/M2)
 Razorpay Foundation-account access     → double-charge cleanup, subscription self-service (M3 v2)
@@ -42,14 +44,15 @@ Razorpay Foundation-account access     → double-charge cleanup, subscription s
 
 ## 5 · Build Order & Milestones
 
+_Phase lettering and order fixed 5 July 2026 by the Ecosystem Master Execution Contract. Decision recorded: the Dashboard (4C) precedes the Portal (4D) — operational visibility while the portal is being built. The earlier "4B/4C swappable" note is resolved by this decision._
+
 | Phase | Scope | Est. | Gate to start | Milestone = done when |
 |---|---|---|---|---|
-| **4A** | Content spine + **M1 Impact Mailer** + **M2 Tobler's Ledger** (+ donate-page proof slot) | **3 dev-days** | P0 complete + screen previews approved | First real monthly update sent to real donors from a one-tap approval, live on /updates same moment |
-| **4B** | **M3 Donor Portal** | 2–3 dev-days | One month of 4A in real use | A donor self-serves a receipt with zero founder involvement |
-| **4C** | **M4 Dashboard v2** | 2 dev-days | 4A live (send analytics need real sends) | A seeded failure (unissued receipt) is auto-flagged in the daily digest within 24h |
-| **4D** | **M5 Knowledge Vault** + OneDrive auto-pickup | 2 dev-days | When useful to owner | A certificate renewal published to the site with no developer involvement |
-
-Note 4B/4C order is swappable — 4C first if operational visibility matters more to you than donor self-service; decide at the 4A milestone.
+| **4A — Foundation** ✅ | Validate architecture vs codebase, DB (schema/RLS/functions/advisors), APIs, email pipeline, auth; duplication scan; commit canonical docs to `main` | 0.5 dev-day | — | **Done 5 Jul 2026** — validation report delivered; architecture doc + refreshed STATUS/BLOCKED on `main`; zero duplicate systems found |
+| **4B** | Content spine + **M1 Impact Mailer** + **M2 Tobler's Ledger** (+ donate-page proof slot) | **3 dev-days** | P0 complete + screen previews approved | First real monthly update sent to real donors from a one-tap approval, live on /updates same moment |
+| **4C** | **M4 Dashboard v2** | 2 dev-days | 4B live (send analytics need real sends) | A seeded failure (unissued receipt) is auto-flagged in the daily digest within 24h |
+| **4D** | **M3 Donor Portal** | 2–3 dev-days | One month of 4B in real use | A donor self-serves a receipt with zero founder involvement |
+| **4E** | **M5 Knowledge Vault** + OneDrive auto-pickup | 2 dev-days | When useful to owner | A certificate renewal published to the site with no developer involvement |
 
 ## 6 · Estimated Effort
 
@@ -59,17 +62,17 @@ Note 4B/4C order is swappable — 4C first if operational visibility matters mor
 
 | Risk | Standing mitigation |
 |---|---|
-| Supabase paused / keys missing (current) | P0 hard gate; nothing builds on assumptions |
-| Receipt chain unproven | P0 test donation before first mailer send |
-| Razorpay account confusion unresolved | Independent of 4A; tracked in BLOCKED.md; blocks only M3-v2 subscription management |
+| Keys missing / receipt chain unproven | P0 hard gate; Supabase verified ACTIVE 5 Jul 2026; nothing sends to donors until the test donation proves capture → webhook → receipt |
+| Razorpay account confusion unresolved | Independent of 4B; tracked in BLOCKED.md; blocks only M3-v2 subscription management |
 | Consent/DPDP for update emails | Donor-relationship basis + unsubscribe + suppression honoured everywhere; portal doubles as DSAR self-service |
 | Single-approver design | Feature, not bug: system can never send alone; Skip always safe |
 | Scope creep | Modules capped at specced screens; new wants → register → preview → approval |
 | Anti-fabrication | Content only from founder uploads; numbers only from ledger + published equivalence table (frozen in DESIGN_SYSTEM_V1 §10) |
+| Audit duplication | DB already has `audit_trail` + `write_audit` trigger — ecosystem staff/system writes EXTEND `audit_trail`; no new audit table |
 
 ## 8 · Acceptance Criteria (every phase, non-negotiable)
 
-Screen previews approved before code (standing rule) · all existing CI gates green + new E2E for each new flow (mailer approve/send path mocked; portal auth path; digest scan) · WCAG 2.2 AA on new surfaces · EN + HI shipped together · design system spec compliance (cite `DESIGN_SYSTEM_V1.md` in the PR) · no new paid services or dependencies without register approval · live verification measured, not asserted · audit log entries for every staff/system write.
+Screen previews approved before code (standing rule) · all existing CI gates green + new E2E for each new flow (mailer approve/send path mocked; portal auth path; digest scan) · WCAG 2.2 AA on new surfaces · EN + HI shipped together · design system spec compliance (cite `DESIGN_SYSTEM_V1.md` in the PR) · no new paid services or dependencies without register approval · live verification measured, not asserted · audit entries (`audit_trail`) for every staff/system write · rollback plan per deployment · ADR for every significant architectural decision.
 
 ## 9 · Launch Criteria (ecosystem v1 "done")
 
