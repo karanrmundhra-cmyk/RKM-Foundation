@@ -5,7 +5,7 @@
 export function AllocationStrip({ hi = false }: { hi?: boolean }) {
   return (
     <div className="mt-5 border-t border-ink/10 pt-5">
-      <p className="text-[12px] font-semibold uppercase tracking-wide text-ink/70">
+      <p className="text-[0.75rem] font-semibold uppercase tracking-wide text-ink/70">
         {hi ? "आपका पैसा कहाँ जाता है" : "Where your money goes"}
       </p>
       <div
@@ -16,11 +16,11 @@ export function AllocationStrip({ hi = false }: { hi?: boolean }) {
         <span className="w-[95%] bg-copper" />
         <span className="w-[5%] bg-ink/25" />
       </div>
-      <div className="mt-2 flex items-center justify-between text-[12px] text-ink/60">
+      <div className="mt-2 flex items-center justify-between text-[0.75rem] text-ink/60">
         <span><strong className="text-copper-dark">95%</strong> {hi ? "पशु देखभाल" : "Animal care"}</span>
         <span><strong className="text-ink/70">5%</strong> {hi ? "प्रशासन" : "Admin"}</span>
       </div>
-      <p className="mt-2 text-[12px] leading-snug text-ink/70">
+      <p className="mt-2 text-[0.75rem] leading-snug text-ink/70">
         {hi
           ? "हमारी प्रतिबद्धता: हर ₹100 में से ₹95 सीधे पशुओं की देखभाल — भोजन, इलाज और आश्रय — पर जाते हैं।"
           : "Our commitment: ₹95 of every ₹100 goes directly to animal care — food, treatment, and shelter."}

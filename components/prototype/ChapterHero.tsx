@@ -108,7 +108,7 @@ export function ChapterHero() {
         aria-hidden="true"
       >
         <div className={`flex flex-col items-center gap-2 text-snow/60 ${reduceFM ? "" : "motion-safe:animate-bounce"}`}>
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+          <span className="text-[0.625rem] uppercase tracking-[0.2em]">Scroll</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M6 9l6 6 6-6" />
           </svg>
