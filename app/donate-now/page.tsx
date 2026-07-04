@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Suspense } from "react";
 import DonateWidget from "@/components/DonateWidget";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
 import { TESTIMONIALS } from "@/lib/content";
 
@@ -13,12 +12,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Donate to RKM Foundation", description: "Your gift feeds, heals, and shelters rescued animals across India. 80G tax benefits, instant receipts, full transparency.", type: "website" },
   alternates: { canonical: "/donate-now", languages: { en: "/donate-now", hi: "/hi/donate-now", "x-default": "/donate-now" } },
 };
-
-const GIFTS = [
-  { amt: 2500, does: "Two weeks of meals for a rescued animal" },
-  { amt: 5000, does: "A month of food & care for 2–3 animals" },
-  { amt: 10000, does: "Emergency medical treatment" },
-];
 
 export default function DonatePage() {
   return (
@@ -40,15 +33,6 @@ export default function DonatePage() {
               text="Every rupee goes straight to the animals — a meal, a vet’s visit, a safe place to heal. And we’ll send you photos from the field, so you see exactly what it changed."
             />
 
-            {/* Ruled gift list (de-carded) */}
-            <dl className="mt-8 border-t border-ink/12">
-              {GIFTS.map((g) => (
-                <div key={g.amt} className="flex items-baseline gap-6 border-b border-ink/12 py-5">
-                  <dt className="display-3 w-[5ch] shrink-0 text-[1.6rem] text-copper-dark"><CountUp to={g.amt} prefix="₹" /></dt>
-                  <dd className="text-ink/70">{g.does}</dd>
-                </div>
-              ))}
-            </dl>
 
             {/* Emotion before the ask + peer proof at the decision point (§8/§9).
                 Uses the real Tobler origin story + a real monthly donor's words. */}

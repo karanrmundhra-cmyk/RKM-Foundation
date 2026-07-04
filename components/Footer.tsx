@@ -31,7 +31,6 @@ export default function Footer() {
             <p className="display-2 mt-5 max-w-[15ch] text-balance">
               {hi ? "वह बनें जो साथ खड़ा होता है।" : "Be the someone who shows up."}
             </p>
-            <a href={`${donate}#donation`} className="btn-copper mt-8">{hi ? "अभी दान करें" : "Donate Now"}</a>
           </div>
           <div className="lg:col-span-5">
             <SubscribeForm />

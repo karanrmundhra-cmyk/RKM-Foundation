@@ -121,7 +121,7 @@ export function HomeHi() {
             <p className="eyebrow-index">RKM फाउंडेशन पर भरोसा क्यों करें</p>
             <h2 className="display-2 mt-5 max-w-[22ch] text-balance">विश्वास के साथ दें। आप जो बदलाव लाते हैं उसे देखें।</h2>
           </Reveal>
-          <div className="mt-16 grid gap-x-16 gap-y-12 sm:grid-cols-2">
+          <div className="mt-16 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {TRUST.map((t, i) => (
               <Reveal key={t.title} delay={i * 70}>
                 <div className="flex gap-5">
@@ -185,10 +185,9 @@ export function HomeHi() {
           <Reveal>
             <h2 className="display-2 mx-auto max-w-[22ch] text-balance">कहीं न कहीं, कोई जानवर इंतज़ार कर रहा है।</h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">वह आपका नाम नहीं जानता। उसे बस किसी के साथ खड़े होने की ज़रूरत है। आज, वह आप हो सकते हैं।</p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-10 flex flex-col items-center gap-4">
               <Link href="/hi/donate-now#donation" className="btn-copper">अभी दान करें</Link>
-              <Link href="/hi/fundraiser" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">फंडरेज़र शुरू करें</Link>
-              <Link href="/hi/other-ways-to-give" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">स्वयंसेवक बनें</Link>
+              <Link href="/hi/fundraiser" className="text-sm font-semibold text-white/75 underline decoration-copper decoration-2 underline-offset-4 transition-colors hover:text-white">या फंडरेज़र शुरू करें →</Link>
             </div>
           </Reveal>
         </div>

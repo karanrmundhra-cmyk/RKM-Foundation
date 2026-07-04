@@ -13,7 +13,7 @@ function PlusMinus({ open }: { open: boolean }) {
 }
 
 export default function CsrAccordion() {
-  const [open, setOpen] = useState<number>(0); // first pillar open by default
+  const [open, setOpen] = useState<number>(Math.max(0, CSR_PILLARS.findIndex((p) => p.name === "My Animals"))); // flagship pillar open by default (V5)
 
   return (
     <div className="mt-12 overflow-hidden rounded-2xl border border-ink/12 bg-white">

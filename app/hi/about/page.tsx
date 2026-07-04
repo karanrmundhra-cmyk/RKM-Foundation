@@ -177,9 +177,9 @@ export default function AboutHiPage() {
           <Reveal>
             <h2 className="display-2 mx-auto max-w-[20ch] text-balance">एक परवाह करने वाले समुदाय से जुड़ें</h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">इस मिशन का हर सदस्य एक कदम से शुरू हुआ। आज अपना कदम उठाएँ।</p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-10 flex flex-col items-center gap-4">
               <Link href="/hi/donate-now#donation" className="btn-copper">अभी दान करें</Link>
-              <Link href="/hi/other-ways-to-give" className="btn bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20">स्वयंसेवक बनें</Link>
+              <Link href="/hi/other-ways-to-give" className="text-sm font-semibold text-white/75 underline decoration-copper decoration-2 underline-offset-4 transition-colors hover:text-white">या स्वयंसेवक बनें →</Link>
             </div>
           </Reveal>
         </div>
