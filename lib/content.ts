@@ -58,7 +58,7 @@ export const TESTIMONIALS = [
   {
     quote:
       "I usually donate items, not money. The pickup was smooth, and even a small mix-up was handled calmly. What stood out was how respectful and responsive the team was.",
-    name: "Ankit Palan", place: "Mumbai", context: "In-kind donor", img: "/images/testimonials/ankit-palan.jpeg",
+    name: "Ankit Palan", place: "Mumbai", context: "In-kind donor — before joining our core team", img: "/images/testimonials/ankit-palan.jpeg",
   },
   {
     quote:
