@@ -68,7 +68,7 @@ export function renderUpdateEmail(u: Update, o: { lang: "en" | "hi"; recipientNa
     ${yourPart}
     <p style="margin:26px 0 0">${closing}</p>
     <p style="margin:20px 0 0">— The Mundhra family,<br>RKM Foundation</p>
-    <p style="margin:26px 0 0;font-size:11px;color:#8a8a8a;text-align:center"><a href="${browserUrl}" style="color:${COPPER_DARK}">${hi ? "टोबलर के बहीखाते पर देखें" : "See this update on Tobler's Ledger"}</a>&nbsp;·&nbsp;<a href="${o.unsubscribeUrl}" style="color:#8a8a8a">${hi ? "अनसब्सक्राइब" : "Unsubscribe"}</a></p>`;
+    <p style="margin:26px 0 0;font-size:11px;color:#8a8a8a;text-align:center"><a href="${browserUrl}" style="color:${COPPER_DARK}">${hi ? "टोबलर के बहीखाते पर देखें" : "See this update on Tobler's Ledger"}</a>&nbsp;·&nbsp;<a href="${SITE}/account" style="color:${COPPER_DARK}">${hi ? "मेरी रसीदें" : "My receipts"}</a>&nbsp;·&nbsp;<a href="${o.unsubscribeUrl}" style="color:#8a8a8a">${hi ? "अनसब्सक्राइब" : "Unsubscribe"}</a></p>`;
   return { subject, html: shell(inner, lang) };
 }
 
