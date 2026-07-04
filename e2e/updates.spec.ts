@@ -43,3 +43,11 @@ test.describe("Mailer API security", () => {
     expect([401, 503]).toContain(r.status()); // 503 when secret unset (CI), 401 when set + bad sig
   });
 });
+
+test.describe("Ops dashboard API (4C)", () => {
+  test("attention scan and daily digest are locked down", async ({ request }) => {
+    expect((await request.get("/api/admin/attention")).status()).toBe(401);
+    expect((await request.get("/api/cron/daily")).status()).toBe(401);
+    expect((await request.get("/api/cron/monthly")).status()).toBe(401);
+  });
+});
