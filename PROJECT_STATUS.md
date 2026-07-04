@@ -24,7 +24,7 @@ _Last updated: 5 July 2026. Website: **FROZEN at `v1.1.0`**. Active stream: **Di
 | Phase | Status |
 |---|---|
 | **4A Foundation** | ✅ **Complete (5 Jul 2026).** Architecture validated against the codebase; DB validated live (Supabase ACTIVE_HEALTHY; tables `fund/donor/donation/subscription/payment_event/receipt_sequence/receipt/foreign_flag/compliance_event/audit_trail`, all RLS-enabled; functions `allocate_receipt_no`, `indian_fy`, `donation_guard`, `forbid_mutation`, `write_audit`; migrations ×3; security advisors: 2 minor findings, logged). APIs validated (webhook signature + idempotency, admin constant-time auth + throttle, nonce CSP). Email pipeline validated (single Resend module, graceful no-key skip). Duplication scan clean. Canonical docs committed to `main`. |
-| **4B Mailer + Ledger** | Next. Gate: P0 items in `BLOCKED.md` + screen-preview approval. Build/stage may proceed before P0; no live sends. |
+| **4B Mailer + Ledger** | 🔧 **Built (5 Jul)** — full pipeline + Ledger EN/HI + proof slot + crons + E2E, staged as a Preview Release (FINAL REVIEW MODE: one founder review before production). First live send gated on P0. ADRs 001–003 in `docs/adr/`. |
 | **4C Dashboard v2** | After 4B live. |
 | **4D Donor Portal** | After one month of 4B in real use. |
 | **4E Knowledge Vault** | When useful to owner. |

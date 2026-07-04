@@ -15,11 +15,22 @@ function langAlternates(r: string) {
   return { en: `${BASE}${en}`, hi: `${BASE}${hi}`, "x-default": `${BASE}${en}` };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((r) => ({
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const base = routes.map((r) => ({
     url: `${BASE}${r}`,
-    changeFrequency: r === "" || r === "/blog" ? "weekly" : "monthly",
+    changeFrequency: (r === "" || r === "/blog" ? "weekly" : "monthly") as "weekly" | "monthly",
     priority: r === "" ? 1 : r === "/donate-now" ? 0.9 : 0.6,
     alternates: { languages: langAlternates(r) },
   }));
+  // Tobler's Ledger (4B): the timeline + every sent month, EN/HI hreflang-paired.
+  const ledger: MetadataRoute.Sitemap = [
+    { url: `${BASE}/updates`, changeFrequency: "weekly", priority: 0.8, alternates: { languages: langAlternates("/updates") } },
+  ];
+  try {
+    const { listSentUpdates } = await import("@/lib/updates-data");
+    for (const u of await listSentUpdates()) {
+      ledger.push({ url: `${BASE}/updates/${u.month}`, changeFrequency: "monthly", priority: 0.7, alternates: { languages: langAlternates(`/updates/${u.month}`) } });
+    }
+  } catch { /* db not configured (e.g. CI build) — ship the static set */ }
+  return [...base, ...ledger];
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import DonateWidget from "@/components/DonateWidget";
 import Reveal from "@/components/Reveal";
+import LedgerProofCard from "@/components/LedgerProofCard";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
 import { TESTIMONIALS } from "@/lib/content";
 
@@ -53,6 +54,9 @@ export default function DonatePage() {
                 </figcaption>
               </figure>
             </div>
+
+            {/* 4B proof-near-ask: newest Ledger entry; renders nothing until the first update is sent. */}
+            <LedgerProofCard lang="en" />
 
             <p className="mt-6 text-sm text-ink/60">
               Prefer another way?{" "}

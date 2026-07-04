@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendFormEmail, sendFormAck, sendNewsletterWelcome } from "@/lib/email";
 import { throttle, validate, type Rule } from "@/lib/guard";
+import { addSubscriber, suppressEmail } from "@/lib/updates-data";
+import { dbEnabled } from "@/lib/db";
 
 const SCHEMAS: Record<string, Record<string, Rule>> = {
   newsletter: { email: { required: true, email: true, max: 200 } },
@@ -42,6 +44,16 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ ok: true, duplicate: true });
       }
       seen.set(k, Date.now());
+    }
+
+    // Content spine (4B): newsletter opt-ins/outs are now persisted so the
+    // monthly impact update can honour the subscribe block's promise.
+    if (dbEnabled()) {
+      try {
+        const lang = (req.headers.get("referer") ?? "").includes("/hi") ? "hi" as const : "en" as const;
+        if (formType === "newsletter") await addSubscriber(email, lang, "newsletter-form");
+        if (formType === "unsubscribe") await suppressEmail(email, "unsubscribed");
+      } catch (e) { console.error("[forms] spine", e); }
     }
 
     await sendFormEmail(formType, result.clean!);
