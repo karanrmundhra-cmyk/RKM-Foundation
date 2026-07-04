@@ -51,3 +51,16 @@ test.describe("Ops dashboard API (4C)", () => {
     expect((await request.get("/api/cron/monthly")).status()).toBe(401);
   });
 });
+
+test.describe("Donor portal (4D)", () => {
+  test("/account renders the magic-link sign-in when logged out", async ({ page }) => {
+    await page.goto("/account");
+    await expect(page.getByRole("heading", { name: "Sign in with your email." })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Email me a sign-in link/ })).toBeVisible();
+  });
+
+  test("receipt download API rejects anonymous and malformed requests", async ({ request }) => {
+    expect([401, 503]).toContain((await request.get("/api/account/receipt?receipt_id=00000000-0000-0000-0000-000000000000")).status());
+    expect([401, 503]).toContain((await request.get("/api/account/receipt?receipt_id=nope", { headers: { Authorization: "Bearer fake" } })).status());
+  });
+});
