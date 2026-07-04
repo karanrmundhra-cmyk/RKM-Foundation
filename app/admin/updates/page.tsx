@@ -10,7 +10,7 @@ type Photo = { storage_path: string; alt?: string };
 type Story = { animal_name: string; note_en: string; note_hi: string; photos: Photo[] };
 type UpdateRow = {
   update_id: string; month: string; status: string; recipient_count: number | null; sent_at: string | null;
-  subject_en: string | null; intro_en: string | null;
+  subject_en: string | null; intro_en: string | null; subject_hi: string | null; intro_hi: string | null;
   totals: { meals?: number; vaccinations?: number; treatments?: number } | null;
   stories: { animal_name: string; note_en: string; note_hi: string | null; photos: { storage_path: string; alt: string }[] }[];
 };
@@ -31,7 +31,9 @@ export default function AdminUpdatesPage() {
   const [list, setList] = useState<UpdateRow[]>([]);
   const [month, setMonth] = useState(currentMonth());
   const [subjectEn, setSubjectEn] = useState("");
+  const [subjectHi, setSubjectHi] = useState("");
   const [introEn, setIntroEn] = useState("");
+  const [introHi, setIntroHi] = useState("");
   const [totals, setTotals] = useState({ meals: "", vaccinations: "", treatments: "" });
   const [stories, setStories] = useState<Story[]>([]);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -56,9 +58,11 @@ export default function AdminUpdatesPage() {
   // Hydrate the form when switching to a month that already has a draft.
   useEffect(() => {
     const u = list.find((x) => x.month === month);
-    if (!u) { setSubjectEn(""); setIntroEn(""); setTotals({ meals: "", vaccinations: "", treatments: "" }); setStories([]); return; }
+    if (!u) { setSubjectEn(""); setIntroEn(""); setSubjectHi(""); setIntroHi(""); setTotals({ meals: "", vaccinations: "", treatments: "" }); setStories([]); return; }
     setSubjectEn(u.subject_en ?? "");
     setIntroEn(u.intro_en ?? "");
+    setSubjectHi(u.subject_hi ?? "");
+    setIntroHi(u.intro_hi ?? "");
     setTotals({ meals: u.totals?.meals?.toString() ?? "", vaccinations: u.totals?.vaccinations?.toString() ?? "", treatments: u.totals?.treatments?.toString() ?? "" });
     setStories(u.stories.map((s) => ({ animal_name: s.animal_name, note_en: s.note_en, note_hi: s.note_hi ?? "", photos: s.photos.map((p) => ({ storage_path: p.storage_path, alt: p.alt })) })));
   }, [month, list]);
@@ -72,6 +76,7 @@ export default function AdminUpdatesPage() {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           month, subject_en: subjectEn || undefined, intro_en: introEn || undefined,
+          subject_hi: subjectHi || undefined, intro_hi: introHi || undefined,
           totals: { meals: totals.meals, vaccinations: totals.vaccinations, treatments: totals.treatments },
           stories: stories.map((s) => ({ animal_name: s.animal_name, note_en: s.note_en, note_hi: s.note_hi || undefined, photos: s.photos })),
         }),
@@ -152,7 +157,7 @@ export default function AdminUpdatesPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="label-c" htmlFor="month">Month</label>
-                  <input id="month" type="month" className={input} value={month} onChange={(e) => setMonth(e.target.value)} />
+                  <input id="month" type="month" className={input} value={month} onChange={(e) => setMonth(e.target.value)} placeholder="YYYY-MM" pattern="[0-9]{4}-[0-9]{2}" />
                 </div>
                 <div>
                   <label className="label-c">Status</label>
@@ -169,6 +174,17 @@ export default function AdminUpdatesPage() {
                     <label className="label-c" htmlFor="intro">Intro line (English) <span className="text-ink/50">— optional</span></label>
                     <input id="intro" className={input} maxLength={1000} value={introEn} onChange={(e) => setIntroEn(e.target.value)} placeholder="You showed up for the animals this month. Here's what that looked like." />
                   </div>
+                  <details className="mt-4">
+                    <summary className="cursor-pointer text-sm font-medium text-ink/70">Hindi subject &amp; intro <span className="text-ink/50">(optional — sensible Hindi defaults are used if empty)</span></summary>
+                    <div className="mt-3">
+                      <label className="label-c" htmlFor="subjhi">Subject (हिंदी)</label>
+                      <input id="subjhi" lang="hi" className={input} maxLength={200} value={subjectHi} onChange={(e) => setSubjectHi(e.target.value)} placeholder="इस महीने आपने 3 जानवरों की मदद की — यह रहा प्रमाण" />
+                    </div>
+                    <div className="mt-3">
+                      <label className="label-c" htmlFor="introhi">Intro line (हिंदी)</label>
+                      <input id="introhi" lang="hi" className={input} maxLength={1000} value={introHi} onChange={(e) => setIntroHi(e.target.value)} placeholder="इस महीने आप जानवरों के लिए मौजूद रहे। यह रहा उसका प्रमाण।" />
+                    </div>
+                  </details>
                   <div className="mt-4 grid gap-4 sm:grid-cols-3">
                     {(["meals", "vaccinations", "treatments"] as const).map((k) => (
                       <div key={k}>

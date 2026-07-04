@@ -34,7 +34,7 @@ export default async function UpdatesHiPage() {
           {updates.length === 0 ? (
             <Reveal className="max-w-2xl">
               <p className="text-lg leading-relaxed text-ink/70">पहला मासिक अपडेट तैयार हो रहा है। दानदाताओं को यह ईमेल से मिलता है; उसी क्षण यह यहाँ प्रकाशित होता है।</p>
-              <p className="mt-4 text-sm text-ink/60">इनबॉक्स में चाहिए? <Link href="/hi#subscribe" className="link-secondary">होमपेज पर सब्सक्राइब करें</Link> — कभी कोई स्पैम नहीं।</p>
+              <p className="mt-4 text-sm text-ink/60">इनबॉक्स में चाहिए? <Link href="#subscribe" className="link-secondary">नीचे सब्सक्राइब करें</Link> — कभी कोई स्पैम नहीं।</p>
             </Reveal>
           ) : (
             updates.map((u) => (

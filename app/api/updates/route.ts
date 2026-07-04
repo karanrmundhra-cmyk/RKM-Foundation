@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       if (s.note_hi && (typeof s.note_hi !== "string" || s.note_hi.length > 300)) return NextResponse.json({ error: "invalid Hindi note" }, { status: 400 });
       if (!Array.isArray(s.photos) || s.photos.length > 8) return NextResponse.json({ error: "each story needs 0–8 uploaded photos" }, { status: 400 });
       for (const p of s.photos) {
-        if (!p || typeof p.storage_path !== "string" || !/^[\w\-\/\.]{1,200}$/.test(p.storage_path)) return NextResponse.json({ error: "invalid photo path" }, { status: 400 });
+        if (!p || typeof p.storage_path !== "string" || p.storage_path.includes("..") || !/^[\w\-\/\.]{1,200}$/.test(p.storage_path)) return NextResponse.json({ error: "invalid photo path" }, { status: 400 });
       }
     }
   }

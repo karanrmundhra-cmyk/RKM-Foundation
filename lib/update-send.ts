@@ -10,6 +10,7 @@ import { client, fromHeader } from "./email";
 import { createActionToken } from "./action-token";
 import { renderPreviewEmail, renderUpdateEmail } from "./update-email";
 import { computeRecipients, getUpdateById, setUpdateStatus, type Update } from "./updates-data";
+import { unsubscribeUrl } from "./unsubscribe";
 
 const SITE = "https://rkmfoundation.com";
 
@@ -20,7 +21,7 @@ export function ownerEmail(): string {
 /** Render + send the founder preview with fresh single-use approve/skip tokens. */
 export async function sendOwnerPreview(u: Update): Promise<{ recipientCount: number }> {
   const resend = await client();
-  const recipients = await computeRecipients();
+  const recipients = await computeRecipients(u.month);
   const approve = await createActionToken("approve_update", u.update_id);
   const skip = await createActionToken("skip_update", u.update_id);
   const { subject, html } = renderPreviewEmail(u, {
@@ -40,7 +41,7 @@ export async function sendOwnerPreview(u: Update): Promise<{ recipientCount: num
 
 /** Queue rows for every recipient (idempotent: merge-duplicates on the unique key). */
 async function queueRecipients(u: Update): Promise<number> {
-  const recipients = await computeRecipients();
+  const recipients = await computeRecipients(u.month);
   for (const r of recipients) {
     try {
       await dbFetch("email_send?on_conflict=update_id,email", {
@@ -64,10 +65,13 @@ export async function runSend(updateId: string): Promise<{ sent: number; failed:
   const resend = await client();
   if (!resend) throw new Error("email-not-configured");
 
+  const alreadySent = u.status === "sent";
   await setUpdateStatus(u.update_id, "sending");
-  await queueRecipients(u);
+  // Release-review fix: a retry of an already-SENT update only flushes rows that
+  // are still queued — it never enrols recipients who appeared after the send.
+  if (!alreadySent) await queueRecipients(u);
 
-  const recipients = await computeRecipients();
+  const recipients = await computeRecipients(u.month);
   const byEmail = new Map(recipients.map((r) => [r.email, r]));
   const suppressed = new Set(((await dbFetch("suppression?select=email&limit=100000")) ?? []).map((s: any) => String(s.email).toLowerCase()));
 
@@ -75,7 +79,7 @@ export async function runSend(updateId: string): Promise<{ sent: number; failed:
   for (;;) {
     const queued = await dbFetch(`email_send?update_id=eq.${u.update_id}&status=eq.queued&select=send_id,email,lang&limit=90`);
     if (!queued?.length) break;
-    const payloads: { send_id: string; email: string; body: { from: string; to: string[]; subject: string; html: string } }[] = [];
+    const payloads: { send_id: string; email: string; body: { from: string; to: string[]; replyTo: string; subject: string; html: string; headers: Record<string, string> } }[] = [];
     for (const q of queued) {
       const email = String(q.email).toLowerCase();
       if (suppressed.has(email)) {
@@ -84,13 +88,15 @@ export async function runSend(updateId: string): Promise<{ sent: number; failed:
         continue;
       }
       const r = byEmail.get(email);
+      const unsub = unsubscribeUrl(email);
       const { subject, html } = renderUpdateEmail(u, {
         lang: (q.lang === "hi" ? "hi" : "en"),
         recipientName: r?.name ?? null,
         paidPaiseThisMonth: r?.paidPaiseThisMonth ?? 0,
-        unsubscribeUrl: `${SITE}/unsubscribe?email=${encodeURIComponent(email)}`,
+        unsubscribeUrl: unsub,
       });
-      payloads.push({ send_id: q.send_id, email, body: { from: fromHeader(), to: [email], subject, html } });
+      // RFC 8058 one-click unsubscribe headers (Gmail/Yahoo bulk-sender rules).
+      payloads.push({ send_id: q.send_id, email, body: { from: fromHeader(), to: [email], replyTo: "info@rkm.support", subject, html, headers: { "List-Unsubscribe": `<${unsub}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" } } });
     }
     if (!payloads.length) continue;
     try {

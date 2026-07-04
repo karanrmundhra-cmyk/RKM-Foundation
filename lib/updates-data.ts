@@ -103,21 +103,27 @@ export async function setUpdateStatus(updateId: string, status: UpdateStatus, ex
   await dbFetch(`update?update_id=eq.${updateId}`, { method: "PATCH", body: JSON.stringify({ status, ...extra }) });
 }
 
-/** Recipients = paid donors with an email + newsletter subscribers − suppression. Deduped. */
-export async function computeRecipients(): Promise<{ email: string; donor_id: string | null; name: string | null; paidPaiseThisMonth: number; lang: "en" | "hi" }[]> {
+/**
+ * Recipients = paid donors with an email + newsletter subscribers − suppression. Deduped.
+ * `month` (YYYY-MM) scopes the personalisation sum to the UPDATE's month — an
+ * August update approved on 1 September must personalise on August's gifts,
+ * not September's (release-review fix).
+ */
+export async function computeRecipients(month?: string): Promise<{ email: string; donor_id: string | null; name: string | null; paidPaiseThisMonth: number; lang: "en" | "hi" }[]> {
   const [donations, donors, subscribers, suppressed] = await Promise.all([
-    dbFetch("donation?status=eq.paid&select=donor_id,gross_amount_paise,created_at&limit=100000"),
+    dbFetch("donation?status=eq.paid&select=donor_id,gross_amount_paise,received_date,created_at&limit=100000"),
     dbFetch("donor?email=not.is.null&select=donor_id,email,full_name&limit=100000"),
     dbFetch("subscriber?select=email,lang&limit=100000"),
     dbFetch("suppression?select=email&limit=100000"),
   ]);
   const stop = new Set((suppressed ?? []).map((s: any) => String(s.email).toLowerCase()));
-  const monthStart = new Date(); monthStart.setDate(1); monthStart.setHours(0, 0, 0, 0);
+  const now = new Date();
+  const target = month ?? `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
   const paidByDonor = new Map<string, number>();
   for (const d of donations ?? []) {
-    const ts = new Date(d.created_at);
-    if (ts >= monthStart) paidByDonor.set(d.donor_id, (paidByDonor.get(d.donor_id) ?? 0) + (d.gross_amount_paise ?? 0));
-    else if (!paidByDonor.has(d.donor_id)) paidByDonor.set(d.donor_id, 0); // paid donor, not this month
+    const when = String(d.received_date ?? d.created_at ?? "").slice(0, 7);
+    if (when === target) paidByDonor.set(d.donor_id, (paidByDonor.get(d.donor_id) ?? 0) + (d.gross_amount_paise ?? 0));
+    else if (!paidByDonor.has(d.donor_id)) paidByDonor.set(d.donor_id, 0); // paid donor, not in the target month
   }
   const out = new Map<string, { email: string; donor_id: string | null; name: string | null; paidPaiseThisMonth: number; lang: "en" | "hi" }>();
   for (const d of donors ?? []) {

@@ -39,7 +39,7 @@ export default async function UpdatesPage() {
                 it is published here the same moment.
               </p>
               <p className="mt-4 text-sm text-ink/60">
-                Want it in your inbox? <Link href="/#subscribe" className="link-secondary">Subscribe on the homepage</Link> — no spam, ever.
+                Want it in your inbox? <Link href="#subscribe" className="link-secondary">Subscribe below</Link> — no spam, ever.
               </p>
             </Reveal>
           ) : (

@@ -17,7 +17,7 @@ export function photoUrl(storagePath: string): string {
 
 function shell(inner: string, lang: "en" | "hi"): string {
   const trust = lang === "hi" ? "पंजीकृत ट्रस्ट · 12A · 80G · CSR" : "Registered trust · 12A · 80G · CSR";
-  return `<!doctype html><html lang="${lang}"><body style="margin:0;padding:0;background:${SNOW}"><div style="max-width:640px;margin:0 auto;background:#ffffff;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:${INK};font-size:15px;line-height:1.6"><div style="padding:28px 28px 8px">${inner}</div><div style="padding:18px 28px;background:${SNOW};font-size:12px;color:#6b6b6b;text-align:center">${trust}</div></div></body></html>`;
+  return `<!doctype html><html lang="${lang}"><body style="margin:0;padding:0;background:${SNOW}"><div style="max-width:640px;margin:0 auto;background:#ffffff;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:${INK};font-size:15px;line-height:1.6"><div style="padding:28px 28px 8px">${inner}</div><div style="padding:18px 28px;background:${SNOW};font-size:12px;color:#6b6b6b;text-align:center">${trust}<br><span style="font-size:11px;color:#8a8a8a">RKM Foundation · 201, 2nd Floor, Paramos Tower, Vasant Lawns, Majiwada, Thane West 400601, India</span></div></div></body></html>`;
 }
 
 function storyBlocks(u: Update, lang: "en" | "hi"): string {

@@ -22,7 +22,7 @@ export default function SubscribeForm() {
   }
 
   return (
-    <div>
+    <div id="subscribe">
       <h3 className="text-lg font-semibold">
         {hi ? "देखिए इस महीने आपने किसकी मदद की।" : "See who you helped this month."}
       </h3>

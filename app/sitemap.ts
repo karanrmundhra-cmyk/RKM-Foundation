@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// Re-evaluate hourly so newly sent Ledger months appear without a redeploy.
+export const revalidate = 3600;
+
 const BASE = "https://rkmfoundation.com";
 const routes = ["", "/hi", "/hi/contact", "/hi/donate-now", "/hi/careers", "/hi/other-ways-to-give", "/hi/about", "/hi/partner-with-us", "/hi/csr", "/hi/fundraiser", "/hi/fundraiser/create", "/hi/faqs", "/hi/media", "/hi/blog", "/hi/blog/the-dog-who-started-it-all", "/hi/shop", "/hi/legal", "/hi/legal/privacy-policy", "/hi/legal/terms-and-conditions", "/hi/legal/website-disclaimer-cookie-policy", "/hi/legal/donation-refund-policy", "/hi/legal/shop-refund-policy", "/hi/legal/80g-tax-disclaimer", "/about", "/donate-now", "/fundraiser", "/fundraiser/create", "/shop", "/csr",
   "/partner-with-us", "/other-ways-to-give", "/faqs", "/careers", "/media", "/blog",

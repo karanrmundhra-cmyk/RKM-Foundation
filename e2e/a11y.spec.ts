@@ -4,7 +4,7 @@ import AxeBuilder from "@axe-core/playwright";
 // Automated WCAG 2.2 AA scan (§2b). axe catches a meaningful subset of WCAG;
 // a manual keyboard/screen-reader pass is still required for full conformance,
 // but this is a build-failing gate against regressions on serious/critical issues.
-const PAGES = ["/", "/donate-now", "/about", "/csr", "/faqs", "/contact", "/hi"];
+const PAGES = ["/", "/donate-now", "/about", "/csr", "/faqs", "/contact", "/hi", "/updates", "/hi/updates"];
 
 async function dismissConsent(page: Page) {
   for (const name of ["Reject", "अस्वीकार करें"]) {
