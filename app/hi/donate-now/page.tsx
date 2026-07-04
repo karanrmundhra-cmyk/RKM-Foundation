@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import DonateWidget from "@/components/DonateWidget";
 import Reveal from "@/components/Reveal";
+import LedgerProofCard from "@/components/LedgerProofCard";
 
 export const metadata: Metadata = {
   title: "दान करें",
@@ -27,6 +28,9 @@ export default function DonateHiPage() {
               हर रुपया सीधे जानवरों तक पहुँचता है — एक भोजन, पशु-चिकित्सक की जाँच, ठीक होने के लिए एक सुरक्षित जगह। और हम आपको मैदान से तस्वीरें भेजेंगे, ताकि आप ठीक-ठीक देख सकें कि इसने क्या बदला।
             </p>
 
+
+            {/* 4B proof-near-ask (HI): renders nothing until the first update is sent. */}
+            <LedgerProofCard lang="hi" />
 
             <p className="mt-6 text-sm text-ink/60">
               कोई और तरीका पसंद है?{" "}

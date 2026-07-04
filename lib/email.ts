@@ -7,10 +7,10 @@ const SITE_URL = "https://rkmfoundation.com";
 function fromAddr() {
   return process.env.RECEIPTS_FROM_EMAIL || process.env.FORMS_FROM_EMAIL || "website@rkm.support";
 }
-function fromHeader() {
+export function fromHeader() {
   return `${FROM_NAME} <${fromAddr()}>`;
 }
-async function client() {
+export async function client() {
   const key = process.env.RESEND_API_KEY;
   if (!key) return null;
   const { Resend } = await import("resend");

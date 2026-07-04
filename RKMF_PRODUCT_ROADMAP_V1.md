@@ -54,6 +54,8 @@ _Phase lettering and order fixed 5 July 2026 by the Ecosystem Master Execution C
 | **4D** | **M3 Donor Portal** | 2–3 dev-days | One month of 4B in real use | A donor self-serves a receipt with zero founder involvement |
 | **4E** | **M5 Knowledge Vault** + OneDrive auto-pickup | 2 dev-days | When useful to owner | A certificate renewal published to the site with no developer involvement |
 
+_Status 5 July 2026 (FINAL REVIEW MODE): **4B is built end-to-end** — content-spine migration applied (additive), mailer pipeline (compose → owner preview → single-use approve/skip → batched resumable send → Resend delivery webhook), Tobler's Ledger EN+HI, donate-page proof slot, crons, E2E — staged as a Preview Release awaiting the single founder review. First live donor send additionally gated on P0. ADRs: `docs/adr/`._
+
 ## 6 · Estimated Effort
 
 ~9–10 dev-days total, deliberately spread so each phase is **used in production** before the next begins. Founder time: P0 ≈ 1 hr; thereafter ~5 min/month (mailer) + answering the daily digest only when non-empty.
