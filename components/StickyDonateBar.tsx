@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const HIDDEN_ON = ["/donate-now", "/hi/donate-now", "/thank-you", "/donation-failed"];
+const HIDDEN_ON = ["/donate-now", "/hi/donate-now", "/thank-you", "/donation-failed", "/legal", "/hi/legal"];
 
 export default function StickyDonateBar() {
   const pathname = usePathname();

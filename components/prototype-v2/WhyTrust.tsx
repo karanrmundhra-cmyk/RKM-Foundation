@@ -28,7 +28,7 @@ export function WhyTrust() {
           <h2 className="display-2 mt-5 max-w-[18ch] text-balance">Give with confidence. See the change you create.</h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-x-16 gap-y-14 sm:grid-cols-2">
+        <div className="mt-20 grid gap-x-16 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {TRUST.map((t, i) => (
             <Reveal key={t.title} delay={i * 70}>
               <div className="flex gap-5">
