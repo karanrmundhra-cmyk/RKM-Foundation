@@ -19,12 +19,6 @@ const FIELDS = [
   { name: "duration", label: "अभियान अवधि", required: true, options: ["30 दिन", "60 दिन", "90 दिन"] },
 ];
 
-const TIERS = [
-  { amount: "₹5,000", desc: "लगभग एक महीने तक 2–3 बचाए गए जानवरों को खाना खिलाता है।" },
-  { amount: "₹7,000", desc: "एक बचाए गए जानवर के लिए बंध्याकरण, उपचार और स्वस्थ होने की देखभाल का सहयोग करता है।" },
-  { amount: "₹10,000", desc: "एक केनेल बनाने या आपातकालीन चिकित्सा उपचार में मदद करता है।" },
-];
-
 const NEXT = [
   "आपको दोस्तों और परिवार के साथ साझा करने के लिए एक अनोखा फंडरेज़र पेज मिलेगा।",
   "दान सीधे RKM फाउंडेशन को जाता है।",
@@ -53,6 +47,7 @@ export default function CreateFundraiserHiPage() {
             <p className="eyebrow-index">आपका विवरण</p>
             <h2 className="display-2 mt-5 text-balance">एक मिनट में सेट करें।</h2>
           </Reveal>
+          <p className="mt-10 border-t border-ink/10 pt-6 text-sm leading-relaxed text-ink/60">राशि हमारे आश्रय में जाती है — खाना, पशु-चिकित्सा और सोने की एक सुरक्षित जगह। दानदाताओं को तुरंत रसीद मिलती है, और जहाँ लागू हो, 80G प्रमाणपत्र।</p>
           <Reveal className="mt-10">
             <FormShell
               formType="fundraiser-create"
@@ -65,24 +60,6 @@ export default function CreateFundraiserHiPage() {
         </div>
       </section>
 
-      <section className="bg-snow section-y">
-        <div className="container-c grid gap-x-16 gap-y-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <p className="eyebrow-index">पैसा कहाँ जाता है</p>
-            <h2 className="display-2 mt-5 text-balance">आपका फंडरेज़र कैसे मदद करता है।</h2>
-          </Reveal>
-          <div className="lg:col-span-7">
-            {TIERS.map((t, i) => (
-              <Reveal key={t.amount} delay={i * 70}>
-                <div className={`grid grid-cols-1 items-center gap-x-8 gap-y-2 border-t border-ink/12 py-7 sm:grid-cols-[auto_1fr] ${i === TIERS.length - 1 ? "border-b" : ""}`}>
-                  <div className="display-3 text-copper-dark sm:min-w-[5ch]">{t.amount}</div>
-                  <p className="leading-relaxed text-ink/70">{t.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section-y">
         <div className="container-c">

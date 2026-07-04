@@ -18,12 +18,6 @@ const FIELDS = [
   { name: "duration", label: "Campaign Duration", required: true, options: ["30 Days", "60 Days", "90 Days"] },
 ];
 
-const TIERS = [
-  { amount: "₹5,000", desc: "Feeds 2–3 rescued animals for approximately one month." },
-  { amount: "₹7,000", desc: "Supports neutering, treatment, and recovery care for one rescued animal." },
-  { amount: "₹10,000", desc: "Helps build one kennel or support emergency medical treatment." },
-];
-
 const NEXT = [
   "You'll receive a unique fundraiser page to share with friends and family.",
   "Donations go directly to RKM Foundation.",
@@ -55,6 +49,7 @@ export default function CreateFundraiserPage() {
             <p className="eyebrow-index">Your Details</p>
             <h2 className="display-2 mt-5 text-balance">Set it up in a minute.</h2>
           </Reveal>
+          <p className="mt-10 border-t border-ink/10 pt-6 text-sm leading-relaxed text-ink/60">Funds go to the shelter we run — food, vet care, and a safe place to sleep. Donors get instant receipts, and 80G certificates where applicable.</p>
           <Reveal className="mt-10">
             <FormShell
               formType="fundraiser-create"
@@ -68,24 +63,6 @@ export default function CreateFundraiserPage() {
       </section>
 
       {/* How it helps — ruled list */}
-      <section className="bg-snow section-y">
-        <div className="container-c grid gap-x-16 gap-y-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <p className="eyebrow-index">Where the Money Goes</p>
-            <h2 className="display-2 mt-5 text-balance">How your fundraiser helps.</h2>
-          </Reveal>
-          <div className="lg:col-span-7">
-            {TIERS.map((t, i) => (
-              <Reveal key={t.amount} delay={i * 70}>
-                <div className={`grid grid-cols-1 items-center gap-x-8 gap-y-2 border-t border-ink/12 py-7 sm:grid-cols-[auto_1fr] ${i === TIERS.length - 1 ? "border-b" : ""}`}>
-                  <div className="display-3 text-copper-dark sm:min-w-[5ch]">{t.amount}</div>
-                  <p className="leading-relaxed text-ink/70">{t.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* What happens next — ruled list */}
       <section className="section-y">
