@@ -71,7 +71,7 @@ export default function ShopPage() {
       <section className="section-y">
         <div className="container-c grid items-center gap-x-16 gap-y-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <EditorialFigure alt="The Hope Candle by RKM Foundation" ratio="aspect-[4/5]" parallax speed={0.05} ghost="Hope" caption="The “Hope” Candle · Apple Cinnamon" />
+            <EditorialFigure src="/images/shop/hope-candle.jpg" alt="The “Hope” Candle by RKM Foundation — 100% natural soy wax, apple cinnamon" ratio="aspect-square" parallax speed={0.05} caption="The “Hope” Candle · Apple Cinnamon" />
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-7 lg:pl-4">
