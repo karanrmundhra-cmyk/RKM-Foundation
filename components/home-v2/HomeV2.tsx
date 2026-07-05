@@ -104,7 +104,7 @@ export default function HomeV2() {
       {/* ============ HERO ============ */}
       <section className="hero dark">
         <div className="hero-media">
-          <Image src="/images/site/dog.jpg" alt="A street dog looking into the camera" fill priority sizes="100vw" style={{ objectFit: "cover" }} />
+          <Image src="/images/site/dog.jpg" alt="A street dog looking into the camera" fill priority quality={60} sizes="100vw" style={{ objectFit: "cover" }} />
         </div>
         <div className="hero-content">
           <p className="eyebrow"><span className="mask"><span>Rescue · Feed · Heal · Shelter</span></span></p>
