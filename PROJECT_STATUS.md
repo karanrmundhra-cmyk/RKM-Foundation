@@ -1,6 +1,6 @@
 # PROJECT_STATUS — RKM Foundation
 
-_Last updated: 6 July 2026. Website: **FROZEN at `v1.1.0`**. Ecosystem: **BUILD COMPLETE (Phases 4A–4E live)** — operational gates in `BLOCKED.md`. `BLOCKED.md` is the single canonical blocker list; this file never duplicates it._
+_Last updated: 6 July 2026. Website: **Home + About = V2 COMPLETE, FROZEN at `v1.6.0`** (white/black/gold design language, live-verified); **all other pages frozen at `v1.1.0`**. Ecosystem: **BUILD COMPLETE (Phases 4A–4E live)** — operational gates in `BLOCKED.md`. `BLOCKED.md` is the single canonical blocker list; this file never duplicates it._
 
 ---
 
@@ -41,6 +41,12 @@ _Last updated: 6 July 2026. Website: **FROZEN at `v1.1.0`**. Ecosystem: **BUILD 
 ## Website track (closed)
 
 Engineering, UX/content, and visual-design phases are complete and frozen. Any change goes through the Master Improvement Register (`Review/RKMF-IMPROVEMENT-REGISTER.md`, OneDrive) with previews and owner approval. Owner-rejected items are never reopened.
+
+### Website V2 — Home + About (COMPLETE & FROZEN, 6 July 2026, `v1.6.0`)
+
+Home (`app/page.tsx` + `components/home-v2/` + `app/home-v2.css`, scoped `.hv2`) and About (`app/about/page.tsx` + `components/about-v2/` + `app/about/about-v2.css`, scoped `.av2`) shipped the approved V2 design language (white/black/champagne-gold, Fraunces accent, GSAP/Lenis page-scoped motion). Commits `7e54e41` (release) + `791d4a0` (polish). Live-verified: Lighthouse Home 82/100/100/100 · About 92/100/100/100 · CLS 0 · zero console errors · Header/Footer/DonateWidget byte-identical to prior production.
+
+**These two pages are part of the locked design system. Do not propose changes to them unless:** a functional bug is discovered · accessibility breaks · performance regresses · analytics identify a measurable UX issue · the owner explicitly requests a redesign. HI routes (`/hi`, `/hi/about`) remain on V1 (out of V2 scope; owner to schedule).
 
 ## Exact next actions
 

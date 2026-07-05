@@ -6,6 +6,7 @@ _Created 4 July 2026, at the close of the Website project (tag `v1.0.0`). Update
 ## 1 · Current State (the foundation everything builds on)
 
 - **Website V1.1 (frozen at `v1.1.0`):** production-grade, bilingual, CI-gated (typecheck, lint, donation E2E incl. WCAG 2.2 AA axe, Lighthouse, gitleaks, audit), design system frozen (`DESIGN_SYSTEM_V1.md`), Master Improvement Register governs any change.
+- **Website V2 — Home + About (COMPLETE & FROZEN, 6 Jul 2026, `v1.6.0`):** approved white/black/gold design language live on `/` and `/about` (scoped `.hv2`/`.av2`; Header/Footer/DonateWidget untouched). Live-verified (Lighthouse 82–92 perf / 100 a11y / 100 SEO, CLS 0). Locked: changes only for functional bugs, a11y breaks, perf regressions, analytics-evidenced UX issues, or explicit owner-requested redesign. Remaining V2 pages (Donate, CSR, Fundraiser, Shop, HI routes) are unscheduled until the owner opens them.
 - **Money pipeline (built, partially unproven):** Razorpay order/subscription → signature-verified webhook → Supabase ledger (`donor/donation/payment_event`) → gapless 80G receipt (`allocate_receipt_no` + SHA-256). **Unproven link:** one real donation → webhook → numbered receipt email. (Order creation verified working 4 July; capture chain still unproven.)
 - **Database:** Supabase project verified **ACTIVE_HEALTHY** (5 July 2026) with live rows; RLS enabled on all tables; audit trigger (`write_audit` → `audit_trail`) and mutation guards in place.
 - **Email:** Resend integration + transactional sends; lifecycle skeleton (on `rkmf/safe-infra`, merge pending) guarded by `[NEEDS DATA]`.
@@ -91,7 +92,7 @@ WhatsApp update channel (consent already collected on the donate form) · Razorp
 
 ## 11 · Deferred / Rejected (do not re-open without owner instruction)
 
-Website visual/UX tweaks (frozen; register-gated) · the seven owner-rejected register items (H-02, G-02, C-01, S-02, M-02, A-01, G-03) · PDF email attachments · donor passwords/social features/gamification · separate CMS/admin SPA/analytics store · Next 16 / TS 6 majors (owner decision, tracked in BLOCKED.md) · G-06 eyebrow contrast (open palette question inside the design freeze).
+Website visual/UX tweaks (frozen; register-gated) · Home + About V2 pages (V2 Complete 6 Jul 2026 — locked; reopen only per the V2 freeze conditions in PROJECT_STATUS.md) · the seven owner-rejected register items (H-02, G-02, C-01, S-02, M-02, A-01, G-03) · PDF email attachments · donor passwords/social features/gamification · separate CMS/admin SPA/analytics store · Next 16 / TS 6 majors (owner decision, tracked in BLOCKED.md) · G-06 eyebrow contrast (open palette question inside the design freeze).
 
 ---
 

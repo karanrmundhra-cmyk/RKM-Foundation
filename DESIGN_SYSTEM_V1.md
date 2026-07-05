@@ -3,6 +3,8 @@ _Frozen 4 July 2026, after the T-01…T-06 typography batch and P-01/P-02 polish
 
 Source of truth in code: `app/globals.css`, `tailwind.config.ts`, `components/*`. This file describes them; if they ever disagree, the code that shipped through an approved register item wins, and this file must be updated in the same PR.
 
+> **V2 addendum (6 July 2026, `v1.6.0` — LOCKED):** Home and About shipped the owner-approved **V2 design language** — pure white `#ffffff` / deep black `#0a0a0a` / champagne gold `#a8863d` (`#8a6d2f` dark · `#c8ab72` light), Inter-led type with a single Fraunces italic accent word per heading, monochrome documentary photography, page-scoped GSAP/Lenis motion (reduced-motion safe). These tokens live **only** inside the `.hv2` (`app/home-v2.css`) and `.av2` (`app/about/about-v2.css`) scopes and never leak into the global system above. Both pages are **V2 Complete and frozen**; they are part of the locked design system and are the visual benchmark for any future V2 page. Change conditions: functional bug · a11y break · perf regression · analytics-evidenced UX issue · explicit owner redesign request.
+
 ---
 
 ## 1 · Color tokens (`tailwind.config.ts`)
