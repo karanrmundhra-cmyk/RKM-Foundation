@@ -29,7 +29,7 @@ function impactFor(amount: number): string {
 const PILLARS = [
   { idx: "01 · On the street", title: "Rescue", desc: "Wherever an animal is hurt — the street, the gutter, anywhere.", img: "/images/site/street.jpg", alt: "Rescue — reaching an injured animal on the street" },
   { idx: "02 · Every single day", title: "Feed", desc: "Warm meals every day, for every animal in our care.", img: "/images/site/feed.jpg", alt: "Feed — warm meals for animals in our care" },
-  { idx: "03 · With trusted vets", title: "Heal", desc: "Wounds dressed, surgeries funded — full vet care until they're whole.", img: "/images/site/heal.jpg", alt: "Heal — veterinary treatment for rescued animals" },
+  { idx: "03 · With trusted vets", title: "Heal", desc: "Wounds dressed, surgeries funded — full vet care until they're whole.", img: "/images/site/heal-run.jpg", alt: "Heal — a rescued animal recovered and running free" },
   { idx: "04 · A place to rest", title: "Shelter", desc: "A safe, quiet place to rest and recover.", img: "/images/site/shelter-cat.jpg", alt: "Shelter — a safe place to rest and recover" },
 ];
 
@@ -145,7 +145,7 @@ export default function HomeV2() {
       <section className="tobler dark">
         <div className="tobler-inner">
           <div className="ph rv" data-parallax>
-            <Image src="/images/site/care.jpg" alt="Tobler, the dog who started it all" fill sizes="(max-width:1020px) 90vw, 460px" style={{ objectFit: "cover" }} />
+            <Image src="/images/site/tobler-hero.jpg" alt="Tobler, the dog who started it all" fill sizes="(max-width:1020px) 90vw, 460px" style={{ objectFit: "cover" }} />
           </div>
           <div>
             <p className="eyebrow">How it started</p>
