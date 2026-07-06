@@ -294,7 +294,7 @@ export default function AboutV2() {
               />
               <span className="ways-media-grad" />
             </div>
-            <div className="ways" data-stagger>
+            <div className="ways">
               {ROLES.map((r, i) => (
                 <div className="way" key={r.title}>
                   <span className="num">0{i + 1}</span>
