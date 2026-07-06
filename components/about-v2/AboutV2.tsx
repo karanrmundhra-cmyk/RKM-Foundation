@@ -113,6 +113,14 @@ export default function AboutV2() {
     if (!root) return;
     const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // §7 — decorative video must not autoplay under reduced-motion.
+    if (rm) {
+      root.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
+        v.autoplay = false;
+        v.pause();
+      });
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     let lenis: Lenis | null = null;
@@ -243,7 +251,7 @@ export default function AboutV2() {
         <div className="tobler-inner">
           <figure className="sticky">
             <div className="ph" data-reveal-img>
-              <Image src="/images/site/care.jpg" alt="Tobler, the dog who started it all" fill sizes="(max-width:1020px) 90vw, 440px" style={{ objectFit: "cover" }} />
+              <Image src="/images/site/tobler-hero.jpg" alt="Tobler, the dog who started it all" fill sizes="(max-width:1020px) 90vw, 440px" style={{ objectFit: "cover" }} />
             </div>
             <figcaption><span>Tobler</span><span>Where it began · 2014</span></figcaption>
           </figure>
@@ -272,18 +280,33 @@ export default function AboutV2() {
           <p className="eyebrow">Be Part of the Mission</p>
           <h2 className="mask"><span>Five ways <em className="accent">to belong.</em></span></h2>
           <p className="sub rv">Whatever you have to give — time, treasure, materials, knowledge, or your voice — there is a place for you here.</p>
-          <div className="ways" data-stagger>
-            {ROLES.map((r, i) => (
-              <div className="way" key={r.title}>
-                <span className="num">0{i + 1}</span>
-                <div>
-                  <h3>{r.title}</h3>
-                  <p className="virtues">{r.virtues}</p>
+          <div className="ways-layout">
+            <div className="ways-media rv" aria-hidden="true">
+              <video
+                src="/media/five-ways.mp4"
+                poster="/media/five-ways-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                tabIndex={-1}
+              />
+              <span className="ways-media-grad" />
+            </div>
+            <div className="ways" data-stagger>
+              {ROLES.map((r, i) => (
+                <div className="way" key={r.title}>
+                  <span className="num">0{i + 1}</span>
+                  <div className="way-body">
+                    <h3>{r.title}</h3>
+                    <p className="virtues">{r.virtues}</p>
+                    <p className="way-desc">{r.desc}</p>
+                  </div>
+                  <Link className="tlink act" href={r.href}>{r.cta} →</Link>
                 </div>
-                <p>{r.desc}</p>
-                <Link className="tlink act" href={r.href}>{r.cta} →</Link>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

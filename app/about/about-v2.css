@@ -102,16 +102,22 @@
 .av2 .today p{margin-top:12px;font-size:14.5px;line-height:1.85;color:var(--av2-grey-dark)}
 
 /* ---------- five ways ---------- */
-.av2 .ways{margin-top:56px;border-top:1px solid var(--av2-line)}
-.av2 .way{position:relative;display:grid;grid-template-columns:52px minmax(220px,320px) 1fr auto;gap:14px 36px;align-items:baseline;padding:32px 8px;border-bottom:1px solid var(--av2-line);transition:padding .45s var(--av2-ease)}
+.av2 .ways-layout{margin-top:56px;display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);gap:60px;align-items:stretch}
+.av2 .ways-media{position:relative;overflow:hidden;border-radius:2px;background:var(--av2-black);min-height:100%}
+.av2 .ways-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.av2 .ways-media-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(10,10,10,.34));pointer-events:none}
+.av2 .ways{border-top:1px solid var(--av2-line)}
+.av2 .way{position:relative;display:grid;grid-template-columns:34px 1fr auto;gap:0 24px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--av2-line);transition:opacity .4s var(--av2-ease)}
 .av2 .way::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--av2-gold);transition:width .6s var(--av2-ease)}
-.av2 .way:hover{padding-left:20px}
-.av2 .way:hover::after{width:100%}
-.av2 .way .num{font-size:12.5px;font-weight:600;color:var(--av2-gold-deep);font-variant-numeric:tabular-nums}
-.av2 .way h3{font-size:20px;font-weight:600;letter-spacing:-.012em}
-.av2 .way .virtues{margin-top:5px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--av2-gold-deep)}
-.av2 .way p{font-size:14px;line-height:1.7;color:var(--av2-grey)}
-.av2 .way .act{white-space:nowrap;font-size:13px}
+.av2 .ways:hover .way{opacity:.5}
+.av2 .ways .way:hover,.av2 .ways .way:focus-within{opacity:1}
+.av2 .way:hover::after,.av2 .way:focus-within::after{width:100%}
+.av2 .way .num{padding-top:4px;font-size:12.5px;font-weight:600;color:var(--av2-gold-deep);font-variant-numeric:tabular-nums}
+.av2 .way h3{font-size:20px;font-weight:600;letter-spacing:-.012em;transition:color .3s var(--av2-ease)}
+.av2 .way:hover h3,.av2 .way:focus-within h3{color:var(--av2-black)}
+.av2 .way .virtues{margin-top:6px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--av2-gold-deep)}
+.av2 .way .way-desc{margin-top:12px;font-size:14px;line-height:1.7;color:var(--av2-grey);max-width:44ch}
+.av2 .way .act{align-self:center;white-space:nowrap;font-size:13px}
 
 /* ---------- team ---------- */
 .av2 .team{padding:130px 48px;background:var(--av2-white);text-align:center}
@@ -164,8 +170,11 @@
   .av2 .value-grid{grid-template-columns:repeat(2,1fr);gap:36px 28px}
   .av2 .tobler-inner{grid-template-columns:1fr}
   .av2 .tobler .sticky{position:static;max-width:480px}
-  .av2 .way{grid-template-columns:40px 1fr}
-  .av2 .way p,.av2 .way .act{grid-column:2}
+  .av2 .ways-layout{grid-template-columns:1fr;gap:34px;align-items:start}
+  .av2 .ways-media{min-height:0;aspect-ratio:16/10;max-width:520px}
+  .av2 .ways:hover .way{opacity:1}
+  .av2 .way{grid-template-columns:28px 1fr;gap:0 16px}
+  .av2 .way .act{grid-column:1 / -1;justify-self:start;margin-top:14px}
   .av2 .team-grid,.av2 .team-grid.cols-2{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:680px){
