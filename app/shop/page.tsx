@@ -161,9 +161,9 @@ export default function ShopPage() {
                     <blockquote className="mt-4 text-2xl font-medium leading-snug tracking-tight text-ink/90 sm:text-[1.75rem]">&ldquo;{r.quote}&rdquo;</blockquote>
                     <p className="mt-4 max-w-xl leading-relaxed text-ink/60">{r.body}</p>
                   </div>
-                  <figcaption className="flex items-center gap-3 lg:col-span-4 lg:justify-end lg:self-start">
-                    <Image src={r.img} alt={r.name} width={56} height={56} className="h-14 w-14 shrink-0 rounded-full object-cover ring-1 ring-ink/10" />
-                    <span className="font-medium">{r.name}</span>
+                  <figcaption className="flex flex-col items-start gap-3 lg:col-span-4 lg:items-end lg:self-start">
+                    <Image src={r.img} alt={r.name} width={80} height={80} className="h-20 w-20 shrink-0 rounded-full object-cover ring-1 ring-ink/10" />
+                    <span className="font-medium lg:text-right">{r.name}</span>
                   </figcaption>
                 </figure>
               </Reveal>
