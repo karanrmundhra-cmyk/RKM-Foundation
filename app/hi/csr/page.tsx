@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import FormShell from "@/components/FormShell";
+import CsrPillarShowcase from "@/components/CsrPillarShowcase";
 import { SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -16,16 +17,6 @@ const WHY = [
   { title: "पारदर्शी", desc: "पूरे समय प्रलेखित रिपोर्टिंग और मैदान से अपडेट।" },
   { title: "अनुकूलित", desc: "आपकी CSR नीति और भूगोल के अनुरूप।" },
   { title: "सहभागी", desc: "कर्मचारी स्वयंसेवा के अवसर अंतर्निहित।" },
-];
-
-const PILLARS = [
-  { n: "01", name: "मेरा स्वयं", desc: "स्वास्थ्य और कल्याण — चिकित्सा सहायता और समग्र भलाई।" },
-  { n: "02", name: "मेरे लोग", desc: "समुदाय, शिक्षा, पोषण और वंचित वर्गों के लिए आवश्यक संसाधन।" },
-  { n: "03", name: "मेरे जानवर", desc: "बचाव, टीकाकरण, आश्रय और दीर्घकालिक कल्याण — हमारा प्रमुख कार्य।" },
-  { n: "04", name: "मेरा पर्यावरण", desc: "वृक्षारोपण, स्वच्छता अभियान, संरक्षण और स्थिरता।" },
-  { n: "05", name: "मेरा धर्म (मानवता)", desc: "आपदा राहत, भोजन और चिकित्सा सहायता, करुणामय देखभाल।" },
-  { n: "06", name: "मेरा देश", desc: "ग्रामीण विकास, कौशल-निर्माण और समावेशी विकास।" },
-  { n: "07", name: "मेरा विश्व", desc: "अंतर्राष्ट्रीय राहत और सीमा-पार मानवीय सहायता।" },
 ];
 
 const PROCESS = [
@@ -97,33 +88,17 @@ export default function CSRHiPage() {
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="container-c">
-          <Reveal>
-            <p className="eyebrow-index">किसी भी स्तंभ पर कार्यक्रम डिज़ाइन करें</p>
-            <h2 className="display-2 mt-5 max-w-[14ch] text-balance">उम्मीद के सात स्तंभ।</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/65">
-              हर स्तंभ कंपनी अधिनियम, 2013 की Schedule VII से मेल खाता है — ताकि आपका CSR योगदान पूर्णतः अनुपालक रहे और आपका पैसा वहाँ लगे जो आपके लिए मायने रखता है।
-            </p>
-          </Reveal>
-          <div className="mt-12 border-t border-ink/12">
-            {PILLARS.map((p, i) => (
-              <Reveal key={p.name} delay={i * 50}>
-                <div className="grid items-baseline gap-x-8 gap-y-2 border-b border-ink/12 py-6 lg:grid-cols-12">
-                  <span className="text-sm font-semibold tabular-nums text-copper-dark lg:col-span-1">{p.n}</span>
-                  <h3 className="display-3 text-[1.3rem] lg:col-span-4">{p.name}</h3>
-                  <p className="leading-relaxed text-ink/65 lg:col-span-7">{p.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-6">
-            <p className="max-w-3xl text-xs leading-relaxed text-ink/65">
-              स्तंभ-मानचित्रण यह दर्शाते हैं कि प्रत्येक कार्यक्रम किस Schedule VII श्रेणी के इर्द-गिर्द डिज़ाइन किया गया है। CSR-योग्य गतिविधियाँ कंपनी (CSR नीति) नियम, 2014 के अनुसार भारत में की जाती हैं; अंतिम खंड वर्गीकरण आपकी टीम के साथ कार्यक्रम डिज़ाइन के दौरान पुष्ट किया जाता है।
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      {/* उम्मीद के सात स्तंभ — स्वीकृत, लॉक किया गया सहभागी प्रदर्शन (पूर्व स्थिर सूची
+          के स्थान पर)। प्रति-स्तंभ Schedule VII विवरण इसके भीतर है। */}
+      <CsrPillarShowcase
+        eyebrow="किसी भी स्तंभ पर कार्यक्रम डिज़ाइन करें"
+        heading="उम्मीद के सात स्तंभ।"
+        intro="हर स्तंभ कंपनी अधिनियम, 2013 की Schedule VII से मेल खाता है — ताकि आपका CSR योगदान पूर्णतः अनुपालक रहे और आपका पैसा वहाँ लगे जो आपके लिए मायने रखता है। नीचे सातों स्तंभ देखें।"
+        iframeTitle="RKM Foundation — उम्मीद के सात स्तंभ: सहभागी पिलर प्रदर्शन"
+        note="स्तंभ-मानचित्रण यह दर्शाते हैं कि प्रत्येक कार्यक्रम किस Schedule VII श्रेणी के इर्द-गिर्द डिज़ाइन किया गया है। CSR-योग्य गतिविधियाँ कंपनी (CSR नीति) नियम, 2014 के अनुसार भारत में की जाती हैं; अंतिम खंड वर्गीकरण आपकी टीम के साथ कार्यक्रम डिज़ाइन के दौरान पुष्ट किया जाता है।"
+        ctaHref="#consultation"
+        ctaLabel="कई साझेदार कई स्तंभ जोड़ते हैं — बातचीत शुरू करें →"
+      />
 
       <section className="bg-snow section-y">
         <div className="container-c grid gap-x-16 gap-y-14 lg:grid-cols-2">
