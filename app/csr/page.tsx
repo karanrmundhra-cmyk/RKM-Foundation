@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import FormShell from "@/components/FormShell";
 import CTABanner from "@/components/CTABanner";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
-import CsrAccordion from "@/components/CsrAccordion";
+import CsrPillarShowcase from "@/components/CsrPillarShowcase";
 import { CSR_PILLARS, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -101,34 +101,17 @@ export default function CSRPage() {
         </div>
       </section>
 
-      {/* Seven pillars — ruled editorial rows */}
-      <section className="section-y">
-        <div className="container-c">
-          <Reveal>
-            <p className="eyebrow-index">Design a Programme Across Any Pillar</p>
-            <h2 className="display-2 mt-5 max-w-[14ch] text-balance">Seven Pillars of Hope.</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/65">
-              Each pillar maps to Schedule VII of the Companies Act, 2013 — so your CSR contribution
-              stays fully compliant while putting your money where it matters to you.
-            </p>
-          </Reveal>
-          <Reveal><CsrAccordion /></Reveal>
-          <Reveal className="mt-10">
-            <p className="max-w-2xl text-lg leading-relaxed text-ink/70">
-              Many partners combine pillars — animal welfare with environment, or community support
-              with health. We design around your policy.{" "}
-              <Link href="#consultation" className="link-secondary">Start a conversation →</Link>
-            </p>
-          </Reveal>
-          <Reveal className="mt-6">
-            <p className="max-w-3xl text-xs leading-relaxed text-ink/65">
-              Pillar mappings indicate the Schedule VII category each programme is designed around.
-              CSR-eligible activities are undertaken in India in accordance with the Companies (CSR Policy)
-              Rules, 2014; the final clause classification is confirmed with your team during programme design.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      {/* Seven pillars — the approved, locked interactive showcase (replaces the
+          former static accordion). Per-pillar Schedule VII detail lives inside it. */}
+      <CsrPillarShowcase
+        eyebrow="Design a Programme Across Any Pillar"
+        heading="Seven Pillars of Hope."
+        intro="Each pillar maps to Schedule VII of the Companies Act, 2013 — so your CSR contribution stays fully compliant while putting your money where it matters to you. Move through all seven, from My Self to My Animals."
+        iframeTitle="RKM Foundation — Seven Pillars of Hope: interactive pillar showcase"
+        note="Pillar mappings indicate the Schedule VII category each programme is designed around. CSR-eligible activities are undertaken in India in accordance with the Companies (CSR Policy) Rules, 2014; the final clause classification is confirmed with your team during programme design."
+        ctaHref="#consultation"
+        ctaLabel="Many partners combine pillars — start a conversation →"
+      />
 
       {/* Process + timeline */}
       <section className="bg-snow section-y">
