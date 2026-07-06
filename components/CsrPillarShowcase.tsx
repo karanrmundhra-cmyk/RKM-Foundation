@@ -32,7 +32,7 @@ export default function CsrPillarShowcase({
         </Reveal>
         <div className="mt-12 overflow-hidden border border-ink/12 bg-snow">
           <iframe
-            src="/api/csr-showcase"
+            src="/csr-showcase.html"
             title={iframeTitle}
             loading="lazy"
             className="block w-full border-0"
