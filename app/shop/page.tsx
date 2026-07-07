@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "Shop for a Cause",
   description: "The “Hope” Candle — every candle you buy helps feed, treat, and protect rescued animals in need.",
   alternates: { canonical: "/shop", languages: { en: "/shop", hi: "/hi/shop", "x-default": "/shop" } },
+  openGraph: {
+    title: "Shop for a Cause — The “Hope” Candle",
+    description: "The “Hope” Candle — every candle you buy helps feed, treat, and protect rescued animals in need.",
+    type: "website",
+    url: "https://rkmfoundation.com/shop",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The “Hope” Candle by RKM Foundation" }],
+  },
 };
 
 const BADGES = ["Pet-Friendly", "Vegan", "Cruelty-Free", "No Toxins", "Ethically Sourced", "Made in India"];
@@ -63,7 +70,7 @@ export default function ShopPage() {
         description: "100% natural soy-wax candle with a cotton wick and an apple-cinnamon scent, burning slowly and evenly for over 50 hours. Every candle helps feed, treat, and protect rescued animals across India.",
         brand: { "@type": "Brand", name: "RKM Foundation" },
         category: "Candle",
-        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/InStock", url: "https://rkmfoundation.com/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
+        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/PreOrder", url: "https://rkmfoundation.com/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
       }) }} />
       <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Shop", url: "https://rkmfoundation.com/shop" }]} />
       {/* Hero */}

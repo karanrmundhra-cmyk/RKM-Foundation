@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "एक उद्देश्य के लिए खरीदें",
   description: "“होप” कैंडल — आपकी हर खरीद ज़रूरतमंद बचाए गए जानवरों को खिलाने, इलाज और सुरक्षा में मदद करती है।",
   alternates: { canonical: "/hi/shop", languages: { en: "/shop", hi: "/hi/shop", "x-default": "/shop" } },
+  openGraph: {
+    title: "एक उद्देश्य के लिए खरीदें — “होप” कैंडल",
+    description: "“होप” कैंडल — आपकी हर खरीद ज़रूरतमंद बचाए गए जानवरों को खिलाने, इलाज और सुरक्षा में मदद करती है।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/shop",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — “होप” कैंडल" }],
+  },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';
@@ -66,7 +73,7 @@ export default function ShopHiPage() {
         brand: { "@type": "Brand", name: "RKM Foundation" },
         category: "Candle",
         inLanguage: "hi",
-        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/InStock", url: "https://rkmfoundation.com/hi/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
+        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/PreOrder", url: "https://rkmfoundation.com/hi/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
       }) }} />
       <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "शॉप", url: "https://rkmfoundation.com/hi/shop" }]} />
       {/* Hero */}

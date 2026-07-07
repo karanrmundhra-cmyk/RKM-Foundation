@@ -63,3 +63,49 @@ _Scored only where evidence exists; runtime-only checks marked NEEDS INPUT rathe
 The **autonomous implementation surface is exhausted for this cycle**, proven above: every requirement is Completed/In-Progress with cited evidence, or classified Blocked/Deferred with justification. Every remaining score-moving item is a contract **hard-stop** (payments, donor-data, credentials, or the P0 money-chain proof) or a **reasoned Deferral** under the Value Filter. Overall stays **≤59/100 capped** until the owner clears C1/C2 and proves one live end-to-end donation.
 
 **Single highest-leverage owner action:** one real ₹ test donation on rkmfoundation.com → confirm capture → webhook → numbered 80G receipt. That unblocks the cap re-score.
+
+---
+
+# Phase 1–4 — Runtime Verification & External-Agency Review (2026-07-07)
+
+## Phase 1 — Runtime verification (live production fetch)
+_Method: `web_fetch` of production HTML/head. Preview-only items (my un-deployed changes, Lighthouse lab/field, axe runtime, Playwright) remain NEEDS INPUT pending the Vercel preview URL — an owner push/PR._
+
+| Check | Result | Tag |
+|---|---|---|
+| robots.txt | Correct (allow /, disallow /api /admin /prototype*; **/account added this pass**); sitemap pointer present | VERIFIED |
+| Per-page title/meta/canonical | Unique on `/`, `/shop`, `/donate-now` | VERIFIED |
+| OG cards | **Gap found:** `/shop` shared the layout's generic OG → **fixed** (shop EN/HI per-page OG). `/donate-now` + `/` already curated. `/about /csr /faqs` still generic → Deferred (low-share pages) | VERIFIED (gap+fix) |
+| `next/image` in prod | Active (`/_next/image?...`) | VERIFIED |
+| Product schema accuracy | **Gap found:** shop is pre-launch ("Notify Me") but schema said `InStock` → **fixed to `PreOrder`** | VERIFIED (gap+fix) |
+| Donation flow (§8) | monthly-default toggle · 2nd-tier "Most Chosen" preselect · fee-cover opt-in · named monthly-donor proof · 95/5 breakdown · PAN/address optional · UPI/cards/Razorpay · T&C+privacy | VERIFIED |
+| Lighthouse (lab+field) · axe runtime · Playwright e2e · my changes rendered | Require the preview URL / CI run | NEEDS INPUT |
+
+## Phase 2 — Fresh external-agency benchmark
+- **vs Stripe / Linear / Vercel (craft):** donate flow + V2 home are close on clarity and typographic craft. Gap: no skeleton/loading states on client data-pages; micro-interaction polish. `[INFERRED]`
+- **vs charity: water / GiveWell (proof):** credential/trust stack (12A/80G/CSR/DARPAN + downloadable certs + 95/5) is **strong — arguably ahead of many peers.** But the leaders lead with **hard impact numbers**; RKM's are `[NEEDS DATA]` placeholders until the Content Pack. `[BLOCKED — owner]`
+- **vs Apple (finish):** V2 pages feel finished; **the shop reads unfinished** ("launching soon", no live checkout) and the `/hi` experience is still V1 while EN Home/About are V2. `[VERIFIED]`
+
+## Phase 3 — Final product review (evidence-backed)
+- **Impresses:** trust/credential stack; self-hosted fonts + strict CSP nonce; genuinely complete donation UX; V2 editorial home. `[VERIFIED]`
+- **Unfinished:** shop commerce (no live checkout); Ledger proof layer empty until first update (by design); impact numbers placeholder. `[VERIFIED]`
+- **Inconsistent:** **`/hi` on V1 vs EN Home/About on V2** — a visible bilingual design split (`components/home/HomeHi.tsx` is V1-styled). `[VERIFIED]`
+- **Average:** OG cards on secondary pages still generic (fixed for shop). `[VERIFIED]`
+- **Prevents world-class:** unproven money-chain (C1/C2); no live impact numbers; `/hi` V1↔V2 gap; shop incomplete. `[VERIFIED]`
+- **One eng sprint:** make `/verify` idempotently persist + receipt-fallback (resolves C1) and bind compliance PII to a signed token (resolves C2). `[hard-stop — owner-gated]`
+- **One UX sprint:** bring `/hi` to V2 parity. `[owner design decision]`
+- **One CRO sprint:** A/B the monthly-default & amount ladder — **needs the analytics baseline** (`BLOCKED` #8). `[BLOCKED]`
+- **One trust sprint:** publish real impact numbers + audited financials (Content Pack). `[BLOCKED — owner]`
+- **One AI/Search sprint:** extend `BreadcrumbList` to legal/about, per-page OG everywhere, add `aggregateRating` once real reviews exist. `[autonomous — partly done]`
+
+## Phase 4 — Red Team (adversarial; each with fix + can-implement)
+| Finding | Root cause | Evidence | Fix | Autonomous? |
+|---|---|---|---|---|
+| Product schema said `InStock` on a pre-launch shop | schema written before checking live launch state | live copy "Notify Me / opens soon" | → `PreOrder` | **Yes — done** |
+| Generic OG card sitewide | `layout.openGraph.title/description` hardcoded → propagates | prod `/shop` `og:title="RKM Foundation"` | per-page `openGraph` | **Yes — shop done; others deferred (low-share)** |
+| `/account` login crawlable | not in robots disallow | prod robots.txt | add `/account` disallow | **Yes — done** |
+| `/hi` V1 vs EN V2 inconsistency | V2 scoped to EN only | `HomeHi.tsx` V1 styling | redesign `/hi` to V2 | **No — large design work, owner-scheduled** |
+| Impact numbers are placeholders | anti-fabrication (no data supplied) | `[NEEDS DATA]` in `BLOCKED.md` #11-14 | supply Content Pack | **No — owner** |
+| Silent donation-loss / unauth PII write | C1/C2 | `donate/verify`, `compliance` routes | idempotent persist + signed token | **No — hard-stop** |
+
+**Red-team conclusion:** every remaining meaningful finding is now either **fixed this pass** (Product accuracy, shop OG, `/account` robots), a **reasoned Deferral** (secondary-page OG, H6 Ledger imgs, `: any`), or an **owner/hard-stop** (`/hi` redesign, impact numbers, C1/C2, analytics baseline, money-chain proof). No further autonomous, in-authority, meaningful improvement was found in this pass.
