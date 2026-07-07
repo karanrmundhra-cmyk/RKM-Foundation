@@ -66,6 +66,15 @@ Finished the previously-deferred SEO surface across all public content pages (in
 
 **Deferred items now CLOSED:** per-page OG (about/csr/faqs/fundraiser) and BreadcrumbList reach. Remaining defers unchanged: H6 Ledger imgs (preview-gated + detail-page natural-ratio would crop), `: any`, `.bak` (Mac-side).
 
+### Hindi structured-data parity — 2026-07-07 (batch 6)
+Fresh audit found the 6 Hindi content pages had **zero** structured data while EN now has full coverage — a real bilingual SEO/AI-discoverability gap for half the audience.
+
+| # | Date | Finding | Files | Change | Verification |
+|---|---|---|---|---|---|
+| 34 | 2026-07-07 | HI content pages missing per-page OG + `BreadcrumbList`; HI blog also missing `BlogPosting` (EN had it) | `app/hi/{about,faqs,fundraiser,csr,legal}` + `app/hi/blog/the-dog-who-started-it-all` | Added per-page `openGraph` (Hindi title/desc, `locale: hi_IN`) + `BreadcrumbJsonLd` (Hindi trails) to all 6; added Hindi `BlogPosting` (`inLanguage: hi`) to the HI founder story. Full EN↔HI parity. | `tsc` 0 source errors; OG+breadcrumb on 6/6 HI pages; BlogPosting present |
+
+**Now at full EN↔HI structured-data parity** across home, about, shop, blog, faqs, fundraiser, csr, legal.
+
 **Batch-2 self-challenge (Apple / Awwwards / a11y / perf / first-time donor):** all changes are invisible `<head>`/`ld+json` additions — no layout, copy, motion, or behaviour touched; frozen Home/About/Header/Footer untouched. Shop/blog are frozen v1.1.0 but these are the freeze's sanctioned **SEO exception** (measurable, additive, staged via PR). No `aggregateRating` fabricated. `next build` + Rich Results Test recommended on the preview to confirm Google parses Product/Breadcrumb.
 
 **Fresh-audit findings deliberately NOT actioned (with reason):**

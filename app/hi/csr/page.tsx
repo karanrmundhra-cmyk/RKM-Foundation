@@ -4,12 +4,21 @@ import Reveal from "@/components/Reveal";
 import FormShell from "@/components/FormShell";
 import CsrPillarShowcase from "@/components/CsrPillarShowcase";
 import { SITE } from "@/lib/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "CSR साझेदारी",
   description:
     "RKM फाउंडेशन के साथ साझेदारी करें — एक CSR-1 पंजीकृत कार्यान्वयन साझेदार (80G | 12A) जो ऐसे पशु-कल्याण कार्यक्रम चलाता है जिन्हें आप देख और सत्यापित कर सकते हैं।",
   alternates: { canonical: "/hi/csr", languages: { en: "/csr", hi: "/hi/csr", "x-default": "/csr" } },
+  openGraph: {
+    title: "CSR साझेदारी — RKM फाउंडेशन",
+    description: "RKM फाउंडेशन के साथ साझेदारी करें — एक CSR-1 पंजीकृत कार्यान्वयन साझेदार (80G | 12A) जो ऐसे पशु-कल्याण कार्यक्रम चलाता है जिन्हें आप देख और सत्यापित कर सकते हैं।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/csr",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const WHY = [
@@ -35,6 +44,7 @@ const DOWNLOADS = [
 export default function CSRHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "CSR साझेदारी", url: "https://rkmfoundation.com/hi/csr" }]} />
       <section className="bg-snow pb-14 pt-28 sm:pb-20 sm:pt-32">
         <div className="container-c">
           <Reveal className="max-w-4xl">

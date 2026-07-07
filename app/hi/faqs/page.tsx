@@ -2,11 +2,20 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import Accordion from "@/components/Accordion";
 import { SITE } from "@/lib/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "अक्सर पूछे जाने वाले प्रश्न",
   description: "RKM फाउंडेशन के बारे में अक्सर पूछे जाने वाले प्रश्न — दान, कर लाभ, फंडरेज़र, और Shop for a Cause।",
   alternates: { canonical: "/hi/faqs", languages: { en: "/faqs", hi: "/hi/faqs", "x-default": "/faqs" } },
+  openGraph: {
+    title: "अक्सर पूछे जाने वाले प्रश्न — RKM फाउंडेशन",
+    description: "RKM फाउंडेशन के बारे में अक्सर पूछे जाने वाले प्रश्न — दान, कर लाभ, फंडरेज़र, और Shop for a Cause।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/faqs",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const FAQS_GENERAL = [
@@ -47,6 +56,7 @@ const SECTIONS = [
 export default function FAQsHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "अक्सर पूछे जाने वाले प्रश्न", url: "https://rkmfoundation.com/hi/faqs" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">
           <Reveal className="max-w-4xl">

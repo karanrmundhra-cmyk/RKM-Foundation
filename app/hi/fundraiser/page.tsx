@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "फंडरेज़र",
   description: "अपने जन्मदिन, सालगिरह या फिटनेस चुनौती को बचाए गए जानवरों के लिए भोजन, इलाज और आश्रय में बदलें।",
   alternates: { canonical: "/hi/fundraiser", languages: { en: "/fundraiser", hi: "/hi/fundraiser", "x-default": "/fundraiser" } },
+  openGraph: {
+    title: "फंडरेज़र शुरू करें — RKM फाउंडेशन",
+    description: "अपने जन्मदिन, सालगिरह या फिटनेस चुनौती को बचाए गए जानवरों के लिए भोजन, इलाज और आश्रय में बदलें।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/fundraiser",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const STEPS = [
@@ -37,6 +46,7 @@ const FEATURES = [
 export default function FundraiserHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "फंडरेज़र", url: "https://rkmfoundation.com/hi/fundraiser" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">
           <Reveal className="max-w-4xl">

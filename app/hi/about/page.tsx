@@ -3,11 +3,20 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 import TeamProfiles from "@/components/TeamProfiles";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "हमारे बारे में",
   description: "RKM फाउंडेशन भारत में एक पशु-कल्याण धर्मार्थ ट्रस्ट है। एक परिवार जिसने घर पर जानवरों की मदद करनी शुरू की, और करता रहा।",
   alternates: { canonical: "/hi/about", languages: { en: "/about", hi: "/hi/about", "x-default": "/about" } },
+  openGraph: {
+    title: "हमारे बारे में — RKM फाउंडेशन",
+    description: "RKM फाउंडेशन भारत में एक पशु-कल्याण धर्मार्थ ट्रस्ट है। एक परिवार जिसने घर पर जानवरों की मदद करनी शुरू की, और करता रहा।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/about",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const VALUES = [
@@ -60,6 +69,7 @@ const HI_TEAM = [
 export default function AboutHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "हमारे बारे में", url: "https://rkmfoundation.com/hi/about" }]} />
       <section className="bg-snow pb-16 pt-28 sm:pb-20 sm:pt-32">
         <div className="container-c grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">

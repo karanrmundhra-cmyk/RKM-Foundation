@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import { headers } from "next/headers";
 import EditorialFigure from "@/components/EditorialFigure";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "वह कुत्ता जिससे सब शुरू हुआ",
   description: "टोबलर नाम के एक पग ने हमें दिखाया कि बिना शर्त प्यार का असली मतलब क्या है। उसी प्यार ने आख़िरकार RKM फाउंडेशन की रचना को प्रेरित किया।",
   alternates: { canonical: "/hi/blog/the-dog-who-started-it-all", languages: { en: "/blog/the-dog-who-started-it-all", hi: "/hi/blog/the-dog-who-started-it-all", "x-default": "/blog/the-dog-who-started-it-all" } },
+  openGraph: {
+    title: "वह कुत्ता जिससे सब शुरू हुआ — RKM फाउंडेशन",
+    description: "टोबलर नाम के एक पग ने हमें दिखाया कि बिना शर्त प्यार का असली मतलब क्या है। उसी प्यार ने आख़िरकार RKM फाउंडेशन की रचना को प्रेरित किया।",
+    type: "article",
+    url: "https://rkmfoundation.com/hi/blog/the-dog-who-started-it-all",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 function H2({ children }: { children: React.ReactNode }) {
@@ -17,8 +27,11 @@ function P({ children }: { children: React.ReactNode }) {
 }
 
 export default function FounderStoryHiPage() {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <article lang="hi" style={{ fontFamily: '"Noto Sans Devanagari", Inter, system-ui, sans-serif' }}>
+      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: "वह कुत्ता जिससे सब शुरू हुआ", description: "टोबलर नाम के एक पग ने हमें दिखाया कि बिना शर्त प्यार का असली मतलब क्या है। उसी प्यार ने आख़िरकार RKM फाउंडेशन की रचना को प्रेरित किया।", image: "https://rkmfoundation.com/og.png", inLanguage: "hi", author: { "@type": "Organization", name: "RKM Foundation" }, publisher: { "@type": "Organization", name: "RKM Foundation", logo: { "@type": "ImageObject", url: "https://rkmfoundation.com/logo-512.png" } }, mainEntityOfPage: "https://rkmfoundation.com/hi/blog/the-dog-who-started-it-all" }) }} />
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "ब्लॉग", url: "https://rkmfoundation.com/hi/blog" }, { name: "वह कुत्ता जिससे सब शुरू हुआ", url: "https://rkmfoundation.com/hi/blog/the-dog-who-started-it-all" }]} />
       <section className="bg-snow pb-14 pt-36 sm:pt-44">
         <div className="container-c max-w-3xl">
           <Reveal>

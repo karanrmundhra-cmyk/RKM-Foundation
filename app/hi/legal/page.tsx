@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "कानूनी एवं अभिशासन",
   description:
     "RKM फाउंडेशन की कानूनी स्थिति, अभिशासन संरचना, और वे नीतियाँ जो यह मार्गदर्शन करती हैं कि फाउंडेशन कैसे संचालित होता है और चैरिटी संसाधनों का प्रबंधन करता है।",
   alternates: { canonical: "/hi/legal", languages: { en: "/legal", hi: "/hi/legal", "x-default": "/legal" } },
+  openGraph: {
+    title: "कानूनी एवं अभिशासन — RKM फाउंडेशन",
+    description: "RKM फाउंडेशन की कानूनी स्थिति, अभिशासन संरचना, और वे नीतियाँ जो यह मार्गदर्शन करती हैं कि फाउंडेशन कैसे संचालित होता है और चैरिटी संसाधनों का प्रबंधन करता है।",
+    type: "website",
+    url: "https://rkmfoundation.com/hi/legal",
+    locale: "hi_IN",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';
@@ -62,6 +71,7 @@ const GOVERNANCE_ITEMS = [
 export default function LegalHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: FONT_HI }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "कानूनी एवं अभिशासन", url: "https://rkmfoundation.com/hi/legal" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">कानूनी एवं अभिशासन</p>
