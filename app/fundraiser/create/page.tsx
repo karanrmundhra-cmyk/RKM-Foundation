@@ -14,7 +14,7 @@ const FIELDS = [
   { name: "phone", label: "Mobile Number", type: "tel", required: true, half: true, placeholder: "+91" },
   { name: "occasion", label: "Occasion (Optional)", half: true, options: ["Birthday", "Anniversary", "Fitness Challenge", "Memorial Tribute", "Other"] },
   { name: "message", label: "Fundraiser Message (Optional)", textarea: true, placeholder: "Tell people why this cause matters to you. Example: “Every step I run in this marathon is for rescued animals who deserve care and protection.”" },
-  { name: "goal", label: "Fundraiser Goal", options: ["₹25,000", "₹50,000 — Most Chosen", "₹75,000", "Custom"], hint: "You can start with any goal. Many fundraisers exceed their target once friends and family begin supporting the cause." },
+  { name: "goal", label: "Fundraiser Goal", options: ["₹25,000", "₹50,000", "₹75,000", "Custom"], hint: "You can start with any goal. Many fundraisers exceed their target once friends and family begin supporting the cause." },
   { name: "duration", label: "Campaign Duration", required: true, options: ["30 Days", "60 Days", "90 Days"] },
 ];
 

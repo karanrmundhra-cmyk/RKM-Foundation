@@ -68,7 +68,7 @@ export default function DetailsPage() {
                 <button className="btn-copper" disabled={state === "busy"}>{state === "busy" ? "Saving…" : "Save details"}</button>
                 {msg ? <p className={`text-sm ${state === "err" ? "text-red-700" : "text-copper-dark"}`} role={state === "err" ? "alert" : "status"}>{msg}</p> : null}
               </form>
-              <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/55">Changes are recorded in a masked audit trail. Email or mobile changes: <a className="link-secondary" href="mailto:info@rkm.support">info@rkm.support</a>.</p>
+              <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/70">Changes are recorded in a masked audit trail. Email or mobile changes: <a className="link-secondary" href="mailto:info@rkm.support">info@rkm.support</a>.</p>
             </div>
           </>
         )}

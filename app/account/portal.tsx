@@ -46,7 +46,7 @@ export function SignIn() {
           {err ? <p className="mt-3 text-sm text-red-700" role="alert">{err}</p> : null}
         </form>
       )}
-      <p className="mt-5 text-xs leading-relaxed text-ink/55">Receipts are legal documents and are always emailed after every donation regardless of this portal.</p>
+      <p className="mt-5 text-xs leading-relaxed text-ink/70">Receipts are legal documents and are always emailed after every donation regardless of this portal.</p>
     </div>
   );
 }

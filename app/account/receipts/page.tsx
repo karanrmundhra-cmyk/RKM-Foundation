@@ -61,7 +61,7 @@ export default function ReceiptsPage() {
                   ))}
                 </ul>
               )}
-              <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/55">Form 10BE certificates are issued after the financial year closes (we file Form 10BD annually). Provide your PAN under <a className="link-secondary" href="/account/details">My details</a> to be included.</p>
+              <p className="mt-5 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/70">Form 10BE certificates are issued after the financial year closes (we file Form 10BD annually). Provide your PAN under <a className="link-secondary" href="/account/details">My details</a> to be included.</p>
             </div>
           </>
         )}

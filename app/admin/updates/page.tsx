@@ -193,7 +193,7 @@ export default function AdminUpdatesPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="mt-2 text-xs text-ink/55">Anything left blank simply doesn&apos;t appear. The system never invents numbers.</p>
+                  <p className="mt-2 text-xs text-ink/70">Anything left blank simply doesn&apos;t appear. The system never invents numbers.</p>
                 </>
               )}
             </div>
