@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
 // Self-hosted fonts (SOP-12 / RKMF-021) — no Google Fonts CDN, no donor IP
@@ -33,6 +33,17 @@ export const metadata: Metadata = {
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
+  icons: {
+    icon: "/logo-128.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+};
+
+// themeColor lives in the viewport export (Next 14 requirement) — colours the
+// mobile browser chrome to match the brand ink, pairing with app/manifest.ts.
+export const viewport: Viewport = {
+  themeColor: "#111111",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -43,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={lang}>
       <head>
         {/* Fonts are self-hosted via @fontsource (see imports above) — no Google Fonts CDN. */}
-        <link rel="icon" href="/logo-128.png" />
+        {/* Favicon / apple-touch / manifest links are emitted from the metadata + manifest.ts route. */}
         <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org", "@type": ["NGO", "Organization"], name: "RKM Foundation",
           url: "https://rkmfoundation.com", logo: "https://rkmfoundation.com/logo-512.png",

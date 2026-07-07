@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 import CTABanner from "@/components/CTABanner";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "एक उद्देश्य के लिए खरीदें",
@@ -53,8 +55,20 @@ function Stars() {
 }
 
 export default function ShopHiPage() {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <div lang="hi" style={{ fontFamily: FONT_HI }}>
+      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Product",
+        name: "“होप” कैंडल",
+        image: "https://rkmfoundation.com/images/shop/hope-candle.jpg",
+        description: "“होप” कैंडल — 100% प्राकृतिक सोया-वैक्स और कॉटन बत्ती वाली, एप्पल-सिनेमन खुशबू वाली कैंडल जो 50 घंटे से अधिक जलती है। आपकी हर खरीद ज़रूरतमंद बचाए गए जानवरों को खिलाने, इलाज और सुरक्षा में मदद करती है।",
+        brand: { "@type": "Brand", name: "RKM Foundation" },
+        category: "Candle",
+        inLanguage: "hi",
+        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/InStock", url: "https://rkmfoundation.com/hi/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
+      }) }} />
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "शॉप", url: "https://rkmfoundation.com/hi/shop" }]} />
       {/* Hero */}
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">

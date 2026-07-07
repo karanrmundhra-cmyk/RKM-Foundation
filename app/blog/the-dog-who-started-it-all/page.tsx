@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 import CTABanner from "@/components/CTABanner";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "The Dog Who Started It All",
@@ -25,6 +26,7 @@ export default function FounderStoryPage() {
   return (
     <article>
       <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: "The Dog Who Started It All", description: "A pug named Tobler showed us what unconditional love truly means. That love eventually inspired the creation of RKM Foundation.", image: "https://rkmfoundation.com/og.png", author: { "@type": "Organization", name: "RKM Foundation" }, publisher: { "@type": "Organization", name: "RKM Foundation", logo: { "@type": "ImageObject", url: "https://rkmfoundation.com/logo-512.png" } }, mainEntityOfPage: "https://rkmfoundation.com/blog/the-dog-who-started-it-all" }) }} />
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Blog", url: "https://rkmfoundation.com/blog" }, { name: "The Dog Who Started It All", url: "https://rkmfoundation.com/blog/the-dog-who-started-it-all" }]} />
       {/* Title */}
       <section className="bg-snow pb-14 pt-36 sm:pt-44">
         <div className="container-c max-w-3xl">

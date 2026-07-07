@@ -1,6 +1,20 @@
 # RKM Foundation — Master Audit Backlog
 
-## Implementation status (as of 2026-06-16)
+> ## ⚠ RECONCILIATION — 2026-07-07 (read before actioning anything below)
+> The detailed findings below are the **original 16-Jun snapshot** and are kept as historical evidence. Much has shipped since (June quality pass + V2 freeze). Verified current state against live code on 2026-07-07:
+>
+> **CLOSED / verified done (do not re-open):**
+> - Security: H1, H3, L1, L2, L3 · SEO: H8, H9, H10, M2, M3, M4, M5, L8 · Perf: **H7** (next/font — Fraunces self-hosted, no Google `<link>`) · A11y: **H11 fully closed** (`text-ink/40|45|50|55` = 0 hits site-wide; last 4 account/admin lines floored to `/70` on 7 Jul) · **M6** downgraded (residual `text-copper` is decorative-with-label / hover-only / frozen shop) · Hygiene: **M8** (`.fuse_hidden` = 0, git-ignored), **L4** (fundraiser goal dirty value fixed 7 Jul).
+>
+> **PARTIAL:** **H6** (next/image) — 22 raw `<img>` → **6** remaining, all preview-gated: dynamic `/updates` Ledger photos (`app/updates/*`, `app/hi/updates/*`, `LedgerProofCard.tsx`) + `/hi` home (`HomeHi.tsx`). Frozen V2 pages: 0 raw `<img>`. Next code batch candidate (needs `next.config` remotePatterns + preview).
+>
+> **TRUE REMAINING = hard-stop / owner (these hold the ≤59 cap):** C1, C2, H2, H4, H5, M13 (all payments/donor-data), M1 (Upstash dep — approval), M7 (asset compression — approval). Plus all `BLOCKED.md` P0/P1 items (money-chain proof, secret rotation, Razorpay config, analytics baseline, Content Pack).
+>
+> **Deferred (Mac-side):** delete `components/prototype-v2/WhatWeDo.tsx.bak-*` (OneDrive cloud-lock blocked sandbox rm).
+>
+> Per-change evidence for all 7-Jul edits: `CHANGELOG-AUDIT.md` rows 21–24 + session note.
+
+## Implementation status (original snapshot — 2026-06-16; see reconciliation above)
 | Metric | Count |
 |---|---|
 | Total Issues Identified | 35 |

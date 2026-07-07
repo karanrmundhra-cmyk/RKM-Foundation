@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import EditorialFigure from "@/components/EditorialFigure";
 import CTABanner from "@/components/CTABanner";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Shop for a Cause",
@@ -51,8 +53,19 @@ function Stars() {
 }
 
 export default function ShopPage() {
+  const nonce = headers().get("x-nonce") ?? undefined;
   return (
     <>
+      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Product",
+        name: "The “Hope” Candle",
+        image: "https://rkmfoundation.com/images/shop/hope-candle.jpg",
+        description: "100% natural soy-wax candle with a cotton wick and an apple-cinnamon scent, burning slowly and evenly for over 50 hours. Every candle helps feed, treat, and protect rescued animals across India.",
+        brand: { "@type": "Brand", name: "RKM Foundation" },
+        category: "Candle",
+        offers: { "@type": "Offer", priceCurrency: "INR", price: "1999", availability: "https://schema.org/InStock", url: "https://rkmfoundation.com/shop", seller: { "@type": "NGO", name: "RKM Foundation" } },
+      }) }} />
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Shop", url: "https://rkmfoundation.com/shop" }]} />
       {/* Hero */}
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">

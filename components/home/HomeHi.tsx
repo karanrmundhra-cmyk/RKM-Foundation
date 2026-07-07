@@ -45,7 +45,7 @@ export function HomeHi() {
     <div lang="hi" style={{ fontFamily: HI_FONT }}>
       {/* HERO */}
       <section className="relative flex min-h-[90svh] items-end overflow-hidden bg-ink text-white">
-        <img src="/images/site/dog.jpg" alt="RKM फाउंडेशन की देखभाल में एक बचाया गया कुत्ता" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover opacity-80" />
+        <Image src="/images/site/dog.jpg" alt="RKM फाउंडेशन की देखभाल में एक बचाया गया कुत्ता" fill priority sizes="100vw" className="hero-zoom object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/5" />
         <div className="container-c relative pb-24 pt-40 sm:pb-28">
           <p className="eyebrow-index !text-copper-light before:!bg-copper-light/70">पशु कल्याण · भारत</p>
