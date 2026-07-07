@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function DonationRefundPolicyPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Legal & Governance", url: "https://rkmfoundation.com/legal" }, { name: "Donation Refund & Cancellation Policy", url: "https://rkmfoundation.com/legal/donation-refund-policy" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">Legal &amp; Governance</p>

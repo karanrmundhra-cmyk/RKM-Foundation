@@ -75,6 +75,20 @@ Fresh audit found the 6 Hindi content pages had **zero** structured data while E
 
 **Now at full EN↔HI structured-data parity** across home, about, shop, blog, faqs, fundraiser, csr, legal.
 
+### Legal sub-page breadcrumbs — 2026-07-07 (batch 7)
+Closed the last SEO surface: `BreadcrumbList` on all 12 legal sub-pages (6 EN + 6 HI) via a deterministic script (import + trail injection; verified). Trails: Home › Legal & Governance › [policy].
+
+| # | Date | Change | Files | Verification |
+|---|---|---|---|---|
+| 35 | 2026-07-07 | `BreadcrumbJsonLd` added to all legal sub-pages | `app/legal/{privacy-policy,terms-and-conditions,donation-refund-policy,shop-refund-policy,80g-tax-disclaimer,website-disclaimer-cookie-policy}` + the 6 `app/hi/legal/*` equivalents | `tsc` 0 source errors; grep confirms breadcrumb on 12/12 |
+
+**Structured-data / nav-graph surface: 100% COMPLETE** across every indexable EN + HI page.
+
+### Remaining "below the value line" — assessed, NOT force-closed (with reason)
+- **43 `: any`** — untyped `dbFetch` row results (`any[]`) + `catch` bindings across admin/export/receipt/webhook code. A real fix needs typed row interfaces across the data layer, touching **donor-data/payment paths** (partly hard-stop) with regression risk. `[TECH-DEBT, tracked]` — not blind-churned per VALUE FILTER + no-regressions + hard-stop rules.
+- **Per-page OG *images*** — needs real 1200×630 branded assets (design work). `[OWNER/DESIGNER]` — not fabricated.
+- **H6 Ledger *listing* images** — `next/image` conversion is preview-gated (render verification). `[NEEDS preview]`
+
 **Batch-2 self-challenge (Apple / Awwwards / a11y / perf / first-time donor):** all changes are invisible `<head>`/`ld+json` additions — no layout, copy, motion, or behaviour touched; frozen Home/About/Header/Footer untouched. Shop/blog are frozen v1.1.0 but these are the freeze's sanctioned **SEO exception** (measurable, additive, staged via PR). No `aggregateRating` fabricated. `next build` + Rich Results Test recommended on the preview to confirm Google parses Product/Breadcrumb.
 
 **Fresh-audit findings deliberately NOT actioned (with reason):**

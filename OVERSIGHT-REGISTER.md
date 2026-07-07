@@ -35,9 +35,10 @@ Every one of these is a signal to start a fresh cycle immediately:
 | 12 | `/hi` V2 parity | Owner schedule/approval | Implement V2 port | — |
 
 ## Ready-on-request / remaining
-- ✅ **Done (batch 5):** per-page `openGraph` on about/csr/faqs/fundraiser + `BreadcrumbList` on about/faqs/fundraiser/csr/legal (index).
-- H6 — Ledger images: the fixed-aspect **listing/card** imgs (LedgerProofCard, updates/hi-updates listings) are convertible to `next/image fill` on a preview; the **detail-page** imgs use natural-ratio `figure-frame` and must stay raw `<img>` (fill would crop donor photos). Preview-gated + `next.config remotePatterns`.
-- Deferred (VALUE FILTER, low-share): BreadcrumbList on the 6 legal **sub-pages**; per-page OG images (vs the shared `/og.png`).
+- ✅ **DONE:** per-page `openGraph` + `BreadcrumbList` across **all** EN + HI content pages; HI Product/BlogPosting parity; `BreadcrumbList` on **all 12 legal sub-pages** (batches 5–7). Structured-data / nav-graph surface = 100% complete, every indexable page.
+- **H6** — Ledger images: fixed-aspect **listing/card** imgs convertible to `next/image fill` on a preview; **detail-page** imgs stay raw (natural ratio, fill would crop donor photos). `[NEEDS preview + next.config remotePatterns]`
+- **43 `: any`** — typed data-layer refactor across admin/export/receipt/webhook (donor-data/payment paths, partly hard-stop). `[TECH-DEBT — not blind-churned]`
+- **Per-page OG images** — needs 1200×630 branded design assets. `[OWNER/DESIGNER]`
 - Mac-side: `rm components/prototype-v2/WhatWeDo.tsx.bak-*` (cloud-lock blocked sandbox rm).
 
 ## Final Completion Test — current status (all must be YES to close)

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ const FONT_HI = '"Noto Sans Devanagari", Inter, system-ui, sans-serif';
 export default function TermsHiPage() {
   return (
     <div lang="hi" style={{ fontFamily: FONT_HI }}>
+      <BreadcrumbJsonLd items={[{ name: "होम", url: "https://rkmfoundation.com/hi" }, { name: "कानूनी एवं अभिशासन", url: "https://rkmfoundation.com/hi/legal" }, { name: "नियम एवं शर्तें", url: "https://rkmfoundation.com/hi/legal/terms-and-conditions" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">कानूनी एवं अभिशासन</p>
