@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Legal & Governance",
   description:
     "RKM Foundation's legal status, governance structure, and the policies that guide how the Foundation operates and manages charitable resources.",
   alternates: { canonical: "/legal", languages: { en: "/legal", hi: "/hi/legal", "x-default": "/legal" } },
+  openGraph: {
+    title: "Legal & Governance — RKM Foundation",
+    description: "RKM Foundation's legal status, governance structure, and the policies that guide how the Foundation operates and manages charitable resources.",
+    type: "website",
+    url: "https://rkmfoundation.com/legal",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const POLICIES = [
@@ -60,6 +68,7 @@ const GOVERNANCE_ITEMS = [
 export default function LegalPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Legal & Governance", url: "https://rkmfoundation.com/legal" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">Legal &amp; Governance</p>

@@ -3,11 +3,19 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
 import CTABanner from "@/components/CTABanner";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Fundraiser",
   description: "Turn your birthday, anniversary, or fitness challenge into food, treatment, and shelter for rescued animals.",
   alternates: { canonical: "/fundraiser", languages: { en: "/fundraiser", hi: "/hi/fundraiser", "x-default": "/fundraiser" } },
+  openGraph: {
+    title: "Start a Fundraiser — RKM Foundation",
+    description: "Turn your birthday, anniversary, or fitness challenge into food, treatment, and shelter for rescued animals.",
+    type: "website",
+    url: "https://rkmfoundation.com/fundraiser",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const STEPS = [
@@ -39,6 +47,7 @@ const FEATURES = [
 export default function FundraiserPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "Fundraiser", url: "https://rkmfoundation.com/fundraiser" }]} />
       {/* Hero — type-led editorial */}
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">

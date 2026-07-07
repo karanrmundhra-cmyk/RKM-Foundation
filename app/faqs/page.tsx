@@ -3,11 +3,19 @@ import { headers } from "next/headers";
 import Reveal from "@/components/Reveal";
 import Accordion from "@/components/Accordion";
 import { FAQS_GENERAL, FAQS_FUNDRAISER, FAQS_SHOP, SITE } from "@/lib/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "FAQs",
   description: "Frequently asked questions about RKM Foundation — donations, tax benefits, fundraisers, and Shop for a Cause.",
   alternates: { canonical: "/faqs", languages: { en: "/faqs", hi: "/hi/faqs", "x-default": "/faqs" } },
+  openGraph: {
+    title: "FAQs — RKM Foundation",
+    description: "Frequently asked questions about RKM Foundation — donations, tax benefits, fundraisers, and Shop for a Cause.",
+    type: "website",
+    url: "https://rkmfoundation.com/faqs",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const SECTIONS = [
@@ -21,6 +29,7 @@ export default function FAQsPage() {
   return (
     <>
       <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [...FAQS_GENERAL, ...FAQS_FUNDRAISER, ...FAQS_SHOP].map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "FAQs", url: "https://rkmfoundation.com/faqs" }]} />
       <section className="bg-snow pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="container-c">
           <Reveal className="max-w-4xl">

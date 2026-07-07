@@ -34,10 +34,10 @@ Every one of these is a signal to start a fresh cycle immediately:
 | 11 | Branch merge to `main` | Owner approval | Production regression re-verify | — |
 | 12 | `/hi` V2 parity | Owner schedule/approval | Implement V2 port | — |
 
-## Ready-on-request (autonomous, in-authority — awaiting only a "go", not a hard-stop)
-- Per-page `openGraph` for `/about` (frozen — owner), `/csr`, `/faqs`, `/fundraiser` (deferred: low-share pages).
-- `BreadcrumbList` on the 6 legal pages + `/about`.
-- H6 — migrate the 5 remote Ledger `<img>` to `next/image` (needs `next.config` `remotePatterns` + preview).
+## Ready-on-request / remaining
+- ✅ **Done (batch 5):** per-page `openGraph` on about/csr/faqs/fundraiser + `BreadcrumbList` on about/faqs/fundraiser/csr/legal (index).
+- H6 — Ledger images: the fixed-aspect **listing/card** imgs (LedgerProofCard, updates/hi-updates listings) are convertible to `next/image fill` on a preview; the **detail-page** imgs use natural-ratio `figure-frame` and must stay raw `<img>` (fill would crop donor photos). Preview-gated + `next.config remotePatterns`.
+- Deferred (VALUE FILTER, low-share): BreadcrumbList on the 6 legal **sub-pages**; per-page OG images (vs the shared `/og.png`).
 - Mac-side: `rm components/prototype-v2/WhatWeDo.tsx.bak-*` (cloud-lock blocked sandbox rm).
 
 ## Final Completion Test — current status (all must be YES to close)

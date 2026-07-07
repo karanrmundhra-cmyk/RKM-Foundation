@@ -6,12 +6,20 @@ import CTABanner from "@/components/CTABanner";
 import ScrollFadeWords from "@/components/ScrollFadeWords";
 import CsrPillarShowcase from "@/components/CsrPillarShowcase";
 import { CSR_PILLARS, SITE } from "@/lib/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "CSR Partnerships",
   description:
     "Partner with RKM Foundation — a CSR-1 registered implementation partner (80G | 12A) delivering audit-ready animal-welfare programmes you can visit and verify.",
   alternates: { canonical: "/csr", languages: { en: "/csr", hi: "/hi/csr", "x-default": "/csr" } },
+  openGraph: {
+    title: "CSR Partnerships — RKM Foundation",
+    description: "Partner with RKM Foundation — a CSR-1 registered implementation partner (80G | 12A) delivering audit-ready animal-welfare programmes you can visit and verify.",
+    type: "website",
+    url: "https://rkmfoundation.com/csr",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "RKM Foundation — Animal welfare in India" }],
+  },
 };
 
 const WHY = [
@@ -42,6 +50,7 @@ const DOWNLOADS = [
 export default function CSRPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", url: "https://rkmfoundation.com/" }, { name: "CSR Partnerships", url: "https://rkmfoundation.com/csr" }]} />
       {/* Hero — facts kept high: eligibility line + CTA visible without scrolling */}
       <section className="bg-snow pb-14 pt-28 sm:pb-20 sm:pt-32">
         <div className="container-c">

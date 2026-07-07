@@ -57,6 +57,15 @@ Fetched live production (`rkmfoundation.com`) via web_fetch. **VERIFIED live:** 
 
 **H6 remaining — deliberately deferred (documented decision, not a defect):** the 5 Ledger/updates proof `<img>` (`LedgerProofCard.tsx`, `app/updates/*`, `app/hi/updates/*`) render **remote Supabase-hosted** donor photos inside sized `aspect-[16/10]` containers, with an in-code eslint-disable stating the raw `<img>` is intentional and CLS is already handled by the container. Converting needs `next.config` `remotePatterns` + `fill` on a money-adjacent proof layer for only a modest format/bandwidth gain → preview-gated batch, low ROI now, respect the documented choice.
 
+### SEO-completeness batch — 2026-07-07 (batch 5)
+Finished the previously-deferred SEO surface across all public content pages (invisible/additive metadata + `ld+json`; freeze SEO exception; frozen V2 About gets metadata + a sibling breadcrumb script only, no render change).
+
+| # | Date | Finding | Files | Change | Verification |
+|---|---|---|---|---|---|
+| 33 | 2026-07-07 | Per-page OG missing + no `BreadcrumbList` on content pages | `app/about`, `app/faqs`, `app/fundraiser`, `app/csr`, `app/legal` | Added per-page `openGraph` (page-specific title/description) + `BreadcrumbJsonLd` trail to each. Now every public content page has a unique OG card + nav-graph. | `tsc` 0 source errors; openGraph on 6/6 pages; BreadcrumbJsonLd on 8 pages |
+
+**Deferred items now CLOSED:** per-page OG (about/csr/faqs/fundraiser) and BreadcrumbList reach. Remaining defers unchanged: H6 Ledger imgs (preview-gated + detail-page natural-ratio would crop), `: any`, `.bak` (Mac-side).
+
 **Batch-2 self-challenge (Apple / Awwwards / a11y / perf / first-time donor):** all changes are invisible `<head>`/`ld+json` additions — no layout, copy, motion, or behaviour touched; frozen Home/About/Header/Footer untouched. Shop/blog are frozen v1.1.0 but these are the freeze's sanctioned **SEO exception** (measurable, additive, staged via PR). No `aggregateRating` fabricated. `next build` + Rich Results Test recommended on the preview to confirm Google parses Product/Breadcrumb.
 
 **Fresh-audit findings deliberately NOT actioned (with reason):**
