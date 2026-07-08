@@ -32,6 +32,7 @@ export const QUICK_LINKS = [
   { label: "Partner With Us", href: "/partner-with-us" },
   { label: "Careers", href: "/careers" },
   { label: "Media", href: "/media" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const DRAWER_LINKS = [

@@ -13,6 +13,7 @@ const HI_QUICK = [
   { label: "हमारे साथ साझेदारी करें", href: "/hi/partner-with-us" },
   { label: "करियर", href: "/hi/careers" },
   { label: "मीडिया", href: "/hi/media" },
+  { label: "संपर्क करें", href: "/hi/contact" },
 ];
 
 export default function Footer() {
