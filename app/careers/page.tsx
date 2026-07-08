@@ -16,7 +16,7 @@ export default function CareersPage() {
         <div className="container-c">
           <Reveal className="max-w-4xl">
             <p className="eyebrow-index">Careers</p>
-            <h1 className="display-1 mt-6 text-balance">Some days it&rsquo;s paperwork. Some days it&rsquo;s a rescue.</h1>
+            <h1 className="display-1 mt-6 text-balance">Some days it&rsquo;s paperwork. Some days it&rsquo;s <em className="accent">a rescue.</em></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
               Early mornings, muddy boots, the occasional heartbreak — and the quiet joy of watching
               a frightened animal trust again. If that&rsquo;s your kind of work, we&rsquo;d love to hear from you.

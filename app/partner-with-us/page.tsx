@@ -31,7 +31,7 @@ export default function PartnerWithUsPage() {
         <div className="container-c">
           <Reveal className="max-w-4xl">
             <p className="eyebrow-index">Partner With Us</p>
-            <h1 className="display-1 mt-6 text-balance">You do the work. We help bring the support.</h1>
+            <h1 className="display-1 mt-6 text-balance">You do the work. We help bring <em className="accent">the support.</em></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
               We back grassroots organisations already in the field — raising awareness, rallying
               support, and connecting donors with credible work that&apos;s already changing things.

@@ -34,7 +34,7 @@ export default function MediaPage() {
         <div className="container-c">
           <Reveal className="max-w-4xl">
             <p className="eyebrow-index">Media</p>
-            <h1 className="display-1 mt-6 text-balance">The people who show up for animals.</h1>
+            <h1 className="display-1 mt-6 text-balance">The people who show up <em className="accent">for animals.</em></h1>
             <ScrollFadeWords
               as="p"
               className="mt-7 max-w-2xl text-lg leading-relaxed text-ink"

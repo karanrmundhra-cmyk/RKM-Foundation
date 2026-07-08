@@ -25,7 +25,7 @@ export default function FAQsPage() {
         <div className="container-c">
           <Reveal className="max-w-4xl">
             <p className="eyebrow-index">FAQs</p>
-            <h1 className="display-1 mt-6 text-balance">Frequently asked questions.</h1>
+            <h1 className="display-1 mt-6 text-balance">Frequently asked <em className="accent">questions.</em></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
               The questions we hear most — about who we are, how donations and 80G tax benefits
               work, running a fundraiser, and the Shop for a Cause.
