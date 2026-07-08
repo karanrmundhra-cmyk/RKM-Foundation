@@ -6,7 +6,7 @@ export const SITE = {
   email: "info@rkm.support",
   phone: "+91 99207 80005",
   whatsapp: "https://wa.me/919920780005",
-  hours: "Monday to Friday | 10:00 AM – 6:00 PM",
+  hours: "Monday–Friday · 10 AM – 6 PM",
   address:
     "201, 2nd Floor, Building No. 4, Paramos Tower, Vasant Lawns, Majiwada, Thane West – 400601, Maharashtra, India",
   maps: "https://maps.app.goo.gl/5osLMLeuL3BqAMcu8",

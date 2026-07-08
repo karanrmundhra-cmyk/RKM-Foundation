@@ -130,13 +130,13 @@ export default function Footer() {
         {/* Copyright row */}
         <div className="mt-12 flex flex-col items-center gap-2 border-t border-ink/10 pt-6 text-center text-xs text-ink/60 sm:flex-row sm:justify-center sm:gap-3">
           <span>{hi ? "कॉपीराइट © 2026 RKM Foundation | सर्वाधिकार सुरक्षित" : "Copyright © 2026 RKM Foundation | All Rights Reserved"}</span>
-          <span className="hidden sm:inline" aria-hidden>·</span>
+          <span className="hidden sm:inline" aria-hidden>|</span>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event(OPEN_PREFS_EVENT))}
-            className="underline underline-offset-4 hover:text-copper-dark"
+            className="hover:text-copper-dark"
           >
-            {hi ? "कुकी प्राथमिकताएँ प्रबंधित करें" : "Manage cookies"}
+            {hi ? "कुकी प्राथमिकताएँ प्रबंधित करें" : "Manage Cookies"}
           </button>
         </div>
       </div>
