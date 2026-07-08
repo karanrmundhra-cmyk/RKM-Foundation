@@ -13,7 +13,7 @@ export default function TaxDisclaimerPage() {
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">Legal &amp; Governance</p>
-          <h1 className="display-1 mt-6 text-balance">80G / Tax Benefit Disclaimer</h1>
+          <h1 className="display-1 mt-6 text-balance">80G / Tax Benefit <em className="accent">Disclaimer</em></h1>
         </div>
       </section>
 

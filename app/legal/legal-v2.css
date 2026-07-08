@@ -1,0 +1,55 @@
+/* ============================================================
+   Legal & Governance family — V2 design language
+   Scoped strictly to .lv2 (app/legal/layout.tsx wrapper).
+   Header/Footer and all other pages untouched.
+   Pure white surfaces, hairline structure, champagne-gold
+   accents, single Fraunces italic accent word per h1.
+   CSS-only motion, reduced-motion safe. (DESIGN_SYSTEM_V1 V2 addendum)
+   ============================================================ */
+
+.lv2 {
+  --lv2-gold: #a8863d;
+  --lv2-gold-dark: #8a6d2f;
+  --lv2-gold-light: #c8ab72;
+}
+
+/* V2 purity: white surfaces; structure comes from hairlines, not tinted bands */
+.lv2 .bg-snow { background: #ffffff; }
+.lv2 section + section { border-top: 1px solid rgba(10, 10, 10, 0.08); }
+
+/* Eyebrow — gold rule + spaced caps */
+.lv2 .eyebrow-index { color: var(--lv2-gold-dark); letter-spacing: 0.22em; }
+.lv2 .eyebrow-index::before { background: var(--lv2-gold); opacity: 0.7; }
+
+/* Display h1 — single Fraunces italic accent word in gold */
+.lv2 h1 .accent {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lv2-gold);
+  letter-spacing: -0.01em;
+}
+
+/* Section headings — short gold hairline above, V2 tracking */
+.lv2 .display-3 { letter-spacing: -0.015em; }
+.lv2 .display-3::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: var(--lv2-gold);
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+/* Quiet entrance on the hero only — CSS-only, guaranteed paint */
+@keyframes lv2Rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.lv2 section:first-of-type .container-c {
+  animation: lv2Rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv2 section:first-of-type .container-c { animation: none; }
+}

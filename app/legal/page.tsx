@@ -63,7 +63,7 @@ export default function LegalPage() {
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">Legal &amp; Governance</p>
-          <h1 className="display-1 mt-6 text-balance">Legal &amp; Governance</h1>
+          <h1 className="display-1 mt-6 text-balance">Legal &amp; <em className="accent">Governance</em></h1>
           <p className="mt-7 text-lg leading-relaxed text-ink/65">
             RKM Foundation is a registered public charitable trust in India committed to
             integrity, transparency, and responsible charitable work. This page outlines our

@@ -13,7 +13,7 @@ export default function ShopRefundPolicyPage() {
       <section className="bg-snow pb-16 pt-36 sm:pb-20 sm:pt-44">
         <div className="container-c max-w-3xl">
           <p className="eyebrow-index">Legal &amp; Governance</p>
-          <h1 className="display-1 mt-6 text-balance">Refund &amp; Cancellation Policy – Shop for a Cause</h1>
+          <h1 className="display-1 mt-6 text-balance">Refund &amp; Cancellation Policy – <em className="accent">Shop for a Cause</em></h1>
         </div>
       </section>
 
