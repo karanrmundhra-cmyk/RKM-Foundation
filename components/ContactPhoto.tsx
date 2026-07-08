@@ -27,13 +27,6 @@ export default function ContactPhoto() {
         }
       }}
     >
-      <span
-        className={`pointer-events-none absolute bottom-3.5 left-3.5 z-10 rounded-full bg-black/55 px-2.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur transition-opacity duration-300 group-hover:opacity-0 ${
-          colour ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        Hover / tap for colour
-      </span>
       <Image
         src="/images/site/contact-hello.jpg"
         alt="A rescued dog wearing a striped headscarf and cat-eye sunglasses"
